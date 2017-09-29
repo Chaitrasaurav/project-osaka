@@ -1,8 +1,6 @@
 @import 'mixins';
 
-@include font-face(Helvetica Neue Light, fonts/helvetica/HelveticaNeueLight, normal, normal, ttf otf woff);
-@include font-face(Helvetica Neue Thin, fonts/helvetica/HelveticaNeueThin, normal, normal, ttf otf woff);
-@include font-face(Lato, fonts/lato/Lato-Black, normal, normal, ttf);
-@include font-face(Lato, fonts/lato/Lato-Bold, normal, normal, ttf);
-@include font-face(Lato, fonts/lato/Lato-Light, normal, normal, ttf);
-@include font-face(Lato, fonts/lato/Lato-Regular, normal, normal, ttf);
+@include font-face(PT-Sans, fonts/PT_Sans-Bold, normal, normal, ttf);
+@include font-face(PT-Sans, fonts/PT_Sans-Regular, normal, normal, ttf);
+@include font-face(PT-Serif, fonts/PT_Serif-Bold, normal, normal, ttf);
+@include font-face(PT-Serif, fonts/PT_Serif-Regular, normal, normal, ttf);

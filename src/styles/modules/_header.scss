@@ -1,0 +1,35 @@
+header{
+	border-bottom:1px solid #e5ebef;
+	padding:20px 0;
+
+	.header_wrapper{
+		max-width: $desktop-max-width;
+		margin:0 auto;
+	}
+
+	ul{
+		font-style: none;
+		li{
+			display: block;
+			float: left;
+			color: $text-color-secondary;
+			a{
+				display:block;
+				margin-right:10px;
+			}
+			&:last-child{
+				a{
+					margin-right:0;
+				}
+			}
+		}
+		&.header_links{
+			float:left;
+			width:auto;
+		}
+		&.header_cta{
+			float:right;
+			width:auto;
+		}
+	}
+}

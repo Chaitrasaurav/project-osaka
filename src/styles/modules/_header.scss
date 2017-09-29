@@ -32,4 +32,21 @@ header{
 			width:auto;
 		}
 	}
+
+	.header_cta-dropdown{
+		cursor: pointer;
+	    position: relative;
+	    .header_language{
+	    	padding: 10px;
+    		border: 1px solid #e5ebef;
+    		display:none;
+    		position: absolute;
+		    width: 100px;
+		    right: 0;
+		    text-align: center;
+    		li{
+    			float:none;
+    		}
+	    }
+	}
 }

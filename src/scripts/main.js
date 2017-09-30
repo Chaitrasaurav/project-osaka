@@ -1,9 +1,12 @@
+
+
 $('.accommodation_slider').slick({
 	lazyLoad: 'ondemand',
 	slidesToShow: 3,
 	speed: 2000,
-	slidesToScroll: 4,
+	slidesToScroll: 3,
 	dots: true,
+	infinite: false,
 	responsive: [	   
 	{
 	  breakpoint: 900,
@@ -24,6 +27,7 @@ $('.accommodation_slider').slick({
 
 
 $('.slick-arrow').appendTo('.slick-dots');
+$('.slick-arrow').addClass('icon arrow');
 
 $('.header_cta-dropdown').on('click', function(){
 	$('.header_language').toggleClass('active');

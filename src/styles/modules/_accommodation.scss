@@ -1,7 +1,11 @@
+
+
 .accommodation{
 	text-align:center;
 	padding-top: 100px;
-	.accommodation_slider{
+	
+}
+.accommodation_slider{
 		list-style: none;
 		.slick-list li{
 			background: #ffffff;
@@ -53,7 +57,7 @@
   			}
 		}
 	}
-	.slick-dots{
+.slick-dots{
 		list-style: none;
 		display: table;
 		margin:0 auto;
@@ -89,20 +93,23 @@
 	}
 	.slick-arrow{
 		border:none;
-		font-size:0;
+		color:#f2f5f7;
+		background:none;
 		width:17px;
 		height:14px;
 		position: absolute;
 	}
 	.slick-next{
-		background: url(../images/arrow.png);
 		right:-17px;
 	}
 	.slick-prev{
-		background: url(../images/arrow.png);
 		-ms-transform: rotate(180deg); /* IE 9 */
 	    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
 	    transform: rotate(180deg);
 	    left:-17px;
 	}
+.nearby-places{
+	max-width: $desktop-max-width;
+	margin: 0 auto;
+	text-align:center;
 }

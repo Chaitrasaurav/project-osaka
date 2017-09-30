@@ -8,12 +8,57 @@
     display: inline-block;
     background-image: url("../svg/sprite.svg");
     background-repeat: no-repeat;
-    background-size: 0em 0em;
+    background-size: 16.2em 19.9em;
 }
 
 .no-svg .icon:before {
     background-image: url("../svg/sprite.png");
 }
+
+
+
+  .icon.arrow:before {
+      background-position: 0em 0em;
+      width: 1.7em;
+      height: 1.4em;
+  }
+
+
+
+
+  .icon.location-icon:before {
+      background-position: 0em -1.4em;
+      width: 1.8em;
+      height: 2.6em;
+  }
+
+
+
+
+  .icon.logo:before {
+      background-position: 0em -4em;
+      width: 16.2em;
+      height: 8.3em;
+  }
+
+
+
+
+  .icon.star:before {
+      background-position: 0em -12.3em;
+      width: 3.8em;
+      height: 3.8em;
+  }
+
+
+
+
+  .icon.star-filled:before {
+      background-position: 0em -16.1em;
+      width: 3.8em;
+      height: 3.8em;
+  }
+
 
 
 

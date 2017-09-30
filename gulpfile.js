@@ -27,11 +27,8 @@ gulp.task('scripts', function() {
 gulp.task('vendorScripts', function() {
   gulp.src([
       'src/vendor/jquery.min.js',
-      'src/vendor/jquery-ui.js',
       'src/vendor/slick.js',
-      'src/vendor/select2.full.js',
-      'src/vendor/jquery.inview.js',
-      'src/vendor/jquery.youtube-inview-autoplay.js'
+      'src/vendor/select2.full.js'
     ])
     .pipe(concat('vendor.js'))
     .pipe(uglify())

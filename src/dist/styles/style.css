@@ -463,5 +463,80 @@ header {
     transform: rotate(180deg);
     left: -17px; }
 
+.rating {
+  max-width: 940px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px 0; }
+  .rating h2 {
+    font-size: 20px;
+    color: #000000; }
+  .rating a {
+    border-radius: 100px;
+    border: solid 1px #aaabae;
+    font-size: 13px;
+    color: #7b7b85;
+    display: inline-block;
+    padding: 10px 20px;
+    text-transform: capitalize;
+    font-weight: bold; }
+
+.tabs .tabs-list {
+  margin: 0px;
+  padding: 0px;
+  list-style: none; }
+  .tabs .tabs-list li {
+    background: #ffe8be;
+    color: #222d49;
+    display: block;
+    padding: 19px 0;
+    cursor: pointer;
+    float: left;
+    width: 23.4%;
+    text-align: center;
+    position: relative;
+    margin-right: 20px; }
+    .tabs .tabs-list li:last-child {
+      margin-right: 0; }
+    .tabs .tabs-list li i {
+      margin: 0 7px 0 -17px;
+      position: relative;
+      top: -2px; }
+      @media (max-width: 950px) {
+        .tabs .tabs-list li i {
+          margin: 0 3px -3px 0; } }
+    .tabs .tabs-list li span {
+      background: #ffd25d;
+      display: block;
+      height: 3px;
+      opacity: 0.4;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0; }
+    .tabs .tabs-list li.current, .tabs .tabs-list li:hover, .tabs .tabs-list li:focus {
+      background: #fff;
+      position: relative; }
+      .tabs .tabs-list li.current:after, .tabs .tabs-list li:hover:after, .tabs .tabs-list li:focus:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 15px solid #ffd25d;
+        position: absolute;
+        bottom: -13px;
+        left: 43%; }
+      .tabs .tabs-list li.current span, .tabs .tabs-list li:hover span, .tabs .tabs-list li:focus span {
+        opacity: 1; }
+    @media (max-width: 950px) {
+      .tabs .tabs-list li {
+        width: 22.8%; } }
+
+.map {
+  max-width: 940px;
+  margin: 0 auto;
+  text-align: center; }
+
 .hidden {
   display: none; }

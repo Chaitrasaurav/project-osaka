@@ -31,13 +31,13 @@
 			<div class="stage_wrapper">
 				<div class="stage_links clearfix">
 					<ul>
-						<li><a href="#attraction">Hotel Attractions</a></li>
-						<li><a href="#accommodation">Accommodation</a></li>
-						<li><a href="#">Access</a></li>
+						<li><a class="js-header-link" href="#attraction">Hotel Attractions</a></li>
+						<li><a class="js-header-link" href="#accommodation">Accommodation</a></li>
+						<li><a class="js-header-link" href="#access">Access</a></li>
 						<li class="logo"><a href="#"><i class="icon logo"></i></a></li>
-						<li><a href="#">Restaurants &amp; Bars</a></li>
-						<li><a href="#">Floor Guide</a></li>
-						<li><a href="#">Sightseeing</a></li>
+						<li><a class="js-header-link" href="#restaurant">Restaurants &amp; Bars</a></li>
+						<li><a class="js-header-link" href="#guide">Floor Guide</a></li>
+						<li><a class="js-header-link" href="#sightseeing">Sightseeing</a></li>
 					</ul>
 				</div>
 				<div class="stage_content">
@@ -328,7 +328,7 @@
 		<div class="gallery_container">
 			<h3>Around the hotel</h3>
 			<h2>Photo gallery</h2>
-			<ul class="masonryGrid">
+			<ul class="masonryGrid js-grid">
 				<li class="grid show">
 					<img src="../dist/images/photo-1.png" class="grid-item">
 					<img src="../dist/images/photo-2.png" class="grid-item">					
@@ -339,7 +339,7 @@
 					<img src="../dist/images/photo-7.png" class="grid-item">
 					<img src="../dist/images/photo-8.png" class="grid-item">
 				</li>
-				<li class="grid">
+				<!-- <li class="grid1 hidden">
 					<img src="../dist/images/photo-1.png" class="grid-item">
 					<img src="../dist/images/photo-2.png" class="grid-item">					
 					<img src="../dist/images/photo-5.png" class="grid-item">
@@ -348,9 +348,9 @@
 					<img src="../dist/images/photo-6.png" class="grid-item">
 					<img src="../dist/images/photo-7.png" class="grid-item">
 					<img src="../dist/images/photo-8.png" class="grid-item">
-				</li>
+				</li> -->
 			</ul>
-			<a class"js-more-photos">Load more photos</a>
+			<a href="#" class="js-more-photos">Load more photos</a>
 		</div>
 	</section>
 	<section class="map">
@@ -421,9 +421,8 @@
  			<p>© 2014 GRANVISTA Hotels&amp;Resorts co.,Ltd. All Rights Reserved.</p>
  		</div>
  	</footer>
-	<script type="text/javascript" src="../dist/scripts/vendor.min.js"></script>
-	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-	<script type="text/javascript" src="../data/data-en.js"></script>
+	<script type="text/javascript" src="../dist/scripts/vendor.js"></script>
+	<!-- <script type="text/javascript" src="../data/data-en.js"></script> -->
 	<!-- <script type="text/javascript" src="../dist/scripts/app.min.js"></script> -->
 	<script type="text/javascript" src="../scripts/main.js"></script>
 </body>

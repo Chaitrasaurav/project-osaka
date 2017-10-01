@@ -291,10 +291,36 @@ $('.js-confirm').on('click', function() {
 });
 
 var $grid = $('.grid').masonry({
-	// options...
 	itemSelector: '.grid-item',
 	isFitWidth: true,
 	columnWidth: 1
+});
+
+$('.js-more-photos').on('click', function(e) {
+	e.preventDefault();
+
+	var totalElem = [
+		'photo-1.png',
+		'photo-2.png',
+		'photo-5.png',
+		'photo-3.png',
+		'photo-4.png',
+		'photo-6.png',
+		'photo-7.png'
+	];
+
+	var elems = [];
+
+	for (var i = 1; i <= totalElem.length; i++) {
+		var elem = document.createElement('img');
+		elem.setAttribute('class', 'grid-item');
+		elem.setAttribute('src', '../dist/images/'+ totalElem[i]);
+		elems.push(elem)
+	}
+
+	var $elems = $( elems );
+  	$grid.append( $elems ).masonry( 'appended', $elems ).masonry( 'reloadItems' ).masonry( 'layout' );
+	$(e.target).hide();
 });
 
 $('.js-tabs-select').on('change', function(e) {	
@@ -378,6 +404,14 @@ $('.header_cta-dropdown').on('click', function(){
 	$('.header_language').toggleClass('active');
 });
 
+$('.js-header-link').on('click', function(e) {
+	var secLink = $(e.target).attr('href');
+	
+	$('html, body').animate({
+        scrollTop: $(secLink).offset().top
+    }, 1250);
+});
+
 $('.js-main-form-btn').on('click', function(){
 	var $this = $(this),
 		$form = $this.parents("form"),
@@ -420,7 +454,6 @@ $('.js-main-form-btn').on('click', function(){
 		var win = window.open(url, '_blank');
 			win.focus();
 	}
-
 });
 
 $(document).ready(init);

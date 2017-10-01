@@ -13,12 +13,12 @@
 		<div class="header_wrapper clearfix">
 			<ul class="header_links">
 				<li><a href="#" data-sheet="headerLink1">Home</a></li>
-				<li><a href="#" data-sheet="headerLink2">FAQ</a></li>
+				<li><a href="#" data-sheet="headerLink2">Faq</a></li>
 				<li><a href="#" data-sheet="headerLink3">Inquiries</a></li>
 			</ul>
 			<ul class="header_cta">
-				<li><a href="tel:81665771111">81 6 6577 1111</a></li>
-				<li class="header_cta-dropdown">English
+				<li><a href="tel:81665771111"><i class="icon phone-icon"></i>81 6 6577 1111</a></li>
+				<li class="header_cta-dropdown">En <i class="icon down-arrow"></i>
 					<ul class="header_language">
 						<li><a href="../ja/index.html">日本語</a></li>
 					</ul>
@@ -31,13 +31,13 @@
 			<div class="stage_wrapper">
 				<div class="stage_links clearfix">
 					<ul>
-						<li><a href="#">Hotel Attractions</a></li>
-						<li><a href="#">Accommodation</a></li>
-						<li><a href="#">Access</a></li>
+						<li><a class="js-header-link" href="#attraction">Hotel Attractions</a></li>
+						<li><a class="js-header-link" href="#accommodation">Accommodation</a></li>
+						<li><a class="js-header-link" href="#access">Access</a></li>
 						<li class="logo"><a href="#"><i class="icon logo"></i></a></li>
-						<li><a href="#">Restaurants &amp; Bars</a></li>
-						<li><a href="#">Floor Guide</a></li>
-						<li><a href="#">Sightseeing</a></li>
+						<li><a class="js-header-link" href="#restaurant">Restaurants &amp; Bars</a></li>
+						<li><a class="js-header-link" href="#guide">Floor Guide</a></li>
+						<li><a class="js-header-link" href="#sightseeing">Sightseeing</a></li>
 					</ul>
 				</div>
 				<div class="stage_content">
@@ -47,7 +47,6 @@
 				</div>
 				<div class="form">
 					<h4>Reservation</h4>
-					<!-- ?&hotelNo=68555&ciDateY=2017&ciDateM=10&ciDateD=12&coDateY=2017&coDateM=10&coDateD=19&otona=2&s1=0&room=1&vipCode=PP5 -->
 					<div class="form-container">
 						<form name="mainForm" id="mainForm" novalidate autocomplete="off">
 							<div class="form__control">
@@ -139,7 +138,7 @@
 						</form>
 					</div>
 				</div>
-				<div class="accommodation">
+				<div class="accommodation" id="accommodation">
 					<h3>The best our rooms</h3>
 					<h2>Accommodations</h2>
 					<ul class="accommodation_slider js-accomodation">
@@ -180,7 +179,6 @@
 							<a href="#">Book Now</a>
 						</li> 
 					</ul>
-					<a href="#" class="see-all">See all accommodations</a>
 				</div>
 			</div>
 		</div>
@@ -211,7 +209,7 @@
 					<option value="tab-5">Banquets</option>
 				</select>
 				<div id="tab-1" class="tab-content current">
-					<ul class="accommodation_slider js-accomodation">
+					<ul class="accommodation_slider js-tab-slider" data-type="restaurant">
 						<li>
 							<img src="../dist/images/room-image.png">
 							<h3>Air Ship</h3>
@@ -236,7 +234,7 @@
 					</ul>
 				</div>
 				<div id="tab-2" class="tab-content">
-					<ul class="accommodation_slider js-accomodation">
+					<ul class="accommodation_slider js-tab-slider" data-type="bar">
 						<li>
 							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
@@ -276,7 +274,7 @@
 					</ul>
 				</div>
 				<div id="tab-3" class="tab-content">
-					<ul class="accommodation_slider js-accomodation">
+					<ul class="accommodation_slider js-tab-slider" data-type="spa">
 						<li>
 							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
@@ -287,7 +285,7 @@
 					</ul>
 				</div>
 				<div id="tab-4" class="tab-content">
-					<ul class="accommodation_slider js-accomodation">
+					<ul class="accommodation_slider js-tab-slider" data-type="shop">
 						<li>
 							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
@@ -303,7 +301,7 @@
 					</ul>
 				</div>
 				<div id="tab-5" class="tab-content">
-					<ul class="accommodation_slider js-accomodation">
+					<ul class="accommodation_slider js-tab-slider" data-type="banquet">
 						<li>
 							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
@@ -331,7 +329,7 @@
 		<div class="gallery_container">
 			<h3>Around the hotel</h3>
 			<h2>Photo gallery</h2>
-			<ul class="masonryGrid">
+			<ul class="masonryGrid js-grid">
 				<li class="grid show">
 					<img src="../dist/images/photo-1.png" class="grid-item">
 					<img src="../dist/images/photo-2.png" class="grid-item">					
@@ -342,7 +340,7 @@
 					<img src="../dist/images/photo-7.png" class="grid-item">
 					<img src="../dist/images/photo-8.png" class="grid-item">
 				</li>
-				<li class="grid">
+				<!-- <li class="grid1 hidden">
 					<img src="../dist/images/photo-1.png" class="grid-item">
 					<img src="../dist/images/photo-2.png" class="grid-item">					
 					<img src="../dist/images/photo-5.png" class="grid-item">
@@ -351,9 +349,9 @@
 					<img src="../dist/images/photo-6.png" class="grid-item">
 					<img src="../dist/images/photo-7.png" class="grid-item">
 					<img src="../dist/images/photo-8.png" class="grid-item">
-				</li>
+				</li> -->
 			</ul>
-			<a class"js-more-photos">Load more photos</a>
+			<a href="#" class="js-more-photos">Load more photos</a>
 		</div>
 	</section>
 	<section class="map">
@@ -373,7 +371,7 @@
 	<section class="nearby-places">
 		<h3>other MyStays</h3>
 		<h2>Nearby Hotels</h2>
-		<ul class="accommodation_slider js-accomodation">
+		<ul class="accommodation_slider js-nearbuy">
 			<li>
 				<img src="../dist/images/room-image.png">
 				<h3>Hotel MyStays Gotanda</h3>
@@ -424,11 +422,9 @@
  			<p>© 2014 GRANVISTA Hotels&amp;Resorts co.,Ltd. All Rights Reserved.</p>
  		</div>
  	</footer>
-	<script type="text/javascript" src="../dist/scripts/vendor.min.js"></script>
-	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-	<script type="text/javascript" src="../data/data-en.js"></script>
+	<script type="text/javascript" src="../dist/scripts/vendor.js"></script>
+	<!-- <script type="text/javascript" src="../data/data-en.js"></script> -->
 	<!-- <script type="text/javascript" src="../dist/scripts/app.min.js"></script> -->
 	<script type="text/javascript" src="../scripts/main.js"></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 </body>
 </html>

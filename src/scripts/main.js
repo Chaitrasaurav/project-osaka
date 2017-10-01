@@ -339,7 +339,6 @@ $('.js-tabs-select').on('change', function(e) {
 
 	$('ul.js-tabs li[data-tab="'+ tabId +'"]').addClass('current');
 	$("#"+tabId).addClass('current');
-	$('.js-accomodation').slick('refresh');
 
 });
 
@@ -353,7 +352,6 @@ $('ul.js-tabs li').click(function(){
 	$('.js-tabs-select').val(tabId).trigger('change');
 	$(this).addClass('current');
 	$("#"+tabId).addClass('current');
-	$('.js-accomodation').slick('refresh');
 
 });
 
@@ -406,6 +404,7 @@ $('.js-main-form-btn').on('click', function(){
 		var win = window.open(url, '_blank');
 			win.focus();
 	}
+
 });
 
 $(document).ready(init);

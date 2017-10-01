@@ -8,7 +8,7 @@
     display: inline-block;
     background-image: url("../svg/sprite.svg");
     background-repeat: no-repeat;
-    background-size: 16.2em 19.9em;
+    background-size: 16.2em 25.7em;
 }
 
 .no-svg .icon:before {
@@ -17,8 +17,17 @@
 
 
 
-  .icon.arrow:before {
+  .icon.add-room:before {
       background-position: 0em 0em;
+      width: 1em;
+      height: 1em;
+  }
+
+
+
+
+  .icon.arrow:before {
+      background-position: 0em -1em;
       width: 1.7em;
       height: 1.4em;
   }
@@ -26,8 +35,35 @@
 
 
 
+  .icon.confirm-room:before {
+      background-position: 0em -2.4em;
+      width: 1.4em;
+      height: 1em;
+  }
+
+
+
+
+  .icon.delete-icon:before {
+      background-position: 0em -3.4em;
+      width: 2.1em;
+      height: 2.4em;
+  }
+
+
+
+
+  .icon.info-icon:before {
+      background-position: 0em -5.8em;
+      width: 1.4em;
+      height: 1.4em;
+  }
+
+
+
+
   .icon.location-icon:before {
-      background-position: 0em -1.4em;
+      background-position: 0em -7.2em;
       width: 1.8em;
       height: 2.6em;
   }
@@ -36,7 +72,7 @@
 
 
   .icon.logo:before {
-      background-position: 0em -4em;
+      background-position: 0em -9.8em;
       width: 16.2em;
       height: 8.3em;
   }
@@ -45,7 +81,7 @@
 
 
   .icon.star:before {
-      background-position: 0em -12.3em;
+      background-position: 0em -18.1em;
       width: 3.8em;
       height: 3.8em;
   }
@@ -54,7 +90,7 @@
 
 
   .icon.star-filled:before {
-      background-position: 0em -16.1em;
+      background-position: 0em -21.9em;
       width: 3.8em;
       height: 3.8em;
   }

@@ -31,8 +31,8 @@
 			<div class="stage_wrapper">
 				<div class="stage_links clearfix">
 					<ul>
-						<li><a href="#">Hotel Attractions</a></li>
-						<li><a href="#">Accommodation</a></li>
+						<li><a href="#attraction">Hotel Attractions</a></li>
+						<li><a href="#accommodation">Accommodation</a></li>
 						<li><a href="#">Access</a></li>
 						<li class="logo"><a href="#"><i class="icon logo"></i></a></li>
 						<li><a href="#">Restaurants &amp; Bars</a></li>
@@ -48,7 +48,7 @@
 				<div class="form">
 					<h4>Reservation</h4>
 					<!-- ?s=results&property=jptok26324&arrival=2017-10-10&departure=2017-10-27&code=PP5&adults1=2&children1=0&rooms=1&locale=en_GB&currency=JPY&stid=cflqnlvsw -->
-					<div class="form-container">
+					<div class="form-container clearfix">
 						<form name="mainForm" id="mainForm" novalidate autocomplete="off">
 							<div class="form__control">
 								<input type="hidden" id="property" name="property" value="jptok26324">
@@ -69,7 +69,7 @@
 								<div class="datepicker-modal js-datepicker-modal hidden">
 									<div class="datepicker-container js-datepicker-container"></div>
 								</div>
-								<div class="form__control">
+								<div class="form__control guest-count">
 									<label class="form__label">No of guests</label>
 									<div class="input-wrap">
 										<input class="form__field form__field--sm required js-select-guest guest" placeholder="Guests" type="text" value="2" readonly>
@@ -80,9 +80,7 @@
 										<input class="form__field form__field--sm" type="hidden" name="code" id="code" value="PP5"> 
 										<input class="form__field form__field--sm" type="hidden" name="currency" id="currency" value="JPY">
 									</div>
-								</div>
-							</div>
-							<div class="select-guest-container js-select-guest-container hidden">
+									<div class="select-guest-container js-select-guest-container hidden">
 								<h5>Rooms</h5>
 								<a class="js-cancel-select-guest cancel-select-guest" title="Close" href="javascript:;"><i class="icon close-btn"></i></a>
 								<ul class="js-room-list room-list clearfix" style="list-style: none;padding-left: 0;">
@@ -126,17 +124,21 @@
 									<button type="button" class="room__confirm js-confirm">Confirm here <i class="icon confirm-room"></i></button>
 								</div>
 							</div>
+								</div>
+							</div>
+							
 							<div class="form__control">
 								<label class="form__label">Have a promo code?</label>
 								<div class="input-wrap">
 									<input class="form__field form__field--sm" type="text" name="" id="" placeholder="Optional">
+									<i class="icon info-icon"></i>
 								</div>
 							</div>
-							<button type="button" class="form__btn js-main-form-btn" id="main-form-btn">Book Now with Pepper</button>
+							<button type="button" class="form__btn js-main-form-btn" id="main-form-btn">Check Availability <span>Best Price Guaranteed</span></button>
 						</form>
 					</div>
 				</div>
-				<div class="accommodation">
+				<div class="accommodation" id="accommodation">
 					<h3>The best our rooms</h3>
 					<h2>Accommodations</h2>
 					<ul class="accommodation_slider js-accomodation">

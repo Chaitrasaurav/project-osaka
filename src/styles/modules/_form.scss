@@ -7,9 +7,238 @@
 
 	.form-container {
 	    background-color: #fff;
+	    box-shadow: 0 0 40px 0 rgba(87, 115, 187, 0.26);
+	    padding:50px;
 	}
 
 	.js-is-invalid {
 		border: 1px solid red;
 	}
+	.form__control{
+		width: 150px;
+		float: left;
+		margin-right:20px;
+		
+	}
+	.form_guestWrap .form__control{
+		width:130px;
+	}
+	input{
+		width:100%;
+		background: #f2f2f2;
+		border:none;
+		padding:5px 10px;
+	}
+	label{
+		display: block;
+		padding: 0 0 10px;
+    }
+    .form__btn{
+    	float:left;
+    	width:220px;
+    	background: #ffd25d;
+    	border: none;
+    	border-radius: 5px;
+    	padding:10px;
+    	color: #222d49;
+    	font-size: 16px;
+  		font-weight: bold;
+  		text-align:center;
+  		span{
+  			display: block;
+  			font-size: 12px;
+  			opacity:0.5;
+  		}
+    }
+    .input-wrap {
+    	position: relative;
+    	i{
+	    	position: absolute;
+	    	top:0;
+	    	right:0;
+	    }
+	} 
+
+	.select-guest-container{
+	position: absolute;
+    top: 85%;
+    left: 0;
+    background: #fff;
+    width:496px;
+    box-shadow: 0 15px 15px 0 rgba(35, 46, 72, 0.25);
+    -webkit-box-shadow: 0 15px 15px 0 rgba(35, 46, 72, 0.25);
+	-moz-box-shadow: 0 15px 15px 0 rgba(35, 46, 72, 0.25);
+  	border: solid 1px #e4e4e7;
+  	margin-top:-3px;
+  	padding: 20px;
+  	z-index: 4;
+  	border-bottom: 5px solid #ffd25d;
+  	left: -20px;
+  	@media (max-width: 767px) {
+  		left: -27px;
+  	}
+    &:after {
+	    content: '';
+	    position: absolute;
+	    top: -10px;
+	    right: 60px;
+	    border: solid #dddee0;
+	    border-width: 0 1px 1px 0;
+	    display: inline-block;
+	    padding: 9px;
+	    transform: rotate(-135deg);
+	    -webkit-transform: rotate(-135deg);
+	    @media (max-width: 767px) {
+	    	right:51px;
+	    }
+	}
+	&:before {
+	    content: '';
+	    position: absolute;
+	    top: -1px;
+	    right: 56px;
+	    width: 27px;
+	    height: 1px;
+	    background: #fff;
+	    @media (max-width: 767px) {
+	    	right:47px;
+	    }
+	}
+	h5{
+		font-size: 16px;
+  		font-weight: 900;
+  		border-bottom:1px solid #dddee0;
+  		color:$text-color-base;
+  		padding: 0 0 15px;
+  		text-align:left;
+	}
+
+}
+.button-wrap{
+	border-top:1px solid #dddee0;
+	padding:20px 0 0;
+}
+.cancel-select-guest{
+	position: absolute;
+    top: 15px;
+    right: 20px;
+}
+.room-list{
+	margin-top:0;
+	.room{
+		&:first-child{
+			margin-top:15px;
+		}		
+		.form__control{
+			float:left;
+			width:auto;
+			margin-right:20px;
+			@media (max-width: 767px) {
+				margin-right:10px;
+			}
+			select{
+				padding: 4px 1px 5px 7px;
+    			text-align: center;
+    			&:focus{
+    				outline:none;
+    			}
+			}
+		}
+		.room__age-container{
+			float:left;
+			width:auto;
+			padding:0 0 0 20px;
+			border-left: 1px solid #dddee0;
+			@media (max-width: 767px) {
+				padding:0 0 0 10px;
+			}
+			.room__heading{
+				display:none;
+			}
+			.room__heading:first-child{
+				display:block;
+			}
+			.form__con{
+				float:left;
+				width:auto;
+				margin-right:20px;
+				@media (max-width: 767px) {
+					margin-right:10px;
+				}
+				select{
+					padding: 4px 1px 5px 7px;
+	    			text-align: center;
+	    			&:focus{
+	    				outline:none;
+	    			}
+				}	
+			}
+		}
+		.form__label{
+			font-size: 13px;
+			opacity: 0.75;
+		}
+		.room-container{
+			width: auto;
+		    float: left;
+		    text-align: left;
+		}
+		.room__heading{
+	    	font-size: 14px;
+			font-weight: 900;
+			text-align:left;
+			margin-bottom: 5px;
+	    }
+	    .room__delete-btn i{
+	    	position: relative;
+		    top: 65px;
+		    float: left;
+		    left: 20px;
+	    }
+	}
+}
+.room__add{
+	background: #fff;
+    border: 1px solid #aaabae;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 900;
+    display: block;
+    float: left;
+    border-radius: 3px;
+    i{
+    	margin: 0 0 0 5px;
+    	top: -2px;
+    	position: relative;
+    }
+    &:hover{
+    	text-decoration: underline;
+    }
+}
+.room__confirm{
+	background: #ffd25d;
+	border: 1px solid #ffd25d;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 900;
+    display: block;
+    float: left;
+    border-radius: 3px;
+    margin-left:20px;
+    i{
+    	margin: 0 0 0 5px;
+    }
+    &:hover{
+    	text-decoration: underline;
+    }
+    @media (max-width: 767px) {
+    	margin-left:15px;
+    }
+}
+.guest-count{
+	position: relative;
+}
+.room{
+	margin: 0 0 20px;
+}
 }

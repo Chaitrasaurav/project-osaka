@@ -11,9 +11,9 @@
 	<header>
 		<div class="header_wrapper clearfix">
 			<ul class="header_links">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Faq</a></li>
-				<li><a href="#">Inquiries</a></li>
+				<li><a href="#" data-sheet="headerLink1">Home</a></li>
+				<li><a href="#" data-sheet="headerLink2">FAQ</a></li>
+				<li><a href="#" data-sheet="headerLink3">Inquiries</a></li>
 			</ul>
 			<ul class="header_cta">
 				<li><a href="tel:81665771111">81 6 6577 1111</a></li>
@@ -26,7 +26,7 @@
 		</div>
 	</header>
 	<section class="stage">
-		<div class="stage_container">
+		<div class="stage_container">	
 			<div class="stage_wrapper">
 				<div class="stage_links clearfix">
 					<ul>
@@ -50,8 +50,8 @@
 				<div class="accommodation">
 					<h3>The best our rooms</h3>
 					<h2>Accommodations</h2>
-					<ul class="accommodation_slider">
-						<li>
+					<ul class="accommodation_slider js-accomodation">
+						<!-- <li>
 							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
 							<p>Starting from: <span>$29/night</span></p>
@@ -86,7 +86,7 @@
 							<h3>Single room</h3>
 							<p>Starting from: <span>$29/night</span></p>
 							<a href="#">Book Now</a>
-						</li>
+						</li> -->
 					</ul>
 					<a href="#" class="see-all">See all accommodations</a>
 				</div>
@@ -231,5 +231,32 @@
 	<script type="text/javascript" src="../dist/scripts/vendor.min.js"></script>
 	<script type="text/javascript" src="../data/data-en.js"></script>
 	<script type="text/javascript" src="../dist/scripts/app.min.js"></script>
+	<!-- <script type="text/javascript" src="../scripts/main.js"></script> -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+	<script type='text/javascript'>    
+	  var createRoomSlider,
+	  	  addTextualContent;	
+	  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1HyfDyalAgZ9sYE-WCqgeo58_y47BRSiyqi5YArcSins/pubhtml';
+
+	  function init() {
+	    Tabletop.init( { key: publicSpreadsheetUrl,
+	                     callback: showInfo,
+	                     simpleSheet: true } )
+	  }
+
+	  function showInfo(data, tabletop) {
+	    console.log('Successfully processed!')
+	    console.log(tabletop.sheets('osaka').elements);
+		console.log(tabletop.sheets('Accomodations').elements)
+		window.data = {};
+	    window.data.main = tabletop.sheets('osaka').elements;
+	    window.data.rooms = tabletop.sheets('Accomodations').elements;
+
+	    createRoomSlider();
+	    addTextualContent();
+	  }
+
+	  window.addEventListener('DOMContentLoaded', init)
+	</script>
 </body>
 </html>

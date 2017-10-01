@@ -3,17 +3,18 @@
 <head>
 	<title>Hotel Osaka</title>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<link rel="stylesheet" type="text/css" href="../dist/styles/vendor.min.css">
 	<link rel="stylesheet" type="text/css" href="../dist/styles/style.min.css">
 	<link rel="stylesheet" type="text/css" href="../dist/sprite/css/sprite.css">
 </head>
-<body class="en">
+<body class="jp ja_JP">
 	<header>
 		<div class="header_wrapper clearfix">
 			<ul class="header_links">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Faq</a></li>
-				<li><a href="#">Inquiries</a></li>
+				<li><a href="#" data-sheet="headerLink1">Home</a></li>
+				<li><a href="#" data-sheet="headerLink2">FAQ</a></li>
+				<li><a href="#" data-sheet="headerLink3">Inquiries</a></li>
 			</ul>
 			<ul class="header_cta">
 				<li><a href="tel:81665771111">81 6 6577 1111</a></li>
@@ -26,14 +27,14 @@
 		</div>
 	</header>
 	<section class="stage">
-		<div class="stage_container">
+		<div class="stage_container">	
 			<div class="stage_wrapper">
 				<div class="stage_links clearfix">
 					<ul>
 						<li><a href="#">Hotel Attractions</a></li>
 						<li><a href="#">Accommodation</a></li>
 						<li><a href="#">Access</a></li>
-						<li class="logo"><a href="#"><img src="../dist/images/logo.png"></a></li>
+						<li class="logo"><a href="#"><i class="icon logo"></i></a></li>
 						<li><a href="#">Restaurants &amp; Bars</a></li>
 						<li><a href="#">Floor Guide</a></li>
 						<li><a href="#">Sightseeing</a></li>
@@ -46,19 +47,140 @@
 				</div>
 				<div class="form">
 					<h4>Reservation</h4>
+					<!-- ?&hotelNo=68555&ciDateY=2017&ciDateM=10&ciDateD=12&coDateY=2017&coDateM=10&coDateD=19&otona=2&s1=0&room=1&vipCode=PP5 -->
+					<div class="form-container">
+						<form name="mainForm" id="mainForm" novalidate autocomplete="off">
+							<div class="form__control">
+								<input type="hidden" id="property" name="hotelNo" value="68555">
+							</div>
+							<div class="form_guestWrap">
+								<div class="form__control">
+									<label class="form__label">Check In</label>
+									<div class="input-wrap">
+										<input class="datepicker form__field form__field--sm js-datepicker check-in required" type="text" id="checkIn" placeholder="Select" readonly>
+										<input type="hidden" name="ciDateY"/>
+										<input type="hidden" name="ciDateM"/>
+										<input type="hidden" name="ciDateD"/>
+									</div>
+								</div>
+								<div class="form__control">
+									<label class="form__label">Check Out</label>
+									<div class="input-wrap">
+										<input class="datepicker form__field form__field--sm js-datepicker check-out required" type="text" id="checkOut" placeholder="Select" readonly>
+										<input type="hidden" name="coDateY"/>
+										<input type="hidden" name="coDateM"/>
+										<input type="hidden" name="coDateD"/>
+									</div>
+								</div>
+								<div class="datepicker-modal js-datepicker-modal hidden">
+									<div class="datepicker-container js-datepicker-container"></div>
+								</div>
+								<div class="form__control">
+									<label class="form__label">No of guests</label>
+									<div class="input-wrap">
+										<input class="form__field form__field--sm required js-select-guest guest" placeholder="Guests" type="text" value="2" readonly>
+										<input class="form__field form__field--sm js-total-adult" type="hidden" name="otona" id="adults1" value="2">
+										<input class="form__field form__field--sm js-total-children" type="hidden" name="s1" id="children1" value="0">
+										<input class="form__field form__field--sm js-total-room" type="hidden" name="room" id="rooms" value="1">
+									</div>
+								</div>
+							</div>
+							<div class="select-guest-container js-select-guest-container hidden">
+								<h5>Rooms</h5>
+								<a class="js-cancel-select-guest cancel-select-guest" title="Close" href="javascript:;"><i class="icon close-btn"></i></a>
+								<ul class="js-room-list room-list clearfix" style="list-style: none;padding-left: 0;">
+									<li class="room js-room clearfix" data-room="0">
+										<div class="room-container clearfix">
+											<p class="room__heading">Room1</p>
+											<div class="form__control">
+												<label class="room__label form__label">Adults</label>
+												<div class="input-wrap">
+													<select class="room__field form__field js-adult-count">
+														<option value="1">1</option>
+														<option value="2" selected>2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+													</select>
+												</div>
+											</div>
+											<div class="form__control">
+												<label class="room__label form__label">Children</label>
+												<div class="input-wrap">
+													<select class="room__field form__field js-child-count">
+														<option value="0">0</option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<div class="button-wrap">
+									<button type="button" class="room__add js-add-room">Add Room <i class="icon add-room"></i></button>
+									<button type="button" class="room__confirm js-confirm">Confirm here <i class="icon confirm-room"></i></button>
+								</div>
+							</div>
+							<div class="form__control">
+								<label class="form__label">Have a promo code?</label>
+								<div class="input-wrap">
+									<input class="form__field form__field--sm" type="text" name="code" id="code" placeholder="Optional">
+								</div>
+							</div>
+							<button type="button" class="form__btn js-main-form-btn" id="main-form-btn">Book Now with Pepper</button>
+						</form>
+					</div>
 				</div>
 				<div class="accommodation">
 					<h3>The best our rooms</h3>
 					<h2>Accommodations</h2>
-					<ul class="accommodation_slider">
+					<ul class="accommodation_slider js-accomodation">
 						<li>
-							<img src="">
+							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
-							<p><span>Starting from:</span> $29/night</p>
+							<p>Starting from: <span>$29/night</span></p>
 							<a href="#">Book Now</a>
 						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Single room</h3>
+							<p>Starting from: <span>$29/night</span></p>
+							<a href="#">Book Now</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Single room</h3>
+							<p>Starting from: <span>$29/night</span></p>
+							<a href="#">Book Now</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Single room</h3>
+							<p>Starting from: <span>$29/night</span></p>
+							<a href="#">Book Now</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Single room</h3>
+							<p>Starting from: <span>$29/night</span></p>
+							<a href="#">Book Now</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Single room</h3>
+							<p>Starting from: <span>$29/night</span></p>
+							<a href="#">Book Now</a>
+						</li> 
 					</ul>
-					<a href="#">See all accommodations</a>
+					<a href="#" class="see-all">See all accommodations</a>
 				</div>
 			</div>
 		</div>
@@ -76,8 +198,8 @@
 			<div class="tabs-wrap">
 				<ul class="tabs-list js-tabs">
 					<li class="tab-link current" data-tab="tab-1">Restaurants</li>
-					<li class="tab-link" data-tab="tab-3">Lounge &amp; bars</li>
-					<li class="tab-link" data-tab="tab-4">Omsen &amp; spa</li>
+					<li class="tab-link" data-tab="tab-2">Lounge &amp; bars</li>
+					<li class="tab-link" data-tab="tab-3">Omsen &amp; spa</li>
 					<li class="tab-link" data-tab="tab-4">Hotel shop</li>
 					<li class="tab-link" data-tab="tab-5">Banquets</li>
 				</ul>
@@ -89,51 +211,115 @@
 					<option value="tab-5">Banquets</option>
 				</select>
 				<div id="tab-1" class="tab-content current">
-					<ul class="tabs_slider">
+					<ul class="accommodation_slider js-accomodation">
 						<li>
-							<img src="">
-							<h3>Single room</h3>
-							<p><span>Starting from:</span> $29/night</p>
-							<a href="#">Book Now</a>
+							<img src="../dist/images/room-image.png">
+							<h3>Air Ship</h3>
+							<h5>Sky Lounge</h5>	
+							<p>Located in the 51st Floor <span class="open">Open until 11:00 pm</span></p>
+							<a href="#">More Info</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Isokaze</h3>
+							<h5>Japanese Restaurant</h5>	
+							<p>Located in the 20th Floor <span class="closed">Closed</span></p>
+							<a href="#">More Info</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Ruri</h3>
+							<h5>Teppanyaki Restaurant</h5>	
+							<p>Located in the 20th Floor <span class="open">Open until 11:00 pm</span></p>
+							<a href="#">More Info</a>
 						</li>
 					</ul>
 				</div>
 				<div id="tab-2" class="tab-content">
-					<ul class="tabs_slider">
+					<ul class="accommodation_slider js-accomodation">
 						<li>
-							<img src="">
+							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
-							<p><span>Starting from:</span> $29/night</p>
+							<p>Starting from: <span>$29/night</span></p>
+							<a href="#">Book Now</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Single room</h3>
+							<p>Starting from: <span>$29/night</span></p>
+							<a href="#">Book Now</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Single room</h3>
+							<p>Starting from: <span>$29/night</span></p>
+							<a href="#">Book Now</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Single room</h3>
+							<p>Starting from: <span>$29/night</span></p>
+							<a href="#">Book Now</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Single room</h3>
+							<p>Starting from: <span>$29/night</span></p>
+							<a href="#">Book Now</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Single room</h3>
+							<p>Starting from: <span>$29/night</span></p>
 							<a href="#">Book Now</a>
 						</li>
 					</ul>
 				</div>
 				<div id="tab-3" class="tab-content">
-					<ul class="tabs_slider">
+					<ul class="accommodation_slider js-accomodation">
 						<li>
-							<img src="">
+							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
-							<p><span>Starting from:</span> $29/night</p>
+							<p>Starting from: <span>$29/night</span></p>
 							<a href="#">Book Now</a>
 						</li>
+						
 					</ul>
 				</div>
 				<div id="tab-4" class="tab-content">
-					<ul class="tabs_slider">
+					<ul class="accommodation_slider js-accomodation">
 						<li>
-							<img src="">
+							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
-							<p><span>Starting from:</span> $29/night</p>
+							<p>Starting from: <span>$29/night</span></p>
+							<a href="#">Book Now</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Single room</h3>
+							<p>Starting from: <span>$29/night</span></p>
 							<a href="#">Book Now</a>
 						</li>
 					</ul>
 				</div>
 				<div id="tab-5" class="tab-content">
-					<ul class="tabs_slider">
+					<ul class="accommodation_slider js-accomodation">
 						<li>
-							<img src="">
+							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
-							<p><span>Starting from:</span> $29/night</p>
+							<p>Starting from: <span>$29/night</span></p>
+							<a href="#">Book Now</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Single room</h3>
+							<p>Starting from: <span>$29/night</span></p>
+							<a href="#">Book Now</a>
+						</li>
+						<li>
+							<img src="../dist/images/room-image.png">
+							<h3>Single room</h3>
+							<p>Starting from: <span>$29/night</span></p>
 							<a href="#">Book Now</a>
 						</li>
 					</ul>
@@ -145,92 +331,104 @@
 		<div class="gallery_container">
 			<h3>Around the hotel</h3>
 			<h2>Photo gallery</h2>
-			<a href="#">Load more photos</a>
+			<ul class="masonryGrid">
+				<li class="grid show">
+					<img src="../dist/images/photo-1.png" class="grid-item">
+					<img src="../dist/images/photo-2.png" class="grid-item">					
+					<img src="../dist/images/photo-5.png" class="grid-item">
+					<img src="../dist/images/photo-3.png" class="grid-item">
+					<img src="../dist/images/photo-4.png" class="grid-item">
+					<img src="../dist/images/photo-6.png" class="grid-item">
+					<img src="../dist/images/photo-7.png" class="grid-item">
+					<img src="../dist/images/photo-8.png" class="grid-item">
+				</li>
+				<li class="grid">
+					<img src="../dist/images/photo-1.png" class="grid-item">
+					<img src="../dist/images/photo-2.png" class="grid-item">					
+					<img src="../dist/images/photo-5.png" class="grid-item">
+					<img src="../dist/images/photo-3.png" class="grid-item">
+					<img src="../dist/images/photo-4.png" class="grid-item">
+					<img src="../dist/images/photo-6.png" class="grid-item">
+					<img src="../dist/images/photo-7.png" class="grid-item">
+					<img src="../dist/images/photo-8.png" class="grid-item">
+				</li>
+			</ul>
+			<a class"js-more-photos">Load more photos</a>
 		</div>
 	</section>
 	<section class="map">
 		<h3>Find us</h3>
 		<h2>Our location</h2>
+		<div class="hotel-info">
+			<i class="icon logo"></i>
+			<i class="icon location-icon"></i>
+			<h2>our location</h2>
+			<p>ORC200, 1-2-1 Benten, Minato-ku, Osaka 552-0007</p>
+			<p>Tel: <a href="tell:8166577-1111">+81-6-6577-1111</a><br/>
+			Fax: +81-6-6576-5155<br/>
+			Email: <a href="mailto:info@domain.com">info@domain.com</a></p>
+		</div>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.41200206964!2d135.4587812146295!3d34.66954979239485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!3m2!1sen!2sin!4v1506687723736" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+	</section>
+	<section class="nearby-places">
+		<h3>other MyStays</h3>
+		<h2>Nearby Hotels</h2>
+		<ul class="accommodation_slider js-accomodation">
+			<li>
+				<img src="../dist/images/room-image.png">
+				<h3>Hotel MyStays Gotanda</h3>
+				<span>4,118 reviews</span>
+				<i class="icon star-filled"></i>
+				<i class="icon star-filled"></i>
+				<i class="icon star-filled"></i>
+				<i class="icon star-filled"></i>
+				<i class="icon star-filled"></i>
+				<p>Starting from: <span>£39.00 / Night</span></p>
+				<a href="#">Book Now</a>
+			</li>
+			<li>
+				<img src="../dist/images/room-image.png">
+				<h3>Hotel MyStays Premier Omori</h3>
+				<span>3,027 reviews</span>
+				<i class="icon star-filled"></i>
+				<i class="icon star-filled"></i>
+				<i class="icon star-filled"></i>
+				<i class="icon star-filled"></i>
+				<i class="icon star"></i>
+				<p>Starting from: <span>£39.00 / Night</span></p>
+				<a href="#">Book Now</a>
+			</li>
+			<li>
+				<img src="../dist/images/room-image.png">
+				<h3>Hotel MyStays Premier Akasaka</h3>
+				<span>2,974 reviews</span>
+				<i class="icon star-filled"></i>
+				<i class="icon star-filled"></i>
+				<i class="icon star-filled"></i>
+				<i class="icon star-filled"></i>
+				<i class="icon star"></i>
+				<p>Starting from: <span>£39.00 / Night</span></p>
+				<a href="#">Book Now</a>
+			</li>
+		</ul>
+		<a href="#" class="see-all">See more hotels</a>
 	</section>
  	<footer>
- 			
+ 		<div class="footer_container">
+ 			<i class="icon logo"></i>
+ 			<ul>
+ 				<li><a href="#">Home</a></li>
+ 				<li><a href="#">Faq</a></li>
+ 				<li><a href="#">Inquiries</a></li>
+ 			</ul>
+ 			<p>© 2014 GRANVISTA Hotels&amp;Resorts co.,Ltd. All Rights Reserved.</p>
+ 		</div>
  	</footer>
 	<script type="text/javascript" src="../dist/scripts/vendor.min.js"></script>
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 	<script type="text/javascript" src="../data/data-en.js"></script>
-	<script type="text/javascript" src="../dist/scripts/app.min.js"></script>
-	    <script type="text/javascript">
-      // Client ID and API key from the Developer Console
-      var CLIENT_ID = '912898455682-vams5m335nrgmem35tm48kud25pvvhgu.apps.googleusercontent.com';
-      var API_KEY = 'AIzaSyDqqfaZw5Xk42aeh3GwNf6uRqkUBhJ9lrk';
-
-      // Array of API discovery doc URLs for APIs used by the quickstart
-      var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
-
-      // Authorization scopes required by the API; multiple scopes can be
-      // included, separated by spaces.
-      var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
-
-      /**
-       *  On load, called to load the auth2 library and API client library.
-       */
-      function handleClientLoad() {
-        gapi.load('client:auth2', initClient);
-      }
-
-      /**
-       *  Initializes the API client library and sets up sign-in state
-       *  listeners.
-       */
-      function initClient() {
-        gapi.client.init({
-          apiKey: API_KEY,
-          clientId: CLIENT_ID,
-          discoveryDocs: DISCOVERY_DOCS,
-          scope: SCOPES
-        }).then(function () {
-          	gapi.auth2.getAuthInstance().signIn();
-          	getData();
-        });
-      }
-
-      /**
-       * Append a pre element to the body containing the given message
-       * as its text node. Used to display the results of the API call.
-       *
-       * @param {string} message Text to be placed in pre element.
-       */
-      function appendPre(message) {
-        var pre = document.getElementById('content');
-        var textContent = document.createTextNode(message + '\n');
-        pre.appendChild(textContent);
-      }
-
-      /**
-       * Print the names and majors of students in a sample spreadsheet:
-       * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-       */
-      function getData() {
-        gapi.client.sheets.spreadsheets.values.get({
-          spreadsheetId: '1HyfDyalAgZ9sYE-WCqgeo58_y47BRSiyqi5YArcSins',
-          range: 'osaka!A:C',
-        }).then(function(response) {
-        	console.log(response)
-          var range = response.result;
-          if (range.values.length > 0) {
-            
-          } else {
-            appendPre('No data found.');
-          }
-        }, function(response) {
-          appendPre('Error: ' + response.result.error.message);
-        });
-      }
-
-    </script>
-
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
+	<!-- <script type="text/javascript" src="../dist/scripts/app.min.js"></script> -->
+	<script type="text/javascript" src="../scripts/main.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 </body>
 </html>

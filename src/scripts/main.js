@@ -161,16 +161,20 @@ function init() {
 
 			if($('body').hasClass('ja_JP')) {
             	if($("#checkIn").val().length) {
-            		var dateArray = $("#checkIn").val().split('-');
-            		$("#checkIn").siblings('input[name="ciDateY"]').val(dateArray[0]);
-	            	$("#checkIn").siblings('input[name="ciDateM"]').val(dateArray[1]);
-	            	$("#checkIn").siblings('input[name="ciDateD"]').val(dateArray[2]);
+            		var date = new Date($("#checkIn").val());
+
+            		// var dateArray = $("#checkIn").val().split(' ');
+            		$("#checkIn").siblings('input[name="ciDateY"]').val(date.getFullYear());
+	            	$("#checkIn").siblings('input[name="ciDateM"]').val(date.getMonth() + 1);
+	            	$("#checkIn").siblings('input[name="ciDateD"]').val(date.getDate());
             	}
             	if($("#checkOut").val().length) {
-            		var dateArray = $("#checkOut").val().split('-');
-            		$("#checkOut").siblings('input[name="coDateY"]').val(dateArray[0]);
-	            	$("#checkOut").siblings('input[name="coDateM"]').val(dateArray[1]);
-	            	$("#checkOut").siblings('input[name="coDateD"]').val(dateArray[2]);
+            		// var dateArray = $("#checkOut").val().split(' ');
+            		var date = new Date($("#checkOut").val());
+
+            		$("#checkOut").siblings('input[name="coDateY"]').val(date.getFullYear());
+	            	$("#checkOut").siblings('input[name="coDateM"]').val(date.getMonth() + 1);
+	            	$("#checkOut").siblings('input[name="coDateD"]').val(date.getDate());
             	}
             }
 		}
@@ -374,33 +378,26 @@ $('.js-main-form-btn').on('click', function(){
 			url;
 
 		if($('body').hasClass('ja_JP')) {
-			//queryParams = "";
-			$form.serializeArray().forEach(function(value){
-				//console.log(value)
-				queryParams +=  '&' + value.name + '=' + value.value;
+			$form.serializeArray().forEach(function(param){
+				// console.log(param)
+				queryParams +=  '&' + param.name + '=' + param.value;
 			});
 
 			url = 'https://mystays.rwiths.net/r-withs/tfs0020a.do?' + queryParams;
 		} else {
-			if($form.serializeArray()[0].name === 'property' && $form.serializeArray()[0].value === ''){
-				queryParams = 's=group&group=asiaflexstayinn&filters[region]='+ window.cityHotelMap[$form.find('#city').val()].city;
-				$form.serializeArray().forEach(function(value){
-					if(value.name !== 'property') {
-						//console.log(value)
-						queryParams +=  '&' + value.name + '=' + value.value;
-					}
-				});
-			} else {
-				queryParams = "s=results";
-				$form.serializeArray().forEach(function(value){
-					//console.log(value)
-					queryParams +=  '&' + value.name + '=' + value.value;
-				});
-			}
+			queryParams = "s=results";
+			$form.serializeArray().forEach(function(param){
+				// console.log(param)
+				if(param.name == 'arrival' || param.name == 'departure') {
+					var date = new Date(param.value);
+					param.value = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+				}
+				queryParams +=  '&' + param.name + '=' + param.value;
+			});
 			
 			url = 'https://www.book-secure.com/index.php?' + queryParams;
 		}
-		
+		// console.log(url)
 		var win = window.open(url, '_blank');
 			win.focus();
 	}

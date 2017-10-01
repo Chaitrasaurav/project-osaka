@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>8BAC9CFA-8559-4646-A2CD-190D39E56BB0</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="28" height="28" rx="3"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01-Hotel-MyStays-HP-Guest-Picker-Dropdown-Desktop" transform="translate(-1030.000000, -662.000000)">
+            <g id="Guests-Copy" transform="translate(652.000000, 633.000000)">
+                <g id="Close-btn" transform="translate(378.000000, 29.000000)">
+                    <g id="btn">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <rect stroke="#DDDEE0" stroke-width="1" x="0.5" y="0.5" width="27" height="27" rx="3"></rect>
+                    </g>
+                    <path d="M14.4964666,13.9992862 L18.8972089,18.3998715 C19.0342637,18.5376352 19.0342637,18.7596274 18.8972089,18.8966773 C18.7601542,19.0344409 18.5374402,19.0344409 18.4003855,18.8966773 L14.0003569,14.4960919 L9.59961453,18.8966773 C9.46184596,19.0344409 9.23984581,19.0344409 9.10279106,18.8966773 C8.96573631,18.7596274 8.96573631,18.5376352 9.10279106,18.3998715 L13.5035334,13.9992862 L9.10279106,9.60012848 C8.96573631,9.46307863 8.96573631,9.2403726 9.10279106,9.10332275 C9.23984581,8.96555908 9.46184596,8.96555908 9.59961453,9.10332275 L14.0003569,13.5031943 L18.4003855,9.10332275 C18.5374402,8.96555908 18.7601542,8.96555908 18.8972089,9.10332275 C19.0342637,9.2403726 19.0342637,9.46307863 18.8972089,9.60012848 L14.4964666,13.9992862 Z" id="Close" stroke="#232E48" stroke-width="0.3" fill="#232E48"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

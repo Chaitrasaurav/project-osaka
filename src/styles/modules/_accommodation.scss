@@ -57,6 +57,9 @@
   			}
 		}
 	}
+	.slick-track{
+		margin:auto;
+	}
 .slick-dots{
 		list-style: none;
 		display: table;
@@ -112,4 +115,9 @@
 	max-width: $desktop-max-width;
 	margin: 0 auto;
 	text-align:center;
+	span{
+		color: #aaabae;
+		display:block;
+		font-size:14px;
+	}
 }

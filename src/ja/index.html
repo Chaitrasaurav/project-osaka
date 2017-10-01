@@ -48,7 +48,7 @@
 				<div class="form">
 					<h4>Reservation</h4>
 					<div class="form-container">
-						<form name="mainForm" id="mainForm" novalidate autocomplete="off">
+						<form name="mainForm" id="mainForm" class="clearfix" novalidate autocomplete="off">
 							<div class="form__control">
 								<input type="hidden" id="property" name="hotelNo" value="68555">
 							</div>
@@ -74,17 +74,16 @@
 								<div class="datepicker-modal js-datepicker-modal hidden">
 									<div class="datepicker-container js-datepicker-container"></div>
 								</div>
-								<div class="form__control">
+								<div class="form__control guest-count">
 									<label class="form__label">No of guests</label>
 									<div class="input-wrap">
+										<i class="icon down-arrow"></i>
 										<input class="form__field form__field--sm required js-select-guest guest" placeholder="Guests" type="text" value="2" readonly>
 										<input class="form__field form__field--sm js-total-adult" type="hidden" name="otona" id="adults1" value="2">
 										<input class="form__field form__field--sm js-total-children" type="hidden" name="s1" id="children1" value="0">
 										<input class="form__field form__field--sm js-total-room" type="hidden" name="room" id="rooms" value="1">
 									</div>
-								</div>
-							</div>
-							<div class="select-guest-container js-select-guest-container hidden">
+								<div class="select-guest-container js-select-guest-container hidden">
 								<h5>Rooms</h5>
 								<a class="js-cancel-select-guest cancel-select-guest" title="Close" href="javascript:;"><i class="icon close-btn"></i></a>
 								<ul class="js-room-list room-list clearfix" style="list-style: none;padding-left: 0;">
@@ -128,13 +127,16 @@
 									<button type="button" class="room__confirm js-confirm">Confirm here <i class="icon confirm-room"></i></button>
 								</div>
 							</div>
+								</div>
+							</div>
+							
 							<div class="form__control">
 								<label class="form__label">Have a promo code?</label>
 								<div class="input-wrap">
-									<input class="form__field form__field--sm" type="text" name="code" id="code" placeholder="Optional">
+									<input class="form__field form__field--sm" type="text" name="code" id="code" placeholder="Optional"><i class="icon info-icon"></i>
 								</div>
 							</div>
-							<button type="button" class="form__btn js-main-form-btn" id="main-form-btn">Book Now with Pepper</button>
+							<button type="button" class="form__btn js-main-form-btn" id="main-form-btn">Check Availability <span>Best Price Guaranteed</span></button>
 						</form>
 					</div>
 				</div>
@@ -179,6 +181,7 @@
 							<a href="#">Book Now</a>
 						</li> 
 					</ul>
+					<a href="#" class="see-all">see all accommodations</a>
 				</div>
 			</div>
 		</div>
@@ -361,26 +364,26 @@
 			<i class="icon logo"></i>
 			<i class="icon location-icon"></i>
 			<h2>our location</h2>
-			<p>ORC200, 1-2-1 Benten, Minato-ku, Osaka 552-0007</p>
-			<p>Tel: <a href="tell:8166577-1111">+81-6-6577-1111</a><br/>
+			<p>ORC200, 1-2-1 Benten, Minato-ku, <span>Osaka 552-0007</span></p>
+			<p class="contact-info">Tel: <a href="tell:8166577-1111">+81-6-6577-1111</a><br/>
 			Fax: +81-6-6576-5155<br/>
 			Email: <a href="mailto:info@domain.com">info@domain.com</a></p>
 		</div>
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.41200206964!2d135.4587812146295!3d34.66954979239485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!3m2!1sen!2sin!4v1506687723736" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.41200206964!2d135.4587812146295!3d34.66954979239485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!3m2!1sen!2sin!4v1506687723736" width="100%" height="523" frameborder="0" style="border:0" allowfullscreen></iframe>
 	</section>
 	<section class="nearby-places">
-		<h3>other MyStays</h3>
+		<h3>Other MyStays</h3>
 		<h2>Nearby Hotels</h2>
 		<ul class="accommodation_slider js-nearbuy">
 			<li>
 				<img src="../dist/images/room-image.png">
 				<h3>Hotel MyStays Gotanda</h3>
 				<span>4,118 reviews</span>
-				<i class="icon star-filled"></i>
-				<i class="icon star-filled"></i>
-				<i class="icon star-filled"></i>
-				<i class="icon star-filled"></i>
-				<i class="icon star-filled"></i>
+				<i class="icon rate-filled"></i>
+				<i class="icon rate-filled"></i>
+				<i class="icon rate-filled"></i>
+				<i class="icon rate-filled"></i>
+				<i class="icon rate-filled"></i>
 				<p>Starting from: <span>£39.00 / Night</span></p>
 				<a href="#">Book Now</a>
 			</li>
@@ -388,11 +391,11 @@
 				<img src="../dist/images/room-image.png">
 				<h3>Hotel MyStays Premier Omori</h3>
 				<span>3,027 reviews</span>
-				<i class="icon star-filled"></i>
-				<i class="icon star-filled"></i>
-				<i class="icon star-filled"></i>
-				<i class="icon star-filled"></i>
-				<i class="icon star"></i>
+				<i class="icon rate-filled"></i>
+				<i class="icon rate-filled"></i>
+				<i class="icon rate-filled"></i>
+				<i class="icon rate-filled"></i>
+				<i class="icon rate"></i>
 				<p>Starting from: <span>£39.00 / Night</span></p>
 				<a href="#">Book Now</a>
 			</li>
@@ -400,11 +403,11 @@
 				<img src="../dist/images/room-image.png">
 				<h3>Hotel MyStays Premier Akasaka</h3>
 				<span>2,974 reviews</span>
-				<i class="icon star-filled"></i>
-				<i class="icon star-filled"></i>
-				<i class="icon star-filled"></i>
-				<i class="icon star-filled"></i>
-				<i class="icon star"></i>
+				<i class="icon rate-filled"></i>
+				<i class="icon rate-filled"></i>
+				<i class="icon rate-filled"></i>
+				<i class="icon rate-filled"></i>
+				<i class="icon rate"></i>
 				<p>Starting from: <span>£39.00 / Night</span></p>
 				<a href="#">Book Now</a>
 			</li>

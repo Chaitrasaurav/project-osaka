@@ -692,6 +692,8 @@ header {
 
 .slick-next {
   right: -17px; }
+  .slick-next.slick-disabled:before {
+    opacity: 0.25; }
 
 .slick-prev {
   -ms-transform: rotate(180deg);
@@ -700,6 +702,8 @@ header {
   /* Chrome, Safari, Opera */
   transform: rotate(180deg);
   left: -17px; }
+  .slick-prev.slick-disabled:before {
+    opacity: 0.25; }
 
 .nearby-places {
   max-width: 940px;

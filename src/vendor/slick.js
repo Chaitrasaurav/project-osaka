@@ -6,7 +6,7 @@
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
- Version: 1.6.0
+ Version: 1.7.1
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
     Docs: http://kenwheeler.github.io/slick
@@ -1469,14 +1469,7 @@
             _.$dots.show();
 
         }
-        if ($(window).width() < 767) {
-            if (_.slideCount <= _.options.slidesToShow) {
-                _.$slider.addClass('slick-no-slide');
-            }
-            else {
-                _.$slider.removeClass('slick-no-slide');
-            }
-        }
+
     };
 
     Slick.prototype.keyHandler = function(event) {
@@ -2406,7 +2399,7 @@
                         .attr('data-slick-index', slideIndex - _.slideCount)
                         .prependTo(_.$slideTrack).addClass('slick-cloned');
                 }
-                for (i = 0; i < infiniteCount; i += 1) {
+                for (i = 0; i < infiniteCount  + _.slideCount; i += 1) {
                     slideIndex = i;
                     $(_.$slides[slideIndex]).clone(true).attr('id', '')
                         .attr('data-slick-index', slideIndex + _.slideCount)
@@ -2948,20 +2941,12 @@
             _.$dots
                 .find('li')
                     .removeClass('slick-active')
-                    .end()
-                .find('button')
-                    .attr({
-                        'aria-pressed': false
-                    });
+                    .end();
 
             _.$dots
                 .find('li')
                 .eq(Math.floor(_.currentSlide / _.options.slidesToScroll))
-                .addClass('slick-active')
-                .find('button')
-                .attr({
-                    'aria-pressed': true
-                });
+                .addClass('slick-active');
 
         }
 

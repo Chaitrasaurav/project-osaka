@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../dist/styles/style.min.css">
 	<link rel="stylesheet" type="text/css" href="../dist/sprite/css/sprite.css">
 </head>
-<body class="en">
+<body class="en" data-lang="en">
 	<header>
 		<div class="header_wrapper clearfix">
 			<ul class="header_links">
@@ -177,7 +177,6 @@
 							<a href="#">Book Now</a>
 						</li> 
 					</ul>
-					<a href="#" class="see-all">See all accommodations</a>
 				</div>
 			</div>
 		</div>
@@ -208,7 +207,7 @@
 					<option value="tab-5">Banquets</option>
 				</select>
 				<div id="tab-1" class="tab-content current">
-					<ul class="accommodation_slider js-accomodation">
+					<ul class="accommodation_slider js-tab-slider" data-type="restaurant">
 						<li>
 							<img src="../dist/images/room-image.png">
 							<h3>Air Ship</h3>
@@ -233,7 +232,7 @@
 					</ul>
 				</div>
 				<div id="tab-2" class="tab-content">
-					<ul class="accommodation_slider js-accomodation">
+					<ul class="accommodation_slider js-tab-slider" data-type="bar">
 						<li>
 							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
@@ -273,7 +272,7 @@
 					</ul>
 				</div>
 				<div id="tab-3" class="tab-content">
-					<ul class="accommodation_slider js-accomodation">
+					<ul class="accommodation_slider js-tab-slider" data-type="spa">
 						<li>
 							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
@@ -284,7 +283,7 @@
 					</ul>
 				</div>
 				<div id="tab-4" class="tab-content">
-					<ul class="accommodation_slider js-accomodation">
+					<ul class="accommodation_slider js-tab-slider" data-type="shop">
 						<li>
 							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
@@ -300,7 +299,7 @@
 					</ul>
 				</div>
 				<div id="tab-5" class="tab-content">
-					<ul class="accommodation_slider js-accomodation">
+					<ul class="accommodation_slider js-tab-slider" data-type="banquet">
 						<li>
 							<img src="../dist/images/room-image.png">
 							<h3>Single room</h3>
@@ -370,7 +369,7 @@
 	<section class="nearby-places">
 		<h3>other MyStays</h3>
 		<h2>Nearby Hotels</h2>
-		<ul class="accommodation_slider js-accomodation">
+		<ul class="accommodation_slider js-nearbuy">
 			<li>
 				<img src="../dist/images/room-image.png">
 				<h3>Hotel MyStays Gotanda</h3>
@@ -426,6 +425,5 @@
 	<script type="text/javascript" src="../data/data-en.js"></script>
 	<!-- <script type="text/javascript" src="../dist/scripts/app.min.js"></script> -->
 	<script type="text/javascript" src="../scripts/main.js"></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 </body>
 </html>

@@ -1,45 +1,6 @@
 'use strict';
-
-var countryCode = 'jp';
-
-// window.data.main.map(function(value){
-// 	$('[data-sheet=' + value.Item + ']').text(value[countryCode]);			
-// });
-
-$('.js-accomodation').slick({
-	lazyLoad: 'ondemand',
-	slidesToShow: 3,
-	speed: 2000,
-	slidesToScroll: 4,
-	dots: true,
-	responsive: [	   
-	{
-	  breakpoint: 900,
-	  settings: {
-	    slidesToShow: 2,
-	    slidesToScroll: 2
-	  }
-	},
-	{
-	  breakpoint: 600,
-	  settings: {
-	    slidesToShow: 1,
-	    slidesToScroll: 1,
-	  }
-	}
-	]
-});
-
-$('.slick-arrow').appendTo('.slick-dots');
-$('.slick-arrow').addClass('icon arrow');
-
-$('.header_cta-dropdown').on('click', function(){
-	$('.header_language').toggleClass('active');
-});
-
-var createRoomSlider,
-  	addTextualContent;	
-var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1HyfDyalAgZ9sYE-WCqgeo58_y47BRSiyqi5YArcSins/pubhtml';
+var countryCode = $('body').data('lang'),
+	publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1HyfDyalAgZ9sYE-WCqgeo58_y47BRSiyqi5YArcSins/pubhtml';
 
 function init() {
 	Tabletop.init({ 
@@ -187,14 +148,15 @@ function init() {
 
 function showInfo(data, tabletop) {
 	console.log('Successfully processed!')
-	console.log(tabletop.sheets('osaka').elements);
-	console.log(tabletop.sheets('Accomodations').elements)
+	// console.log(tabletop.sheets('osaka').elements);
+	// console.log(tabletop.sheets('Accomodations').elements)
 	window.data = {};
 	window.data.main = tabletop.sheets('osaka').elements;
 	window.data.rooms = tabletop.sheets('Accomodations').elements;
-
-	//createRoomSlider();
-	//addTextualContent();
+    
+    window.data.main.map(function(value){
+		$('[data-sheet=' + value.Item + ']').text(value[countryCode]);			
+	});
 };
 
 $(document).on('mouseover', '.ui-datepicker-calendar td a', function(e){
@@ -343,7 +305,6 @@ $('.js-tabs-select').on('change', function(e) {
 
 	$('ul.js-tabs li[data-tab="'+ tabId +'"]').addClass('current');
 	$("#"+tabId).addClass('current');
-
 });
 
 $('ul.js-tabs li').click(function(){
@@ -356,7 +317,65 @@ $('ul.js-tabs li').click(function(){
 	$('.js-tabs-select').val(tabId).trigger('change');
 	$(this).addClass('current');
 	$("#"+tabId).addClass('current');
+	$("#"+tabId).find('.js-tab-slider').slick('setPosition', 0);
+});
 
+var slickConfig = {
+	lazyLoad: 'ondemand',
+	slidesToShow: 3,
+	slidesToScroll: 3,
+	infinite: false,
+	speed: 500,
+	dots: true,
+	responsive: [	   
+	{
+	  breakpoint: 900,
+	  settings: {
+	    slidesToShow: 2,
+	    slidesToScroll: 2
+	  }
+	},
+	{
+	  breakpoint: 600,
+	  settings: {
+	    slidesToShow: 1,
+	    slidesToScroll: 1,
+	  }
+	}]
+};
+
+var createSlider = function(ele) {
+	var $eleOrEles = $(ele);
+	if($eleOrEles.length > 1) {
+		$eleOrEles.map(function(index, item){
+			slickConfig.dots = true;
+			slickConfig.arrows = true;
+			if($(item).find('li').length <= slickConfig.slidesToScroll) {
+				slickConfig.dots = false;
+				slickConfig.arrows = false;
+			}
+			$(item).slick(slickConfig);
+			$(item).find('.slick-arrow').appendTo( ele + ' .slick-dots');
+		});
+	} else {
+		slickConfig.dots = true;
+		slickConfig.arrows = true;
+		if($eleOrEles.find('li').length <= slickConfig.slidesToScroll) {
+			slickConfig.dots = false;
+			slickConfig.arrows = false;
+		}
+		$eleOrEles.slick(slickConfig);
+		$eleOrEles.find('.slick-arrow').appendTo( ele + ' .slick-dots');
+	}
+};
+
+createSlider('.js-accomodation');
+createSlider('.js-tab-slider');
+createSlider('.js-nearbuy');
+$('.slick-arrow').addClass('icon arrow');
+
+$('.header_cta-dropdown').on('click', function(){
+	$('.header_language').toggleClass('active');
 });
 
 $('.js-main-form-btn').on('click', function(){

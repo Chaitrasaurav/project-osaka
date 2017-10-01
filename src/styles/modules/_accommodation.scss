@@ -63,10 +63,10 @@
   			}
 		}
 	}
-	.slick-track{
+	.slick-track {
 		margin:auto;
 	}
-.slick-dots{
+	.slick-dots {
 		list-style: none;
 		display: table;
 		margin:0 auto;
@@ -110,12 +110,24 @@
 	}
 	.slick-next{
 		right:-17px;
+
+		 &.slick-disabled {
+		 	&:before {
+		 		opacity: 0.25;
+		 	}
+		 }
 	}
 	.slick-prev{
 		-ms-transform: rotate(180deg); /* IE 9 */
 	    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
 	    transform: rotate(180deg);
 	    left:-17px;
+
+	    &.slick-disabled {
+		 	&:before {
+		 		opacity: 0.25;
+		 	}
+		}
 	}
 .nearby-places{
 	max-width: $desktop-max-width;

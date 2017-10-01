@@ -29,7 +29,8 @@ gulp.task('vendorScripts', function() {
       'src/vendor/jquery.min.js',
       'src/vendor/slick.js',
       'src/vendor/select2.full.js',
-      'src/vendor/jquery-ui.js'
+      'src/vendor/jquery-ui.js',
+      'src/vendor/tabletop.min.js'
     ])
     .pipe(concat('vendor.js'))
     .pipe(uglify())

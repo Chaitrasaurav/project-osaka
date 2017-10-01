@@ -13,12 +13,12 @@
 		<div class="header_wrapper clearfix">
 			<ul class="header_links">
 				<li><a href="#" data-sheet="headerLink1">Home</a></li>
-				<li><a href="#" data-sheet="headerLink2">FAQ</a></li>
+				<li><a href="#" data-sheet="headerLink2">Faq</a></li>
 				<li><a href="#" data-sheet="headerLink3">Inquiries</a></li>
 			</ul>
 			<ul class="header_cta">
-				<li><a href="tel:81665771111">81 6 6577 1111</a></li>
-				<li class="header_cta-dropdown">English
+				<li><a href="tel:81665771111"><i class="icon phone-icon"></i>81 6 6577 1111</a></li>
+				<li class="header_cta-dropdown">En <i class="icon down-arrow"></i>
 					<ul class="header_language">
 						<li><a href="../ja/index.html">日本語</a></li>
 					</ul>
@@ -48,8 +48,8 @@
 				<div class="form">
 					<h4>Reservation</h4>
 					<!-- ?s=results&property=jptok26324&arrival=2017-10-10&departure=2017-10-27&code=PP5&adults1=2&children1=0&rooms=1&locale=en_GB&currency=JPY&stid=cflqnlvsw -->
-					<div class="form-container clearfix">
-						<form name="mainForm" id="mainForm" novalidate autocomplete="off">
+					<div class="form-container">
+						<form name="mainForm" id="mainForm" class="clearfix" novalidate autocomplete="off">
 							<div class="form__control">
 								<input type="hidden" id="property" name="property" value="jptok26324">
 							</div>
@@ -72,6 +72,7 @@
 								<div class="form__control guest-count">
 									<label class="form__label">No of guests</label>
 									<div class="input-wrap">
+										<i class="icon down-arrow"></i>
 										<input class="form__field form__field--sm required js-select-guest guest" placeholder="Guests" type="text" value="2" readonly>
 										<input class="form__field form__field--sm js-total-adult" type="hidden" name="adults1" id="adults1" value="2">
 										<input class="form__field form__field--sm js-total-children" type="hidden" name="children1" id="children1" value="0">

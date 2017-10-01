@@ -2,16 +2,17 @@
 
 .accommodation{
 	text-align:center;
-	padding-top: 100px;
+	padding-top: 52px;
 	
 }
 .accommodation_slider{
 		list-style: none;
+		padding: 24px 0 0;
 		.slick-list li{
 			background: #ffffff;
   			box-shadow: 0 0 15px 0 rgba(0, 60, 103, 0.1);
   			margin-right:20px;
-  			padding:10px 10px 30px;
+  			padding:0 0 50px;
   			&:last-child{
   				margin-right:0;
   			}
@@ -25,11 +26,14 @@
   				font-size:18px;
   				color: $text-color-base;
   				position: relative;
+  				margin: 29px 0 0;
+			    text-transform: capitalize;
+			    font-weight: bold;
   				&:after{
   					content: '';
   					position: absolute;
   					top: -23px;
-  					left:50%;
+  					left:48%;
   					width: 0; 
 				    height: 0; 
 				    border-left: 10px solid transparent;
@@ -40,6 +44,7 @@
   			p{
   				color: $text-color-primary;
   				font-size: 14px;
+  				margin: 0;
   				span{ 					
   					font-weight: bold;
   					color: $text-color-base;
@@ -51,9 +56,10 @@
   				border-radius: 100px;
   				background-color: #ff8900;
   				display:inline-block;
-  				padding:10px;
+  				padding:10px 20px;
   				color:#ffffff;
   				font-size:13px;
+  				margin: 20px 0 0;
   			}
 		}
 	}

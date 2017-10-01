@@ -1,4 +1,5 @@
 .form{
+	padding: 93px 0 0;
 	h4{
 		color:#ffffff;
 		font-size:26px;
@@ -8,7 +9,20 @@
 	.form-container {
 	    background-color: #fff;
 	    box-shadow: 0 0 40px 0 rgba(87, 115, 187, 0.26);
-	    padding:50px;
+	    padding: 42px 50px 50px;
+	    margin: 20px 0 0;
+	    position: relative;
+	    &:after{
+	    	content: '';
+		    position: absolute;
+		    top: -15px;
+		    left: 48%;
+		    width: 0;
+		    height: 0;
+		    border-left: 15px solid transparent;
+		    border-right: 15px solid transparent;
+		    border-bottom: 15px solid #fff;
+		}
 	}
 
 	.js-is-invalid {
@@ -27,7 +41,7 @@
 		width:100%;
 		background: #f2f2f2;
 		border:none;
-		padding:5px 10px;
+		padding: 10px 18px;
 	}
 	label{
 		display: block;
@@ -44,6 +58,7 @@
     	font-size: 16px;
   		font-weight: bold;
   		text-align:center;
+  		margin: 9px 0 0;
   		span{
   			display: block;
   			font-size: 12px;
@@ -54,14 +69,14 @@
     	position: relative;
     	i{
 	    	position: absolute;
-	    	top:0;
-	    	right:0;
+	    	top: 10px;
+    		right: 23px;
 	    }
 	} 
 
 	.select-guest-container{
 	position: absolute;
-    top: 85%;
+    top: 125%;
     left: 0;
     background: #fff;
     width:496px;
@@ -73,7 +88,7 @@
   	padding: 20px;
   	z-index: 4;
   	border-bottom: 5px solid #ffd25d;
-  	left: -20px;
+  	left: -144%;
   	@media (max-width: 767px) {
   		left: -27px;
   	}
@@ -81,7 +96,7 @@
 	    content: '';
 	    position: absolute;
 	    top: -10px;
-	    right: 60px;
+	    right: 47%;
 	    border: solid #dddee0;
 	    border-width: 0 1px 1px 0;
 	    display: inline-block;
@@ -96,7 +111,7 @@
 	    content: '';
 	    position: absolute;
 	    top: -1px;
-	    right: 56px;
+	    right: 46%;
 	    width: 27px;
 	    height: 1px;
 	    background: #fff;

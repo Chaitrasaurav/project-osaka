@@ -1,6 +1,6 @@
 header{
 	border-bottom:1px solid #e5ebef;
-	padding:20px 0;
+	padding: 14px 0;
 
 	.header_wrapper{
 		max-width: $desktop-max-width;
@@ -15,7 +15,7 @@ header{
 			color: $text-color-secondary;
 			a{
 				display:block;
-				margin-right:10px;
+				margin-right: 27px;
 			}
 			&:last-child{
 				a{
@@ -30,20 +30,33 @@ header{
 		&.header_cta{
 			float:right;
 			width:auto;
+			li:first-child{
+				i{
+					position: relative;
+				    left: -8px;
+				    top: -2px;
+				}
+			}
 		}
 	}
 
 	.header_cta-dropdown{
 		cursor: pointer;
 	    position: relative;
+	    i{
+	    	position: relative;
+    		top: -2px;
+	    }
 	    .header_language{
 	    	padding: 10px;
     		border: 1px solid #e5ebef;
     		display:none;
     		position: absolute;
 		    width: 100px;
-		    right: 0;
+		    right: -10px;
+		    top: 30px;
 		    text-align: center;
+		    background: #ffffff;
     		li{
     			float:none;
     		}

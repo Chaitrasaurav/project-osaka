@@ -8,7 +8,7 @@
     display: inline-block;
     background-image: url("../svg/sprite.svg");
     background-repeat: no-repeat;
-    background-size: 16.2em 28.2em;
+    background-size: 16.2em 31em;
 }
 
 .no-svg .icon:before {
@@ -35,8 +35,17 @@
 
 
 
-  .icon.confirm-room:before {
+  .icon.close-btn:before {
       background-position: 0em -2.4em;
+      width: 2.8em;
+      height: 2.8em;
+  }
+
+
+
+
+  .icon.confirm-room:before {
+      background-position: 0em -5.2em;
       width: 1.4em;
       height: 1em;
   }
@@ -45,7 +54,7 @@
 
 
   .icon.delete-icon:before {
-      background-position: 0em -3.4em;
+      background-position: 0em -6.2em;
       width: 2.1em;
       height: 2.4em;
   }
@@ -54,7 +63,7 @@
 
 
   .icon.down-arrow:before {
-      background-position: 0em -5.8em;
+      background-position: 0em -8.6em;
       width: 1.2em;
       height: 0.7em;
   }
@@ -63,7 +72,7 @@
 
 
   .icon.info-icon:before {
-      background-position: 0em -6.5em;
+      background-position: 0em -9.3em;
       width: 1.4em;
       height: 1.4em;
   }
@@ -72,7 +81,7 @@
 
 
   .icon.location-icon:before {
-      background-position: 0em -7.9em;
+      background-position: 0em -10.7em;
       width: 1.8em;
       height: 2.6em;
   }
@@ -81,7 +90,7 @@
 
 
   .icon.logo:before {
-      background-position: 0em -10.5em;
+      background-position: 0em -13.3em;
       width: 16.2em;
       height: 8.3em;
   }
@@ -90,7 +99,7 @@
 
 
   .icon.phone-icon:before {
-      background-position: 0em -18.8em;
+      background-position: 0em -21.6em;
       width: 1.8em;
       height: 1.8em;
   }
@@ -99,7 +108,7 @@
 
 
   .icon.star:before {
-      background-position: 0em -20.6em;
+      background-position: 0em -23.4em;
       width: 3.8em;
       height: 3.8em;
   }
@@ -108,7 +117,7 @@
 
 
   .icon.star-filled:before {
-      background-position: 0em -24.4em;
+      background-position: 0em -27.2em;
       width: 3.8em;
       height: 3.8em;
   }

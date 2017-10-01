@@ -831,7 +831,7 @@ a.ui-state-active {
   -webkit-transform: rotate(180deg);
   /* Chrome, Safari, Opera */
   transform: rotate(180deg);
-  left: -40px;
+  left: -50px;
   top: 12px; }
   .slick-prev.slick-disabled:before {
     opacity: 0.25; }

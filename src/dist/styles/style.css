@@ -366,11 +366,16 @@ header {
         width: 100px;
         height: 1px; }
 
-.form {
+.form h4 {
+  color: #ffffff;
+  font-size: 26px;
   text-align: center; }
-  .form h4 {
-    color: #ffffff;
-    font-size: 26px; }
+
+.form .form-container {
+  background-color: #fff; }
+
+.form .js-is-invalid {
+  border: 1px solid red; }
 
 .accommodation {
   text-align: center;

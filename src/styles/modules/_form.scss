@@ -1,7 +1,15 @@
 .form{
-	text-align:center;
 	h4{
 		color:#ffffff;
 		font-size:26px;
+		text-align:center;
+	}
+
+	.form-container {
+	    background-color: #fff;
+	}
+
+	.js-is-invalid {
+		border: 1px solid red;
 	}
 }

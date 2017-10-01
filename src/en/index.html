@@ -47,6 +47,94 @@
 				</div>
 				<div class="form">
 					<h4>Reservation</h4>
+					<!-- ?s=results&property=jptok26324&arrival=2017-10-10&departure=2017-10-27&code=PP5&adults1=2&children1=0&rooms=1&locale=en_GB&currency=JPY&stid=cflqnlvsw -->
+					<div class="form-container">
+						<form name="mainForm" id="mainForm" novalidate autocomplete="off">
+							<div class="form__control">
+								<input type="hidden" id="property" name="property" value="jptok26324">
+							</div>
+							<div class="form_guestWrap">
+								<div class="form__control">
+									<label class="form__label">Check In</label>
+									<div class="input-wrap">
+										<input class="datepicker form__field form__field--sm js-datepicker check-in required" type="text" name="arrival" id="checkIn" placeholder="Select" readonly>
+									</div>
+								</div>
+								<div class="form__control">
+									<label class="form__label">Check Out</label>
+									<div class="input-wrap">
+										<input class="datepicker form__field form__field--sm js-datepicker check-out required" type="text" name="departure" id="checkOut" placeholder="Select" readonly>
+									</div>
+								</div>
+								<div class="datepicker-modal js-datepicker-modal hidden">
+									<div class="datepicker-container js-datepicker-container"></div>
+								</div>
+								<div class="form__control">
+									<label class="form__label">No of guests</label>
+									<div class="input-wrap">
+										<input class="form__field form__field--sm required js-select-guest guest" placeholder="Guests" type="text" value="2" readonly>
+										<input class="form__field form__field--sm js-total-adult" type="hidden" name="adults1" id="adults1" value="2">
+										<input class="form__field form__field--sm js-total-children" type="hidden" name="children1" id="children1" value="0">
+										<input class="form__field form__field--sm js-total-room" type="hidden" name="rooms" id="rooms" value="1"> 
+										<input class="form__field form__field--sm" type="hidden" name="locale" id="locale" value="en_GB"> 
+										<input class="form__field form__field--sm" type="hidden" name="code" id="code" value="PP5"> 
+										<input class="form__field form__field--sm" type="hidden" name="currency" id="currency" value="JPY">
+									</div>
+								</div>
+							</div>
+							<div class="select-guest-container js-select-guest-container hidden">
+								<h5>Rooms</h5>
+								<a class="js-cancel-select-guest cancel-select-guest" title="Close" href="javascript:;"><i class="icon close-btn"></i></a>
+								<ul class="js-room-list room-list clearfix" style="list-style: none;padding-left: 0;">
+									<li class="room js-room clearfix" data-room="0">
+										<div class="room-container clearfix">
+											<p class="room__heading">Room1</p>
+											<div class="form__control">
+												<label class="room__label form__label">Adults</label>
+												<div class="input-wrap">
+													<select class="room__field form__field js-adult-count">
+														<option value="1">1</option>
+														<option value="2" selected>2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+													</select>
+												</div>
+											</div>
+											<div class="form__control">
+												<label class="room__label form__label">Children</label>
+												<div class="input-wrap">
+													<select class="room__field form__field js-child-count">
+														<option value="0">0</option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<div class="button-wrap">
+									<button type="button" class="room__add js-add-room">Add Room <i class="icon add-room"></i></button>
+									<button type="button" class="room__confirm js-confirm">Confirm here <i class="icon confirm-room"></i></button>
+								</div>
+							</div>
+							<div class="form__control">
+								<label class="form__label">Have a promo code?</label>
+								<div class="input-wrap">
+									<input class="form__field form__field--sm" type="text" name="" id="" placeholder="Optional">
+								</div>
+							</div>
+							<button type="button" class="form__btn js-main-form-btn" id="main-form-btn">Book Now with Pepper</button>
+						</form>
+					</div>
 				</div>
 				<div class="accommodation">
 					<h3>The best our rooms</h3>
@@ -336,33 +424,8 @@
 	<script type="text/javascript" src="../dist/scripts/vendor.min.js"></script>
 	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 	<script type="text/javascript" src="../data/data-en.js"></script>
-	<script type="text/javascript" src="../dist/scripts/app.min.js"></script>
-	<!-- <script type="text/javascript" src="../scripts/main.js"></script> -->
+	<!-- <script type="text/javascript" src="../dist/scripts/app.min.js"></script> -->
+	<script type="text/javascript" src="../scripts/main.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
-	<script type='text/javascript'>    
-	  var createRoomSlider,
-	  	  addTextualContent;	
-	  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1HyfDyalAgZ9sYE-WCqgeo58_y47BRSiyqi5YArcSins/pubhtml';
-
-	  function init() {
-	    Tabletop.init( { key: publicSpreadsheetUrl,
-	                     callback: showInfo,
-	                     simpleSheet: true } )
-	  }
-
-	  function showInfo(data, tabletop) {
-	    console.log('Successfully processed!')
-	    console.log(tabletop.sheets('osaka').elements);
-		console.log(tabletop.sheets('Accomodations').elements)
-		window.data = {};
-	    window.data.main = tabletop.sheets('osaka').elements;
-	    window.data.rooms = tabletop.sheets('Accomodations').elements;
-
-	    //createRoomSlider();
-	    //addTextualContent();
-	  }
-
-	  window.addEventListener('DOMContentLoaded', init)
-	</script>
 </body>
 </html>

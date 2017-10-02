@@ -320,6 +320,14 @@ header {
       header .header_cta-dropdown .header_language li {
         float: none; }
 
+.mobile-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  z-index: 1; }
+
 .stage {
   background: #f2f5f7;
   /* For browsers that do not support gradients */

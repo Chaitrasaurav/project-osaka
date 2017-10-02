@@ -290,12 +290,6 @@ $('.js-confirm').on('click', function() {
     }, 1000);
 });
 
-var $grid = $('.grid').masonry({
-	itemSelector: '.grid-item',
-	isFitWidth: true,
-	columnWidth: 1
-});
-
 $('.js-more-photos').on('click', function(e) {
 	e.preventDefault();
 

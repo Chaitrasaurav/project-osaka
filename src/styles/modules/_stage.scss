@@ -7,6 +7,10 @@
 }
 .stage_container{
 	background: url(../images/stage-image.png) no-repeat top center;
+	background-size: contain;
+	@media (max-width: 1300px) {
+    	background-size: auto;
+    }
 }
 .stage_wrapper{
 	max-width: $desktop-max-width;

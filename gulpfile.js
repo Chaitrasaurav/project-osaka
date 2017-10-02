@@ -31,7 +31,6 @@ gulp.task('vendorScripts', function() {
       'src/vendor/select2.full.js',
       'src/vendor/jquery-ui.js',
       'src/vendor/tabletop.min.js',
-      'src/vendor/masonry.pkgd.js'
     ])
     .pipe(concat('vendor.js'))
     .pipe(uglify())

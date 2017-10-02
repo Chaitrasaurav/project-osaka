@@ -333,7 +333,11 @@ header {
   /* Standard syntax */ }
 
 .stage_container {
-  background: url(../images/stage-image.png) no-repeat top center; }
+  background: url(../images/stage-image.png) no-repeat top center;
+  background-size: contain; }
+  @media (max-width: 1300px) {
+    .stage_container {
+      background-size: auto; } }
 
 .stage_wrapper {
   max-width: 940px;
@@ -793,11 +797,16 @@ a.ui-state-active {
     .slick-dots li button {
       font-size: 0;
       border: none;
-      width: 10px;
-      height: 10px;
+      width: 7px;
+      height: 7px;
       background: #5b5b74;
+      opacity: 0.5;
       border-radius: 100px;
       padding: 0; }
+  .slick-dots .slick-active button {
+    width: 10px;
+    height: 10px;
+    opacity: 1; }
 
 .see-all {
   border: solid 1px #aaabae;
@@ -993,11 +1002,33 @@ a.ui-state-active {
     margin: 50px 0 10px;
     cursor: pointer; }
 
-.masonryGrid .grid {
-  margin: 0 auto;
-  width: 100% !important; }
-  .masonryGrid .grid .grid-item {
-    margin: 10px 5px; }
+.masonry-gallery {
+  list-style: none; }
+  .masonry-gallery li .left {
+    display: block;
+    float: left;
+    width: 32%; }
+  .masonry-gallery li .right {
+    display: block;
+    float: left;
+    width: 68%; }
+    .masonry-gallery li .right .top .left {
+      width: 50%; }
+      .masonry-gallery li .right .top .left img {
+        margin-right: 0;
+        margin-left: 16px; }
+      .masonry-gallery li .right .top .left img:first-child {
+        margin: 0 18px 13px; }
+    .masonry-gallery li .right .top .right {
+      width: 50%;
+      padding-left: 13px; }
+    .masonry-gallery li .right .bottom img {
+      margin-left: 14px;
+      margin-top: 13px; }
+    .masonry-gallery li .right .bottom img:first-child {
+      margin-left: 13px; }
+  .masonry-gallery li img {
+    max-width: 100%; }
 
 footer {
   background: #f2f5f7; }

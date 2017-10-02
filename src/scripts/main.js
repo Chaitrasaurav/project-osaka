@@ -144,6 +144,160 @@ function init() {
 	$('.js-close-datepicker').click(function() {
         $(".js-datepicker-modal").addClass('hidden');
     });
+
+    var url = 'https://websdk.fastbooking-services.com/accommodations?locale=en_GB&property=jpnas28830&output=json&_authCode=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOiJeLiokIiwicHJvcGVydGllcyI6Il5qcChhfGJ8Y3xmfGh8anxrfG58b3xzfHR8dXx5KVthLXpdezJ9WzAtOV17NX0kIiwiZ3JvdXBzIjoiXiQiLCJmb3IiOiJNUyIsImlhdCI6MTQ4NTE5MDg1MiwianRpIjoiMzk1ZDQyNmEtMjUxYi00YmM0LThhN2UtZGU3ZjIyMDBhMGMxIn0.nfxBfwao6Z-k2X8rToJOTEouiVf1lhgPAwrTRFIyeW0';
+    $.get( url, function( response ) {
+	  console.log(response.data);
+	  if(response.data.rooms.length) {
+
+	  	var slickConfig = {
+			lazyLoad: 'ondemand',
+			slidesToShow: 3,
+			slidesToScroll: 3,
+			infinite: false,
+			speed: 500,
+			dots: true,
+			responsive: [	   
+			{
+			  breakpoint: 900,
+			  settings: {
+			    slidesToShow: 2,
+			    slidesToScroll: 2
+			  }
+			},
+			{
+			  breakpoint: 600,
+			  settings: {
+			    slidesToShow: 1,
+			    slidesToScroll: 1,
+			  }
+			}]
+		},
+		ele = '.js-accomodation',
+		$ele = $('.js-accomodation'),
+		rooms = response.data.rooms;
+		var roomsLength = rooms.length,
+			i = 0,
+			date = new Date(),
+			currentDate,
+			currentDateObj;
+		
+		function buildList() {
+			if(i < roomsLength) {
+				if(currentDateObj) {
+					date = currentDateObj;
+				}
+				var date1;
+				if(date.getDate() < 10) {
+					date1 = '0' + date.getDate();
+				} else {
+					date1 = date.getDate();	
+				}
+				currentDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date1;
+
+				$.ajax({
+		            type: "GET",
+		            url: 'https://websdk.fastbooking-services.com/quotation?arrivalDate=' + currentDate + '&currency=JPY&property=jpnas28830&roomRestriction='+ rooms[i].beName + '&output=json&nights=1&adults=2&_authCode=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOiJeLiokIiwicHJvcGVydGllcyI6Il5qcChhfGJ8Y3xmfGh8anxrfG58b3xzfHR8dXx5KVthLXpdezJ9WzAtOV17NX0kIiwiZ3JvdXBzIjoiXiQiLCJmb3IiOiJNUyIsImlhdCI6MTQ4NTE5MDg1MiwianRpIjoiMzk1ZDQyNmEtMjUxYi00YmM0LThhN2UtZGU3ZjIyMDBhMGMxIn0.nfxBfwao6Z-k2X8rToJOTEouiVf1lhgPAwrTRFIyeW0',
+		            success:function(response){
+		            	var lowestPrice,
+							currency;
+
+						if(response.data.length) {
+							lowestPrice = response.data[0].pricePerNight;
+							currency = response.data[0].currency_html;
+
+							$ele.append('<li>\
+								<img src="../dist/images/room-image.png">\
+								<h3>' + rooms[i].title + '</h3>\
+								<p>Starting from: <span> ' + currency + ' ' + lowestPrice + '/night </span></p>\
+								<a href="#">Book Now</a>\
+							</li>')
+							currentDateObj = null;
+							date = new Date();
+							i++;
+						} else {
+							currentDateObj = new Date(currentDate);
+							currentDateObj.setDate(currentDateObj.getDate() + 1);
+						}
+						buildList();
+					}
+				});
+			} else {
+				if(rooms.length <= slickConfig.slidesToScroll) {
+					slickConfig.dots = false;
+					slickConfig.arrows = false;
+				}
+				$ele.slick(slickConfig);
+				$ele.find('.slick-arrow').appendTo( ele + ' .slick-dots');
+				$ele.find('.slick-arrow').addClass('icon arrow');
+			}
+		};
+		buildList();
+	  }
+	});
+
+    function nearBuy () {
+    	var $ele = $('.js-nearbuy'),
+	    	nearBuyList = [
+				{
+					property: 'jposa28306',
+					beName: 'Renovated-Hollywood-Twin--Non-Sm'	
+				},
+				{
+					property: 'jposa26338',
+					beName: 'Deluxe-Triple-Non-Smoking'	
+				},
+				{
+					property: 'jposa31260',
+					beName: 'Standard-Double'	
+				}
+			],
+			roomsLength = nearBuyList.length,
+			i = 0,
+			date = new Date(),
+			currentDate,
+			currentDateObj;
+		
+		function buildList() {
+			if(i < roomsLength) {
+				if(currentDateObj) {
+					date = currentDateObj;
+				}
+				var date1;
+				if(date.getDate() < 10) {
+					date1 = '0' + date.getDate();
+				} else {
+					date1 = date.getDate();	
+				}
+				currentDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date1;
+
+				$.ajax({
+		            type: "GET",
+		            url: 'https://websdk.fastbooking-services.com/quotation?arrivalDate=' + currentDate + '&currency=JPY&property=' + nearBuyList[i].property + '&roomRestriction='+ nearBuyList[i].beName + '&output=json&nights=1&adults=2&_authCode=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOiJeLiokIiwicHJvcGVydGllcyI6Il5qcChhfGJ8Y3xmfGh8anxrfG58b3xzfHR8dXx5KVthLXpdezJ9WzAtOV17NX0kIiwiZ3JvdXBzIjoiXiQiLCJmb3IiOiJNUyIsImlhdCI6MTQ4NTE5MDg1MiwianRpIjoiMzk1ZDQyNmEtMjUxYi00YmM0LThhN2UtZGU3ZjIyMDBhMGMxIn0.nfxBfwao6Z-k2X8rToJOTEouiVf1lhgPAwrTRFIyeW0',
+		            success:function(response){
+		            	var lowestPrice,
+							currency;
+
+						if(response.data.length) {
+							lowestPrice = response.data[0].pricePerNight;
+							currency = response.data[0].currency_html;
+
+							$($ele.find('li')[i]).find('.js-nearbuy-price').html(currency + ' ' + lowestPrice);
+							currentDateObj = null;
+							date = new Date();
+							i++;
+						} else {
+							currentDateObj = new Date(currentDate);
+							currentDateObj.setDate(currentDateObj.getDate() + 1);
+						}
+						buildList();
+					}
+				});
+			}
+		};
+		buildList();
+    }
+    nearBuy();
 };
 
 function showInfo(data, tabletop) {
@@ -292,28 +446,7 @@ $('.js-confirm').on('click', function() {
 
 $('.js-more-photos').on('click', function(e) {
 	e.preventDefault();
-
-	var totalElem = [
-		'photo-1.png',
-		'photo-2.png',
-		'photo-5.png',
-		'photo-3.png',
-		'photo-4.png',
-		'photo-6.png',
-		'photo-7.png'
-	];
-
-	var elems = [];
-
-	for (var i = 1; i <= totalElem.length; i++) {
-		var elem = document.createElement('img');
-		elem.setAttribute('class', 'grid-item');
-		elem.setAttribute('src', '../dist/images/'+ totalElem[i]);
-		elems.push(elem)
-	}
-
-	var $elems = $( elems );
-  	$grid.append( $elems ).masonry( 'appended', $elems ).masonry( 'reloadItems' ).masonry( 'layout' );
+	$('.second-set').fadeIn();
 	$(e.target).hide();
 });
 
@@ -342,27 +475,16 @@ $('ul.js-tabs li').click(function(){
 
 var slickConfig = {
 	lazyLoad: 'ondemand',
-	slidesToShow: 3,
-	slidesToScroll: 3,
 	infinite: false,
-	speed: 500,
-	dots: true,
-	responsive: [	   
-	{
-	  breakpoint: 900,
-	  settings: {
-	    slidesToShow: 2,
-	    slidesToScroll: 2
-	  }
-	},
-	{
-	  breakpoint: 600,
-	  settings: {
-	    slidesToShow: 1,
-	    slidesToScroll: 1,
-	  }
-	}]
+	speed: 500
 };
+
+var noOfSlide = 3;
+if($(window).width() < 900 && $(window).width() > 600) {
+	noOfSlide = 2;
+}else if($(window).width() < 600) {
+	noOfSlide = 1;
+}
 
 var createSlider = function(ele) {
 	var $eleOrEles = $(ele);
@@ -370,18 +492,24 @@ var createSlider = function(ele) {
 		$eleOrEles.map(function(index, item){
 			slickConfig.dots = true;
 			slickConfig.arrows = true;
-			if($(item).find('li').length <= slickConfig.slidesToScroll) {
+			slickConfig.slidesToShow = noOfSlide;
+			slickConfig.slidesToScroll = noOfSlide;
+
+			if($(item).find('li').length <= noOfSlide) {
 				slickConfig.dots = false;
 				slickConfig.arrows = false;
 			}
 			$(item).slick(slickConfig);
-			$(item).find('.slick-arrow').appendTo( ele + ' .slick-dots');
+			$(item).find('.slick-arrow').appendTo( $(item).find('.slick-dots'));
 			$(item).find('.slick-arrow').addClass('icon arrow');
 		});
 	} else {
 		slickConfig.dots = true;
 		slickConfig.arrows = true;
-		if($eleOrEles.find('li').length <= slickConfig.slidesToScroll) {
+		slickConfig.slidesToShow = noOfSlide;
+		slickConfig.slidesToScroll = noOfSlide;
+
+		if($eleOrEles.find('li').length <= noOfSlide) {
 			slickConfig.dots = false;
 			slickConfig.arrows = false;
 		}
@@ -391,7 +519,6 @@ var createSlider = function(ele) {
 	}
 };
 
-createSlider('.js-accomodation');
 createSlider('.js-tab-slider');
 createSlider('.js-nearbuy');
 

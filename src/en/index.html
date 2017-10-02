@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../dist/styles/style.min.css">
 	<link rel="stylesheet" type="text/css" href="../dist/sprite/css/sprite.css">
 </head>
-<body class="en" data-lang="en">
+<body class="en" data-lang="en" data-locale="en_GB">
 	<div class="mobile-header">
 		<i class="icon logo-mobile"></i>
 		<div class="hamburger js-toggle-menu"><span>Menu</span> <i class="icon hamburguer-icon"></i></div>
@@ -154,8 +154,7 @@
 							</div>
 							
 							<div class="form__control">
-								<label class="form__label desktop-label">Have a promo code?</label>
-								<label class="form__label mobile-label">promo code?</label>
+								<label class="form__label">Have a promo code?</label>
 								<div class="input-wrap">
 									<input class="form__field form__field--sm" type="text" name="code" id="code" placeholder="Optional"><i class="icon info-icon"></i>
 								</div>
@@ -168,42 +167,6 @@
 					<h3>The best our rooms</h3>
 					<h2>Accommodations</h2>
 					<ul class="accommodation_slider js-accomodation">
-						<li>
-							<img src="../dist/images/room-image.png">
-							<h3>Single room</h3>
-							<p>Starting from: <span>$29/night</span></p>
-							<a href="#">Book Now</a>
-						</li>
-						<li>
-							<img src="../dist/images/room-image.png">
-							<h3>Single room</h3>
-							<p>Starting from: <span>$29/night</span></p>
-							<a href="#">Book Now</a>
-						</li>
-						<li>
-							<img src="../dist/images/room-image.png">
-							<h3>Single room</h3>
-							<p>Starting from: <span>$29/night</span></p>
-							<a href="#">Book Now</a>
-						</li>
-						<li>
-							<img src="../dist/images/room-image.png">
-							<h3>Single room</h3>
-							<p>Starting from: <span>$29/night</span></p>
-							<a href="#">Book Now</a>
-						</li>
-						<li>
-							<img src="../dist/images/room-image.png">
-							<h3>Single room</h3>
-							<p>Starting from: <span>$29/night</span></p>
-							<a href="#">Book Now</a>
-						</li>
-						<li>
-							<img src="../dist/images/room-image.png">
-							<h3>Single room</h3>
-							<p>Starting from: <span>$29/night</span></p>
-							<a href="#">Book Now</a>
-						</li> 
 					</ul>
 					<a href="#" class="see-all">see all accommodations</a>
 				</div>
@@ -228,7 +191,6 @@
 					<li class="tab-link" data-tab="tab-4">Hotel shop</li>
 					<li class="tab-link" data-tab="tab-5">Banquets</li>
 				</ul>
-				<i class="icon down-arrow"></i>
 				<select class="tabs-select js-tabs-select">
 					<option value="tab-1">Restaurants</option>
 					<option value="tab-2">Lounge &amp; bars</option>
@@ -392,7 +354,7 @@
 						</div>
 					</div>													
 				</li>
-				<li class="second-set clearfix">
+				<li class="second-set clearfix hidden">
 					<div class="left">
 						<img src="../dist/images/photo-1.png">
 					</div>
@@ -450,44 +412,44 @@
 		<ul class="accommodation_slider js-nearbuy">
 			<li>
 				<img src="../dist/images/room-image.png">
-				<h3>Hotel MyStays Gotanda</h3>
+				<h3>HOTEL MYSTAYS Shinsaibashi East</h3>
 				<div>
 					<span>4,118 reviews</span>
 					<i class="icon rate-filled"></i>
 					<i class="icon rate-filled"></i>
 					<i class="icon rate-filled"></i>
 					<i class="icon rate-filled"></i>
-					<i class="icon rate-filled"></i>
+					<i class="icon rate-filled"></i>	
 				</div>
-				<p>Starting from: <span>£39.00 / Night</span></p>
+				<p>Starting from: <span class="js-nearbuy-price">£39.00</span><span>/ Night</span></p>
 				<a href="#">Book Now</a>
 			</li>
 			<li>
 				<img src="../dist/images/room-image.png">
-				<h3>Hotel MyStays Premier Omori</h3>
+				<h3>HOTEL MYSTAYS Shinsaibashi</h3>
 				<div>
-					<span>4,118 reviews</span>
+					<span>3,027 reviews</span>
 					<i class="icon rate-filled"></i>
 					<i class="icon rate-filled"></i>
 					<i class="icon rate-filled"></i>
 					<i class="icon rate-filled"></i>
-					<i class="icon rate-filled"></i>
+					<i class="icon rate"></i>
 				</div>
-				<p>Starting from: <span>£39.00 / Night</span></p>
+				<p>Starting from: <span class="js-nearbuy-price">£39.00</span><span> / Night</span></p>
 				<a href="#">Book Now</a>
 			</li>
 			<li>
 				<img src="../dist/images/room-image.png">
-				<h3>Hotel MyStays Premier Akasaka</h3>
+				<h3>HOTEL MYSTAYS Midosuji Honmachi</h3>
 				<div>
-					<span>4,118 reviews</span>
+					<span>2,974 reviews</span>
 					<i class="icon rate-filled"></i>
 					<i class="icon rate-filled"></i>
 					<i class="icon rate-filled"></i>
 					<i class="icon rate-filled"></i>
-					<i class="icon rate-filled"></i>
+					<i class="icon rate"></i>
 				</div>
-				<p>Starting from: <span>£39.00 / Night</span></p>
+				<p>Starting from: <span class="js-nearbuy-price">£39.00</span><span> / Night</span></p>
 				<a href="#">Book Now</a>
 			</li>
 		</ul>
@@ -505,7 +467,7 @@
  		</div>
  	</footer>
 	<script type="text/javascript" src="../dist/scripts/vendor.js"></script>
-	<script type="text/javascript" src="../data/data-en.js"></script>
+	<!-- <script type="text/javascript" src="../data/data-en.js"></script> -->
 	<!-- <script type="text/javascript" src="../dist/scripts/app.min.js"></script> -->
 	<script type="text/javascript" src="../scripts/main.js"></script>
 </body>

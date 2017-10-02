@@ -107,7 +107,7 @@
 
 
 
-  .icon.star:before {
+  .icon.rate:before {
       background-position: 0em -23.4em;
       width: 3.8em;
       height: 3.8em;
@@ -116,7 +116,7 @@
 
 
 
-  .icon.star-filled:before {
+  .icon.rate-filled:before {
       background-position: 0em -27.2em;
       width: 3.8em;
       height: 3.8em;

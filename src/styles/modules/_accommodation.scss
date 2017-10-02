@@ -150,6 +150,9 @@
 	@media (max-width: 960px) {
   		padding: 0 20px 59px;
   	}
+  	@media (max-width: 767px) {
+  		padding: 0 20px 40px;
+  	}
 	span{
 		color: #aaabae;
 		display:block;
@@ -157,8 +160,41 @@
 	}
 	.accommodation_slider{
 		padding: 29px 0 0;
+		.slick-slide{
+			@media (max-width: 767px) {
+				float:none !important;
+				margin-right: 10px !important;
+				position: relative;
+				padding:20px 10px 30px;
+				margin-bottom: 20px;
+			}
+			img{
+				@media (max-width: 767px) {
+					float: left;
+    				width: 140px;
+    				height:auto;
+				}
+			}
+			h3{
+				@media (max-width: 767px) {
+					margin:0;
+					font-size: 15px;
+				}
+			}
+			div{
+				@media (max-width: 767px) {
+					position: absolute;
+				    left: 20px;
+				    text-align: left;
+				    top: 130px;
+				}
+			}
+		}
 	}
 	.see-all{
 		margin: 41px 0 0;
+		@media (max-width: 767px) {
+			margin: 20px 0 0;
+		}
 	}
 }

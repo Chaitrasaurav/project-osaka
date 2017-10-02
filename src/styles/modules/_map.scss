@@ -4,9 +4,6 @@
 	text-align:center;
 	position: relative;
 	padding: 52px 0 40px;
-	@media (max-width: 960px) {
-  		padding: 52px 20px 40px;
-  	}
 
 	.hotel-info{
 		position: absolute;
@@ -14,6 +11,12 @@
 	    left: 32px;
 	    background: #fff;
 	    padding: 31px 86px;
+	    @media (max-width: 767px) {
+	    	bottom: 70px;
+    		left: 20px;
+    		padding: 31px 30px;
+    		top:auto;
+	    }
 	    h2{
 	    	font-size:22px;
 	    }
@@ -44,6 +47,9 @@
 	}
 	iframe{
 		margin:20px 0 0;
+		@media (max-width: 767px) {
+			height:678px;
+		}
 	}
 
 }

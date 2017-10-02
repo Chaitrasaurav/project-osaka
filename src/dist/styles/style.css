@@ -274,6 +274,15 @@ ul {
   padding: 0;
   margin: 0; }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: ''; }
+
+select::-ms-expand {
+  display: none; }
+
 header {
   border-bottom: 1px solid #e5ebef;
   padding: 14px 0; }
@@ -673,6 +682,9 @@ a.ui-state-active {
       border-left: 15px solid transparent;
       border-right: 15px solid transparent;
       border-bottom: 15px solid #fff; }
+      @media (max-width: 767px) {
+        .form .form-container:after {
+          left: 45%; } }
     @media (max-width: 960px) {
       .form .form-container {
         display: table;
@@ -681,7 +693,7 @@ a.ui-state-active {
     @media (max-width: 767px) {
       .form .form-container {
         width: 100%;
-        padding: 30px 20px; } }
+        padding: 30px 0 30px 20px; } }
   .form .js-is-invalid {
     border: 1px solid red; }
   .form .form__control {
@@ -691,6 +703,17 @@ a.ui-state-active {
     @media (max-width: 960px) {
       .form .form__control {
         margin-right: 0; } }
+    @media (max-width: 767px) {
+      .form .form__control {
+        width: 44%; } }
+  @media (max-width: 767px) {
+    .form .desktop-label {
+      display: none; } }
+  .form .mobile-label {
+    display: none; }
+    @media (max-width: 767px) {
+      .form .mobile-label {
+        display: block; } }
   .form .form_guestWrap .form__control {
     width: 130px; }
     @media (max-width: 960px) {
@@ -698,7 +721,9 @@ a.ui-state-active {
         margin-right: 20px; } }
     @media (max-width: 767px) {
       .form .form_guestWrap .form__control {
-        margin-right: 15px; } }
+        margin-right: 15px;
+        width: 44%;
+        margin-bottom: 15px; } }
   .form input {
     width: 100%;
     background: #f2f2f2;
@@ -730,6 +755,11 @@ a.ui-state-active {
         top: 20px;
         margin: 9px auto 0;
         display: table; } }
+    @media (max-width: 767px) {
+      .form .form__btn {
+        margin: 0 auto;
+        left: -8px;
+        top: 5px; } }
   .form .input-wrap {
     position: relative; }
     .form .input-wrap i {
@@ -753,7 +783,8 @@ a.ui-state-active {
     left: -144%; }
     @media (max-width: 767px) {
       .form .select-guest-container {
-        left: -27px; } }
+        left: -21px;
+        width: 247%; } }
     .form .select-guest-container:after {
       content: '';
       position: absolute;
@@ -767,7 +798,8 @@ a.ui-state-active {
       -webkit-transform: rotate(-135deg); }
       @media (max-width: 767px) {
         .form .select-guest-container:after {
-          right: 51px; } }
+          left: 51px;
+          right: auto; } }
     .form .select-guest-container:before {
       content: '';
       position: absolute;
@@ -778,7 +810,7 @@ a.ui-state-active {
       background: #fff; }
       @media (max-width: 767px) {
         .form .select-guest-container:before {
-          right: 47px; } }
+          left: 47px; } }
     .form .select-guest-container h5 {
       font-size: 16px;
       font-weight: 900;
@@ -881,7 +913,8 @@ a.ui-state-active {
       text-decoration: underline; }
     @media (max-width: 767px) {
       .form .room__confirm {
-        margin-left: 15px; } }
+        margin-left: 7px;
+        padding: 10px 10px; } }
   .form .guest-count {
     position: relative; }
   .form .room {
@@ -1014,14 +1047,42 @@ a.ui-state-active {
   @media (max-width: 960px) {
     .nearby-places {
       padding: 0 20px 59px; } }
+  @media (max-width: 767px) {
+    .nearby-places {
+      padding: 0 20px 40px; } }
   .nearby-places span {
     color: #aaabae;
     display: block;
     font-size: 14px; }
   .nearby-places .accommodation_slider {
     padding: 29px 0 0; }
+    @media (max-width: 767px) {
+      .nearby-places .accommodation_slider .slick-slide {
+        float: none !important;
+        margin-right: 10px !important;
+        position: relative;
+        padding: 20px 10px 30px;
+        margin-bottom: 20px; } }
+    @media (max-width: 767px) {
+      .nearby-places .accommodation_slider .slick-slide img {
+        float: left;
+        width: 140px;
+        height: auto; } }
+    @media (max-width: 767px) {
+      .nearby-places .accommodation_slider .slick-slide h3 {
+        margin: 0;
+        font-size: 15px; } }
+    @media (max-width: 767px) {
+      .nearby-places .accommodation_slider .slick-slide div {
+        position: absolute;
+        left: 20px;
+        text-align: left;
+        top: 130px; } }
   .nearby-places .see-all {
     margin: 41px 0 0; }
+    @media (max-width: 767px) {
+      .nearby-places .see-all {
+        margin: 20px 0 0; } }
 
 .rating {
   max-width: 940px;
@@ -1052,10 +1113,16 @@ a.ui-state-active {
     width: 100%;
     height: 1px;
     background: #dddee0; }
+    @media (max-width: 767px) {
+      .tabs:after {
+        display: none; } }
   .tabs h3 {
     text-transform: capitalize; }
   .tabs .accommodation_slider {
     padding: 37px 0 0; }
+    @media (max-width: 767px) {
+      .tabs .accommodation_slider {
+        padding: 20px 0 0; } }
   .tabs .accommodation_slider .slick-list li h3 {
     margin: 22px 0 0; }
   .tabs .accommodation_slider .slick-list li a {
@@ -1069,6 +1136,9 @@ a.ui-state-active {
     margin: 0px;
     padding: 0 0 0 55px;
     list-style: none; }
+    @media (max-width: 767px) {
+      .tabs .tabs-list {
+        display: none; } }
     .tabs .tabs-list li {
       color: #222d49;
       display: block;
@@ -1092,8 +1162,27 @@ a.ui-state-active {
     display: none; }
   .tabs .tab-content.current {
     display: block; }
+  .tabs .tabs-wrap {
+    position: relative; }
+  .tabs .down-arrow {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px; }
+    @media (max-width: 767px) {
+      .tabs .down-arrow {
+        display: block; } }
   .tabs .tabs-select {
-    display: none; }
+    display: none;
+    background-color: #f2f5f7;
+    border: solid 1px #dddee0;
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 18px;
+    margin-top: 20px; }
+    @media (max-width: 767px) {
+      .tabs .tabs-select {
+        display: block; } }
   .tabs .tabs_container {
     max-width: 940px;
     margin: 0 auto;
@@ -1120,15 +1209,18 @@ a.ui-state-active {
   text-align: center;
   position: relative;
   padding: 52px 0 40px; }
-  @media (max-width: 960px) {
-    .map {
-      padding: 52px 20px 40px; } }
   .map .hotel-info {
     position: absolute;
     top: 181px;
     left: 32px;
     background: #fff;
     padding: 31px 86px; }
+    @media (max-width: 767px) {
+      .map .hotel-info {
+        bottom: 70px;
+        left: 20px;
+        padding: 31px 30px;
+        top: auto; } }
     .map .hotel-info h2 {
       font-size: 22px; }
   .map .logo {
@@ -1149,6 +1241,9 @@ a.ui-state-active {
     line-height: 1.8; }
   .map iframe {
     margin: 20px 0 0; }
+    @media (max-width: 767px) {
+      .map iframe {
+        height: 678px; } }
 
 .gallery {
   background: #2f3e63; }
@@ -1182,26 +1277,45 @@ a.ui-state-active {
   width: 32%;
   float: left;
   padding-right: 7px; }
+  @media (max-width: 767px) {
+    .masonry-gallery .left {
+      width: 48%; } }
 
 .masonry-gallery .right {
   width: 68%;
   float: left;
   padding-left: 7px; }
+  @media (max-width: 767px) {
+    .masonry-gallery .right {
+      width: 52%; } }
   .masonry-gallery .right .top .top-left {
     width: 50%;
     float: left;
     padding-right: 7px; }
+    @media (max-width: 767px) {
+      .masonry-gallery .right .top .top-left {
+        width: 100%;
+        padding-right: 0; } }
   .masonry-gallery .right .top .top-right {
     width: 50%;
     float: left;
     padding-left: 7px; }
+    @media (max-width: 767px) {
+      .masonry-gallery .right .top .top-right {
+        display: none; } }
   .masonry-gallery .right .bottom .bottom-image {
     width: 31.5%;
     float: left;
     margin-left: 13px;
     margin-top: 7px; }
+    @media (max-width: 767px) {
+      .masonry-gallery .right .bottom .bottom-image {
+        width: 45%; } }
     .masonry-gallery .right .bottom .bottom-image:first-child {
       margin-left: 0; }
+    @media (max-width: 767px) {
+      .masonry-gallery .right .bottom .bottom-image:last-child {
+        display: none; } }
   .masonry-gallery .right .bottom img {
     max-height: 136px; }
     @media (max-width: 960px) {
@@ -1227,6 +1341,9 @@ footer {
   margin: 0 auto;
   text-align: center;
   padding: 60px 0 40px; }
+  @media (max-width: 767px) {
+    .footer_container {
+      padding: 60px 20px 40px; } }
   .footer_container ul {
     list-style: none;
     display: table;

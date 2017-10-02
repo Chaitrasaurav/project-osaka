@@ -10,6 +10,9 @@
 	@media (max-width: 960px) {
   		padding:49px 20px;
   	}
+  	@media (max-width: 767px) {
+  		padding: 49px 20px 30px;
+  	}
 	h2{
 		color:#ffffff;
 		margin-bottom: 15px;
@@ -24,6 +27,9 @@
   		font-weight: bold;
   		margin: 50px 0 10px;
   		cursor:pointer;
+  		@media (max-width: 767px) {
+  			margin: 10px 0 10px;
+  		}
 	}
 }
 

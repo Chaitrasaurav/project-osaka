@@ -342,7 +342,7 @@ header {
   left: 0;
   background-color: #fff;
   width: 100%;
-  z-index: 1; }
+  z-index: 2; }
 
 .mobile-header {
   display: none; }
@@ -699,13 +699,24 @@ a.ui-state-active {
   .form .form__control {
     width: 150px;
     float: left;
-    margin-right: 20px; }
+    margin-right: 20px;
+    position: relative; }
     @media (max-width: 960px) {
       .form .form__control {
         margin-right: 0; } }
     @media (max-width: 767px) {
       .form .form__control {
         width: 44%; } }
+  .form .calendar i {
+    position: absolute;
+    right: 10px;
+    top: 41px;
+    z-index: 1; }
+    @media (max-width: 767px) {
+      .form .calendar i {
+        right: 20px; } }
+  .form .info-icon {
+    cursor: pointer; }
   @media (max-width: 767px) {
     .form .desktop-label {
       display: none; } }
@@ -962,8 +973,13 @@ a.ui-state-active {
       .accommodation_slider .slick-list li p span {
         font-weight: bold;
         color: #222d49;
-        display: block;
-        font-family: PT-Serif; }
+        font-family: PT-Serif;
+        display: inline; }
+        .accommodation_slider .slick-list li p span:first-child {
+          display: block;
+          color: #aaabae;
+          font-size: 14px;
+          font-weight: 400; }
     .accommodation_slider .slick-list li a {
       border-radius: 100px;
       background-color: #ff8900;
@@ -1062,7 +1078,8 @@ a.ui-state-active {
         margin-right: 10px !important;
         position: relative;
         padding: 20px 10px 30px;
-        margin-bottom: 20px; } }
+        margin-bottom: 20px;
+        text-align: left; } }
     @media (max-width: 767px) {
       .nearby-places .accommodation_slider .slick-slide img {
         float: left;
@@ -1071,13 +1088,28 @@ a.ui-state-active {
     @media (max-width: 767px) {
       .nearby-places .accommodation_slider .slick-slide h3 {
         margin: 0;
-        font-size: 15px; } }
+        font-size: 15px;
+        padding-left: 150px; } }
+    .nearby-places .accommodation_slider .slick-slide div img {
+      display: inline;
+      margin: 0 -12px 0 -12px;
+      width: auto; }
     @media (max-width: 767px) {
       .nearby-places .accommodation_slider .slick-slide div {
         position: absolute;
         left: 20px;
         text-align: left;
         top: 130px; } }
+    @media (max-width: 767px) {
+      .nearby-places .accommodation_slider .slick-slide p {
+        padding-left: 150px; } }
+    @media (max-width: 767px) {
+      .nearby-places .accommodation_slider .slick-slide a {
+        margin-left: 150px; } }
+  .nearby-places .slick-dots {
+    display: none !important; }
+  .nearby-places .slick-arrow {
+    display: none !important; }
   .nearby-places .see-all {
     margin: 41px 0 0; }
     @media (max-width: 767px) {
@@ -1256,6 +1288,9 @@ a.ui-state-active {
   @media (max-width: 960px) {
     .gallery_container {
       padding: 49px 20px; } }
+  @media (max-width: 767px) {
+    .gallery_container {
+      padding: 49px 20px 30px; } }
   .gallery_container h2 {
     color: #ffffff;
     margin-bottom: 15px; }
@@ -1269,6 +1304,9 @@ a.ui-state-active {
     font-weight: bold;
     margin: 50px 0 10px;
     cursor: pointer; }
+    @media (max-width: 767px) {
+      .gallery_container a {
+        margin: 10px 0 10px; } }
 
 .masonry-gallery img {
   width: 100%; }

@@ -152,35 +152,61 @@ function init() {
 
 	  	var slickConfig = {
 			lazyLoad: 'ondemand',
-			slidesToShow: 3,
-			slidesToScroll: 3,
 			infinite: false,
 			speed: 500,
 			dots: true,
-			responsive: [	   
-			{
-			  breakpoint: 900,
-			  settings: {
-			    slidesToShow: 2,
-			    slidesToScroll: 2
+			responsive: [
+			  {
+			    breakpoint: 900,
+			    settings: {
+			      slidesToShow: 2,
+			      slidesToScroll: 2
+			    }
+			  },
+			  {
+			    breakpoint: 600,
+			    settings: {
+			      slidesToShow: 1,
+			      slidesToScroll: 1,
+			      
+			    }
 			  }
-			},
-			{
-			  breakpoint: 600,
-			  settings: {
-			    slidesToShow: 1,
-			    slidesToScroll: 1,
-			  }
-			}]
+			]
 		},
 		ele = '.js-accomodation',
 		$ele = $('.js-accomodation'),
-		rooms = response.data.rooms;
-		var roomsLength = rooms.length,
-			i = 0,
-			date = new Date(),
-			currentDate,
-			currentDateObj;
+		rooms = response.data.rooms,
+		roomsLength = rooms.length,
+		i = 0,
+		date = new Date(),
+		currentDate,
+		currentDateObj
+		noOfSlide = 3;
+
+		if($(window).width() < 900 && $(window).width() > 600) {
+			noOfSlide = 2;
+		}else if($(window).width() < 600) {
+			noOfSlide = 1;
+		}
+
+		for (var j = 0; j < roomsLength; j++) {
+			$ele.append('<li>\
+				<img src="../dist/images/room-image.png">\
+				<h3>' + rooms[j].title + '</h3>\
+				<p><span>Starting from:</span><span class="js-accomodation-price"></span><span>/night</span></p>\
+				<a href="#">Book Now</a>\
+			</li>')
+		}
+
+		slickConfig.slidesToShow = noOfSlide;
+		slickConfig.slidesToScroll = noOfSlide;
+		if(rooms.length <= noOfSlide) {
+			slickConfig.dots = false;
+			slickConfig.arrows = false;
+		}
+		$ele.slick(slickConfig);
+		$ele.find('.slick-arrow').appendTo( $ele.find('.slick-dots'));
+		$ele.find('.slick-arrow').addClass('icon arrow');	
 		
 		function buildList() {
 			if(i < roomsLength) {
@@ -206,12 +232,13 @@ function init() {
 							lowestPrice = response.data[0].pricePerNight;
 							currency = response.data[0].currency_html;
 
-							$ele.append('<li>\
-								<img src="../dist/images/room-image.png">\
-								<h3>' + rooms[i].title + '</h3>\
-								<p>Starting from: <span> ' + currency + ' ' + lowestPrice + '/night </span></p>\
-								<a href="#">Book Now</a>\
-							</li>')
+							// $ele.append('<li>\
+							// 	<img src="../dist/images/room-image.png">\
+							// 	<h3>' + rooms[i].title + '</h3>\
+							// 	<p>Starting from: <span> ' + currency + ' ' + lowestPrice + '/night </span></p>\
+							// 	<a href="#">Book Now</a>\
+							// </li>')
+							$($ele.find('li')[i]).find('.js-accomodation-price').html(currency + ' ' + lowestPrice);
 							currentDateObj = null;
 							date = new Date();
 							i++;
@@ -222,14 +249,6 @@ function init() {
 						buildList();
 					}
 				});
-			} else {
-				if(rooms.length <= slickConfig.slidesToScroll) {
-					slickConfig.dots = false;
-					slickConfig.arrows = false;
-				}
-				$ele.slick(slickConfig);
-				$ele.find('.slick-arrow').appendTo( ele + ' .slick-dots');
-				$ele.find('.slick-arrow').addClass('icon arrow');
 			}
 		};
 		buildList();
@@ -458,6 +477,7 @@ $('.js-tabs-select').on('change', function(e) {
 
 	$('ul.js-tabs li[data-tab="'+ tabId +'"]').addClass('current');
 	$("#"+tabId).addClass('current');
+	$("#"+tabId).find('.js-tab-slider').slick('setPosition', 0);
 });
 
 $('ul.js-tabs li').click(function(){
@@ -476,7 +496,24 @@ $('ul.js-tabs li').click(function(){
 var slickConfig = {
 	lazyLoad: 'ondemand',
 	infinite: false,
-	speed: 500
+	speed: 500,
+	responsive: [
+	  {
+	    breakpoint: 900,
+	    settings: {
+	      slidesToShow: 2,
+	      slidesToScroll: 2
+	    }
+	  },
+	  {
+	    breakpoint: 600,
+	    settings: {
+	      slidesToShow: 1,
+	      slidesToScroll: 1,
+	      
+	    }
+	  }
+	]
 };
 
 var noOfSlide = 3;
@@ -514,7 +551,7 @@ var createSlider = function(ele) {
 			slickConfig.arrows = false;
 		}
 		$eleOrEles.slick(slickConfig);
-		$eleOrEles.find('.slick-arrow').appendTo( ele + ' .slick-dots');
+		$eleOrEles.find('.slick-arrow').appendTo( $eleOrEles.find('.slick-dots'));
 		$eleOrEles.find('.slick-arrow').addClass('icon arrow');
 	}
 };

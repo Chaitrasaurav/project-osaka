@@ -10,10 +10,11 @@
 </head>
 <body class="en" data-lang="en">
 	<div class="mobile-header">
-		<div class="hamburger js-toggle-menu">Menu</div>
+		<i class="icon logo-mobile"></i>
+		<div class="hamburger js-toggle-menu"><span>Menu</span> <i class="icon hamburguer-icon"></i></div>
 		<div class="mobile-menu js-mobile-menu hidden">
-			Mobile Menu
-			<div class="js-close-mobile-menu">Close x</div>
+			<i class="icon logo-mobile"></i>
+			<div class="js-close-mobile-menu close-mobile-menu"><span>Close</span> <i class="icon close-menu"></i></div>
 			<ul>
 				<li><a class="js-header-link" href="#attraction">Hotel Attractions</a></li>
 				<li><a class="js-header-link" href="#accommodation">Accommodation</a></li>
@@ -21,6 +22,16 @@
 				<li><a class="js-header-link" href="#restaurant">Restaurants &amp; Bars</a></li>
 				<li><a class="js-header-link" href="#guide">Floor Guide</a></li>
 				<li><a class="js-header-link" href="#sightseeing">Sightseeing</a></li>
+			</ul>
+			<ul class="mobile-header_links">
+				<li><a href="#" data-sheet="headerLink2">Faq</a></li>
+				<li><a href="#" data-sheet="headerLink3">Inquiries</a></li>
+				<li class="header_cta-dropdown">English <i class="icon down-arrow"></i>
+					<ul class="header_language">
+						<li><a href="../ja/index.html">日本語</a></li>
+					</ul>
+				</li>
+				<li><span>Call us</span><a href="tel:81665771111"><i class="icon phone-icon"></i>81 6 6577 1111</a></li>
 			</ul>
 		</div>	
 	</div>
@@ -34,7 +45,7 @@
 			</ul>
 			<ul class="header_cta">
 				<li><a href="tel:81665771111"><i class="icon phone-icon"></i>81 6 6577 1111</a></li>
-				<li class="header_cta-dropdown">En <i class="icon down-arrow"></i>
+				<li class="header_cta-dropdown">English <i class="icon down-arrow"></i>
 					<ul class="header_language">
 						<li><a href="../ja/index.html">日本語</a></li>
 					</ul>
@@ -59,7 +70,7 @@
 				<div class="stage_content">
 					<h3>Welcome to the Hotel</h3>
 					<h1>Osaka Baytower</h1>
-					<h3>The Hotel of most beautiful view of the city</h3>
+					<h3><span>The Hotel of most beautiful view of the city</span></h3>
 				</div>
 				<div class="form">
 					<h4>Reservation</h4>
@@ -344,27 +355,75 @@
 		<div class="gallery_container">
 			<h3>Around the hotel</h3>
 			<h2>Photo gallery</h2>
-			<ul class="masonryGrid js-grid">
-				<li class="grid show">
-					<img src="../dist/images/photo-1.png" class="grid-item">
-					<img src="../dist/images/photo-2.png" class="grid-item">					
-					<img src="../dist/images/photo-5.png" class="grid-item">
-					<img src="../dist/images/photo-3.png" class="grid-item">
-					<img src="../dist/images/photo-4.png" class="grid-item">
-					<img src="../dist/images/photo-6.png" class="grid-item">
-					<img src="../dist/images/photo-7.png" class="grid-item">
-					<img src="../dist/images/photo-8.png" class="grid-item">
+			<ul class="masonry-gallery">
+				<li class="first-set clearfix">
+					<div class="left">
+						<img src="../dist/images/photo-1.png">
+					</div>
+					<div class="right">
+						<div class="top">
+							<div class="top-left">
+								<img src="../dist/images/photo-2.png" class="grid-item">
+								<div class="top-left-columns clearfix">
+									<div class="top-left-columns-left">
+										<img src="../dist/images/photo-3.png" class="grid-item">
+									</div>
+									<div class="top-left-columns-right">
+										<img src="../dist/images/photo-4.png" class="grid-item">
+									</div>
+								</div>																
+							</div>
+							<div class="top-right">
+								<img src="../dist/images/photo-5.png" class="grid-item">
+							</div>
+						</div>
+						<div class="bottom clearfix">
+							<div class="bottom-image">
+								<img src="../dist/images/photo-6.png" class="grid-item">
+							</div>
+							<div class="bottom-image">
+								<img src="../dist/images/photo-7.png" class="grid-item">
+							</div>
+							<div class="bottom-image">
+								<img src="../dist/images/photo-8.png" class="grid-item">
+							</div>
+						</div>
+					</div>													
 				</li>
-				<!-- <li class="grid1 hidden">
-					<img src="../dist/images/photo-1.png" class="grid-item">
-					<img src="../dist/images/photo-2.png" class="grid-item">					
-					<img src="../dist/images/photo-5.png" class="grid-item">
-					<img src="../dist/images/photo-3.png" class="grid-item">
-					<img src="../dist/images/photo-4.png" class="grid-item">
-					<img src="../dist/images/photo-6.png" class="grid-item">
-					<img src="../dist/images/photo-7.png" class="grid-item">
-					<img src="../dist/images/photo-8.png" class="grid-item">
-				</li> -->
+				<li class="second-set clearfix">
+					<div class="left">
+						<img src="../dist/images/photo-1.png">
+					</div>
+					<div class="right">
+						<div class="top">
+							<div class="top-left">
+								<img src="../dist/images/photo-2.png" class="grid-item">
+								<div class="top-left-columns clearfix">
+									<div class="top-left-columns-left">
+										<img src="../dist/images/photo-3.png" class="grid-item">
+									</div>
+									<div class="top-left-columns-right">
+										<img src="../dist/images/photo-4.png" class="grid-item">
+									</div>
+								</div>																
+							</div>
+							<div class="top-right">
+								<img src="../dist/images/photo-5.png" class="grid-item">
+							</div>
+						</div>
+						<div class="bottom clearfix">
+							<div class="bottom-image">
+								<img src="../dist/images/photo-6.png" class="grid-item">
+							</div>
+							<div class="bottom-image">
+								<img src="../dist/images/photo-7.png" class="grid-item">
+							</div>
+							<div class="bottom-image">
+								<img src="../dist/images/photo-8.png" class="grid-item">
+							</div>
+						</div>
+					</div>													
+				</li>
 			</ul>
 			<a href="#" class="js-more-photos">Load more photos</a>
 		</div>

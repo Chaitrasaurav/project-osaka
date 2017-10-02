@@ -1,9 +1,15 @@
 .form{
 	padding: 93px 0 0;
+	@media (max-width: 767px) {
+		padding: 45px 0 0;
+	}
 	h4{
 		color:#ffffff;
 		font-size:26px;
 		text-align:center;
+		@media (max-width: 767px) {
+			font-size:20px;
+		}
 	}
 
 	.form-container {
@@ -23,6 +29,15 @@
 		    border-right: 15px solid transparent;
 		    border-bottom: 15px solid #fff;
 		}
+		@media (max-width: 960px) {
+			display:table;
+			width:700px;
+			margin:20px auto 0;
+		}
+		@media (max-width: 767px) {
+			width:100%;
+			padding: 30px 20px;
+		}
 	}
 
 	.js-is-invalid {
@@ -32,10 +47,19 @@
 		width: 150px;
 		float: left;
 		margin-right:20px;
+		@media (max-width: 960px) {
+			margin-right:0;
+		}
 		
 	}
 	.form_guestWrap .form__control{
 		width:130px;
+		@media (max-width: 960px) {
+			margin-right:20px;
+		}
+		@media (max-width: 767px) {
+			margin-right:15px;
+		}
 	}
 	input{
 		width:100%;
@@ -64,6 +88,13 @@
   			font-size: 12px;
   			opacity:0.5;
   		}
+  		@media (max-width: 960px) {
+			float: none;
+		    position: relative;
+		    top: 20px;
+		    margin: 9px auto 0;
+		    display: table;
+		}
     }
     .input-wrap {
     	position: relative;

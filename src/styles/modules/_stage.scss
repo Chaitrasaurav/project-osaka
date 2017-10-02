@@ -11,21 +11,41 @@
 	@media (max-width: 1300px) {
     	background-size: auto;
     }
+    @media (max-width: 767px) {
+    	background: url(../images/stage-image-mobile.png) no-repeat top -55px center;
+    	background-size: 100% 495px;
+    }
 }
 .stage_wrapper{
 	max-width: $desktop-max-width;
 	margin:0 auto;
 	padding: 0 0 59px;
+	@media (max-width: 960px) {
+  		padding:0 20px 59px;
+  	}
 	.stage_links{
 		padding: 71px 0;
+		@media (max-width: 767px) {
+			display: none;
+		}
 		ul{
 			list-style: none;
+			display: table;
+    		margin: 0 auto;
 			li{
 				display: block;
 				float:left;
 				a{
 					display:block;
-					margin-right: 34px;					
+					margin-right: 34px;	
+					@media (max-width: 960px) {
+						margin-right:15px;
+						margin-right:10px;
+					}	
+					@media (max-width: 830px) {
+						font-size: 13px;
+
+					}			
 					img{
 						max-width:100%;
 					}
@@ -38,6 +58,9 @@
 			}
 			.logo{
 				margin: -16px 7px 0 17px;
+				@media (max-width: 960px) {
+				    margin: -16px 5px 0 5px;
+				}	
 			}
 		}
 	}
@@ -46,11 +69,24 @@
 		margin:0 auto;
 		text-align:center;
 		padding-top: 27px;
+		@media (max-width: 767px) {
+			padding-top: 60px;
+		}
 		h3{
 			font-family: $font-family-secondary;
 			font-size:22px;
 			color:#ffffff;
 			position: relative;
+			@media (max-width: 767px) {
+				font-size:18px !important;
+			}
+			span{
+				@media (max-width: 767px) {
+					max-width: 250px;
+	    			margin: 0 auto;
+	    			display:block;
+				}
+			}
 			&:before{
 				content: '';
 				position: absolute;
@@ -59,6 +95,10 @@
 				background: #ffffff;
 				width: 155px;
 				height:1px;
+				@media (max-width: 767px) {
+					width:50px;
+					top:14px;
+				}
 			}
 			&:after{
 				content: '';
@@ -68,18 +108,31 @@
 				background: #ffffff;
 				width:155px;
 				height:1px;
+				@media (max-width: 767px) {
+					width:50px;
+					top:14px;
+				}
 			}
 			&:last-child{
 				&:after{
 					width:53px;
+					@media (max-width: 767px) {
+						width:30px;
+					}
 				}
 				&:before{
 					width:53px;
+					@media (max-width: 767px) {
+						width:30px;
+					}
 				}
 			}
 		}
 		h1{
 			margin: -3px 0 8px;
+			@media (max-width: 767px) {
+				margin:20px 0;
+			}
 		}
 	}
 }

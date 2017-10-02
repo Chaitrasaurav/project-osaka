@@ -4,6 +4,9 @@
 	text-align:center;
 	position: relative;
 	padding: 52px 0 40px;
+	@media (max-width: 960px) {
+  		padding: 52px 20px 40px;
+  	}
 
 	.hotel-info{
 		position: absolute;

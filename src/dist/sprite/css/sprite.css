@@ -8,7 +8,7 @@
     display: inline-block;
     background-image: url("../svg/sprite.svg");
     background-repeat: no-repeat;
-    background-size: 16.2em 31em;
+    background-size: 16.2em 38.5em;
 }
 
 .no-svg .icon:before {
@@ -44,8 +44,17 @@
 
 
 
-  .icon.confirm-room:before {
+  .icon.close-menu:before {
       background-position: 0em -5.2em;
+      width: 2em;
+      height: 2em;
+  }
+
+
+
+
+  .icon.confirm-room:before {
+      background-position: 0em -7.2em;
       width: 1.4em;
       height: 1em;
   }
@@ -54,7 +63,7 @@
 
 
   .icon.delete-icon:before {
-      background-position: 0em -6.2em;
+      background-position: 0em -8.2em;
       width: 2.1em;
       height: 2.4em;
   }
@@ -63,7 +72,7 @@
 
 
   .icon.down-arrow:before {
-      background-position: 0em -8.6em;
+      background-position: 0em -10.6em;
       width: 1.2em;
       height: 0.7em;
   }
@@ -71,8 +80,17 @@
 
 
 
+  .icon.hamburguer-icon:before {
+      background-position: 0em -11.3em;
+      width: 2em;
+      height: 2em;
+  }
+
+
+
+
   .icon.info-icon:before {
-      background-position: 0em -9.3em;
+      background-position: 0em -13.3em;
       width: 1.4em;
       height: 1.4em;
   }
@@ -81,7 +99,7 @@
 
 
   .icon.location-icon:before {
-      background-position: 0em -10.7em;
+      background-position: 0em -14.7em;
       width: 1.8em;
       height: 2.6em;
   }
@@ -90,7 +108,7 @@
 
 
   .icon.logo:before {
-      background-position: 0em -13.3em;
+      background-position: 0em -17.3em;
       width: 16.2em;
       height: 8.3em;
   }
@@ -98,8 +116,17 @@
 
 
 
+  .icon.logo-mobile:before {
+      background-position: 0em -25.6em;
+      width: 16.2em;
+      height: 3.5em;
+  }
+
+
+
+
   .icon.phone-icon:before {
-      background-position: 0em -21.6em;
+      background-position: 0em -29.1em;
       width: 1.8em;
       height: 1.8em;
   }
@@ -108,7 +135,7 @@
 
 
   .icon.rate:before {
-      background-position: 0em -23.4em;
+      background-position: 0em -30.9em;
       width: 3.8em;
       height: 3.8em;
   }
@@ -117,7 +144,7 @@
 
 
   .icon.rate-filled:before {
-      background-position: 0em -27.2em;
+      background-position: 0em -34.7em;
       width: 3.8em;
       height: 3.8em;
   }

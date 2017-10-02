@@ -193,7 +193,7 @@ function init() {
 			$ele.append('<li>\
 				<img src="../dist/images/room-image.png">\
 				<h3>' + rooms[j].title + '</h3>\
-				<p><span>Starting from:</span><span class="js-accomodation-price"></span><span>/night</span></p>\
+				<p class="spinner js-spinner"><span>Starting from:</span><span class="js-accomodation-price"></span><span>/night</span></p>\
 				<a href="#">Book Now</a>\
 			</li>')
 		}
@@ -238,6 +238,7 @@ function init() {
 							// 	<p>Starting from: <span> ' + currency + ' ' + lowestPrice + '/night </span></p>\
 							// 	<a href="#">Book Now</a>\
 							// </li>')
+							$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner');
 							$($ele.find('li')[i]).find('.js-accomodation-price').html(currency + ' ' + lowestPrice);
 							currentDateObj = null;
 							date = new Date();
@@ -300,7 +301,7 @@ function init() {
 						if(response.data.length) {
 							lowestPrice = response.data[0].pricePerNight;
 							currency = response.data[0].currency_html;
-
+							$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner');
 							$($ele.find('li')[i]).find('.js-nearbuy-price').html(currency + ' ' + lowestPrice);
 							currentDateObj = null;
 							date = new Date();

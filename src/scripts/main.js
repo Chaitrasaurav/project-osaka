@@ -348,14 +348,14 @@ $(document).on('mouseover', '.ui-datepicker-calendar td a', function(e){
 $('.js-select-guest').on('click', function(e) {
 	$('.js-select-guest-container').toggleClass('hidden');
 	$('html, body').animate({
-        scrollTop: $('.js-select-guest').offset().top
+        scrollTop: $('.js-select-guest').offset().top - 100
     }, 1000);
 });
 
 $('.js-cancel-select-guest').on('click', function() {
 	$('.js-select-guest-container').toggleClass('hidden');
 	$('html, body').animate({
-        scrollTop: $('#mainForm').offset().top
+        scrollTop: $('#mainForm').offset().top - 100
     }, 1000);
 });
 

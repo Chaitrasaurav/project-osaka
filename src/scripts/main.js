@@ -346,6 +346,9 @@ $(document).on('mouseover', '.ui-datepicker-calendar td a', function(e){
 });
 
 $('.js-select-guest').on('click', function(e) {
+	if(!$('.js-datepicker-modal').hasClass('hidden')) {
+	      	$('.js-datepicker-modal').addClass('hidden');
+	    }	
 	$('.js-select-guest-container').toggleClass('hidden');
 	$('html, body').animate({
         scrollTop: $('.js-select-guest').offset().top - 100
@@ -623,6 +626,7 @@ $('.js-main-form-btn').on('click', function(){
             init_callback: function(elem){$(elem).removeClass("gray_out")}
         }).init();
 });
+ 
 
 $('.js-toggle-menu').on('click', function(e) {
 	$('.js-mobile-menu').fadeIn();

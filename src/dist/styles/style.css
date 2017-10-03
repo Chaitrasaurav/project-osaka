@@ -1160,6 +1160,20 @@ a.ui-state-active {
       .nearby-places .see-all {
         margin: 20px 0 0; } }
 
+.star {
+  background: url(../images/icons/star.svg);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0 -12px; }
+
+.star-filled {
+  background: url(../images/icons/star-filled.svg);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0 -12px; }
+
 .rating {
   max-width: 940px;
   margin: 0 auto;
@@ -1322,7 +1336,12 @@ a.ui-state-active {
     margin: 20px 0 0; }
     @media (max-width: 767px) {
       .map iframe {
-        height: 678px; } }
+        height: 828px; } }
+  .map .map-container {
+    width: 100%;
+    overflow: hidden;
+    height: 673px;
+    margin: 20px 0 0; }
 
 .gallery {
   background: #2f3e63; }

@@ -1190,7 +1190,28 @@ a.ui-state-active {
     display: inline-block;
     padding: 10px 20px;
     text-transform: capitalize;
-    font-weight: bold; }
+    font-weight: bold;
+    margin-top: 25px; }
+  .rating iframe {
+    border: none;
+    height: 65px;
+    position: relative;
+    left: 6%; }
+    @media (max-width: 767px) {
+      .rating iframe {
+        left: 0; } }
+  .rating p {
+    max-width: 411px;
+    margin: 0 auto; }
+    @media (max-width: 767px) {
+      .rating p {
+        width: 100%;
+        padding: 0 20px;
+        text-align: left; } }
+
+.trustscore {
+  display: table !important;
+  margin: 0 auto !important; }
 
 .tabs {
   background: #f2f5f7;

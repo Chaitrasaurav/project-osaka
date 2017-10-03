@@ -16,5 +16,30 @@
   		padding:10px 20px;
   		text-transform: capitalize;
   		font-weight:bold;
+  		margin-top:25px;
 	}
+
+	iframe{
+		border: none;
+    	height: 65px;
+    	position:relative;
+    	left:6%;
+    	@media (max-width: 767px) {
+    		left:0;
+    	}
+	}
+	p{
+		max-width: 411px;
+    	margin: 0 auto;
+    	@media (max-width: 767px) {
+    		width:100%;
+    		padding:0 20px;
+    		text-align:left;
+    	}
+	}
+
 }
+.trustscore{
+		display: table !important;
+    margin: 0 auto !important;
+	}

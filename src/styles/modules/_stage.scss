@@ -7,10 +7,8 @@
 }
 .stage_container{
 	background: url(../images/stage-image.png) no-repeat top center;
-	background-size: contain;
-	@media (max-width: 1300px) {
-    	background-size: auto;
-    }
+	background-size: 100% 628px;
+	
     @media (max-width: 767px) {
     	background: url(../images/stage-image-mobile.png) no-repeat top -55px center;
     	background-size: 100% 495px;
@@ -213,7 +211,7 @@ a.ui-state-active{
 .ui-widget.ui-widget-content {
 	width: 600px !important;
 	@media(max-width: 767px) {
-    	width: 94% !important;
+    	width: 100% !important;
     	margin-left: 0;
     	margin-right: 0;
     }
@@ -225,9 +223,12 @@ a.ui-state-active{
     z-index: 1;
     border: 1px solid #dddee0;
     border-radius:3px;
-
+    @media (max-width: 960px) {
+    	top: 120px;
+    }
     @media(max-width: 767px) {
     	width: 100%;
+    	left:0;
     }
     .close-datepicker{
     	position: absolute;

@@ -10,17 +10,28 @@
 </head>
 <body class="jp ja_JP" data-lang="jp" data-locale="ja_JP">
 	<div class="mobile-header">
-		<div class="hamburger js-toggle-menu">Menu</div>
+		<i class="icon logo-mobile"></i>
+		<div class="hamburger js-toggle-menu"><span>Menu</span> <i class="icon hamburguer-icon"></i></div>
 		<div class="mobile-menu js-mobile-menu hidden">
-			Mobile Menu
-			<div class="js-close-mobile-menu">Close x</div>
+			<i class="icon logo-mobile"></i>
+			<div class="js-close-mobile-menu close-mobile-menu"><span>Close</span> <i class="icon close-menu"></i></div>
 			<ul>
-				<li><a class="js-header-link" href="#attraction">Hotel Attractions</a></li>
+				<li><a class="js-header-link" href="#attractions">Hotel Attractions</a></li>
 				<li><a class="js-header-link" href="#accommodation">Accommodation</a></li>
 				<li><a class="js-header-link" href="#access">Access</a></li>
-				<li><a class="js-header-link" href="#restaurant">Restaurants &amp; Bars</a></li>
-				<li><a class="js-header-link" href="#guide">Floor Guide</a></li>
-				<li><a class="js-header-link" href="#sightseeing">Sightseeing</a></li>
+				<li><a class="js-header-link" href="#restaurants">Restaurants &amp; Bars</a></li>
+				<li><a class="js-header-link" href="#guide">Review</a></li>
+				<li><a class="js-header-link" href="#sightseeing">Nearby Hotels</a></li>
+			</ul>
+			<ul class="mobile-header_links">
+				<li><a href="#" target="_blank" data-sheet="headerLink2">Faq</a></li>
+				<li><a href="#" target="_blank" data-sheet="headerLink3">Inquiries</a></li>
+				<li class="header_cta-dropdown">日本語 <i class="icon down-arrow"></i>
+					<ul class="header_language">
+						<li><a href="../en/index.html">English</a></li>
+					</ul>
+				</li>
+				<li><span>Call us</span><a href="tel:81665771111"><i class="icon phone-icon"></i>81 6 6577 1111</a></li>
 			</ul>
 		</div>	
 	</div>
@@ -29,14 +40,14 @@
 		<div class="header_wrapper clearfix">
 			<ul class="header_links">
 				<li><a href="#" data-sheet="headerLink1">Home</a></li>
-				<li><a href="#" data-sheet="headerLink2">Faq</a></li>
-				<li><a href="#" data-sheet="headerLink3">Inquiries</a></li>
+				<li><a href="#" target="_blank" data-sheet="headerLink2">Faq</a></li>
+				<li><a href="#" target="_blank" data-sheet="headerLink3">Inquiries</a></li>
 			</ul>
 			<ul class="header_cta">
 				<li><a href="tel:81665771111"><i class="icon phone-icon"></i>81 6 6577 1111</a></li>
-				<li class="header_cta-dropdown">En <i class="icon down-arrow"></i>
+				<li class="header_cta-dropdown">日本語 <i class="icon down-arrow"></i>
 					<ul class="header_language">
-						<li><a href="../ja/index.html">日本語</a></li>
+						<li><a href="../en/index.html">English</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -47,13 +58,13 @@
 			<div class="stage_wrapper">
 				<div class="stage_links clearfix">
 					<ul>
-						<li><a class="js-header-link" href="#attraction">Hotel Attractions</a></li>
+						<li><a class="js-header-link" href="#attractions">Hotel Attractions</a></li>
 						<li><a class="js-header-link" href="#accommodation">Accommodation</a></li>
 						<li><a class="js-header-link" href="#access">Access</a></li>
 						<li class="logo"><a href="#"><i class="icon logo"></i></a></li>
-						<li><a class="js-header-link" href="#restaurant">Restaurants &amp; Bars</a></li>
-						<li><a class="js-header-link" href="#guide">Floor Guide</a></li>
-						<li><a class="js-header-link" href="#sightseeing">Sightseeing</a></li>
+						<li><a class="js-header-link" href="#restaurants">Restaurants &amp; Bars</a></li>
+						<li><a class="js-header-link" href="#guide">Review</a></li>
+						<li><a class="js-header-link" href="#sightseeing">Nearby Hotels</a></li>
 					</ul>
 				</div>
 				<div class="stage_content">
@@ -69,7 +80,8 @@
 								<input type="hidden" id="property" name="hotelNo" value="68555">
 							</div>
 							<div class="form_guestWrap">
-								<div class="form__control">
+								<div class="form__control calendar">
+									<i class="icon calendar-icon"></i>
 									<label class="form__label">Check In</label>
 									<div class="input-wrap">
 										<input class="datepicker form__field form__field--sm js-datepicker check-in required" type="text" id="checkIn" placeholder="Select" readonly>
@@ -78,7 +90,8 @@
 										<input type="hidden" name="ciDateD"/>
 									</div>
 								</div>
-								<div class="form__control">
+								<div class="form__control calendar">
+									<i class="icon calendar-icon"></i>
 									<label class="form__label">Check Out</label>
 									<div class="input-wrap">
 										<input class="datepicker form__field form__field--sm js-datepicker check-out required" type="text" id="checkOut" placeholder="Select" readonly>
@@ -91,7 +104,7 @@
 									<div class="datepicker-container js-datepicker-container"></div>
 								</div>
 								<div class="form__control guest-count">
-									<label class="form__label">No of guests</label>
+									<label class="form__label">Guests</label>
 									<div class="input-wrap">
 										<i class="icon down-arrow"></i>
 										<input class="form__field form__field--sm required js-select-guest guest" placeholder="Guests" type="text" value="2" readonly>
@@ -147,7 +160,8 @@
 							</div>
 							
 							<div class="form__control">
-								<label class="form__label">Have a promo code?</label>
+								<label class="form__label desktop-label">Have a promo code?</label>
+								<label class="form__label mobile-label">Promo code?</label>
 								<div class="input-wrap">
 									<input class="form__field form__field--sm" type="text" name="code" id="code" placeholder="Optional"><i class="icon info-icon"></i>
 								</div>
@@ -157,45 +171,9 @@
 					</div>
 				</div>
 				<div class="accommodation" id="accommodation">
-					<h3>The best our rooms</h3>
+					<h3>Our best rooms</h3>
 					<h2>Accommodations</h2>
 					<ul class="accommodation_slider js-accomodation">
-						<li>
-							<img src="../dist/images/room-image.png">
-							<h3>Single room</h3>
-							<p>Starting from: <span>$29/night</span></p>
-							<a href="#">Book Now</a>
-						</li>
-						<li>
-							<img src="../dist/images/room-image.png">
-							<h3>Single room</h3>
-							<p>Starting from: <span>$29/night</span></p>
-							<a href="#">Book Now</a>
-						</li>
-						<li>
-							<img src="../dist/images/room-image.png">
-							<h3>Single room</h3>
-							<p>Starting from: <span>$29/night</span></p>
-							<a href="#">Book Now</a>
-						</li>
-						<li>
-							<img src="../dist/images/room-image.png">
-							<h3>Single room</h3>
-							<p>Starting from: <span>$29/night</span></p>
-							<a href="#">Book Now</a>
-						</li>
-						<li>
-							<img src="../dist/images/room-image.png">
-							<h3>Single room</h3>
-							<p>Starting from: <span>$29/night</span></p>
-							<a href="#">Book Now</a>
-						</li>
-						<li>
-							<img src="../dist/images/room-image.png">
-							<h3>Single room</h3>
-							<p>Starting from: <span>$29/night</span></p>
-							<a href="#">Book Now</a>
-						</li> 
 					</ul>
 					<a href="#" class="see-all">see all accommodations</a>
 				</div>
@@ -203,15 +181,15 @@
 		</div>
 	</section>
 	
-	<section class="rating">
+	<section class="rating" id="guide">
 		<h2>TripAdvisor Traveller Rating:</h2>
 		<p>some text</p>
 		<a href="#">Read reviews</a>
 	</section>
-	<section class="tabs">
+	<section class="tabs" id="restaurants">
 		<div class="tabs_container">
 			<h3>Our facilities</h3>
-			<h2>Restaurants, bars &amp; more</h2>
+			<h2>Restaurants, Bars &amp; More</h2>
 			<div class="tabs-wrap">
 				<ul class="tabs-list js-tabs">
 					<li class="tab-link current" data-tab="tab-1">Restaurants</li>
@@ -344,60 +322,50 @@
 			</div>
 		</div>
 	</section>
-	<section class="gallery">
+	<section class="gallery" id="attractions">
 		<div class="gallery_container">
 			<h3>Around the hotel</h3>
 			<h2>Photo gallery</h2>
-			<ul class="masonry-gallery">
+			<ul class="masonry-gallery jlr" id="jLightroom">
 				<li class="first-set clearfix">
 					<div class="left">
-						<img src="../dist/images/photo-1.png">
+						<a href="../dist/images/photo-1.png" data-lightbox="lb1" class="jlr_item first-image"><img src="../dist/images/photo-1.png"></a>
 					</div>
 					<div class="right">
 						<div class="top">
-							<div class="left">
-								<img src="../dist/images/photo-2.png" class="grid-item">
-								<img src="../dist/images/photo-3.png" class="grid-item">
-								<img src="../dist/images/photo-4.png" class="grid-item">
+							<div class="top-left">
+								<a href="../dist/images/photo-2.png" data-lightbox="lb1" class="jlr_item"><img src="../dist/images/photo-2.png" class="grid-item"></a>
+								<div class="top-left-columns clearfix">
+									<div class="top-left-columns-left">
+										<a href="../dist/images/photo-3.png" data-lightbox="lb1" class="jlr_item"><img src="../dist/images/photo-3.png" class="grid-item"></a>
+									</div>
+									<div class="top-left-columns-right">
+										<a href="../dist/images/photo-4.png" data-lightbox="lb1" class="jlr_item"><img src="../dist/images/photo-4.png" class="grid-item"></a>
+									</div>
+								</div>																
 							</div>
-							<div class="right">
-								<img src="../dist/images/photo-5.png" class="grid-item">
-							</div>
-						</div>
-						<div class="bottom">
-							<img src="../dist/images/photo-6.png" class="grid-item">
-							<img src="../dist/images/photo-7.png" class="grid-item">
-							<img src="../dist/images/photo-8.png" class="grid-item">
-						</div>
-					</div>													
-				</li>
-				<li class="second-set clearfix">
-					<div class="left">
-						<img src="../dist/images/photo-1.png">
-					</div>
-					<div class="right">
-						<div class="top">
-							<div class="left">
-								<img src="../dist/images/photo-2.png" class="grid-item">
-								<img src="../dist/images/photo-3.png" class="grid-item">
-								<img src="../dist/images/photo-4.png" class="grid-item">
-							</div>
-							<div class="right">
-								<img src="../dist/images/photo-5.png" class="grid-item">
+							<div class="top-right">
+								<a href="../dist/images/photo-5.png" data-lightbox="lb1" class="jlr_item"><img src="../dist/images/photo-5.png" class="grid-item"></a>
 							</div>
 						</div>
 						<div class="bottom">
-							<img src="../dist/images/photo-6.png" class="grid-item">
-							<img src="../dist/images/photo-7.png" class="grid-item">
-							<img src="../dist/images/photo-8.png" class="grid-item">
+							<div class="bottom-image">
+								<a href="../dist/images/photo-6.png" data-lightbox="lb1" class="jlr_item"><img src="../dist/images/photo-6.png" class="grid-item"></a>
+							</div>
+							<div class="bottom-image">
+								<a href="../dist/images/photo-7.png" data-lightbox="lb1" class="jlr_item"><img src="../dist/images/photo-7.png" class="grid-item"></a>
+							</div>
+							<div class="bottom-image">
+								<a href="../dist/images/photo-8.png" data-lightbox="lb1" class="jlr_item"><img src="../dist/images/photo-8.png" class="grid-item"></a>
+							</div>
 						</div>
 					</div>													
-				</li>
+				</li>				
 			</ul>
-			<a href="#" class="js-more-photos">Load more photos</a>
+			<a class="more-photos js-more-photos">Load more photos</a>
 		</div>
 	</section>
-	<section class="map">
+	<section class="map" id="access">
 		<h3>Find us</h3>
 		<h2>Our location</h2>
 		<div class="hotel-info">
@@ -411,44 +379,50 @@
 		</div>
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.41200206964!2d135.4587812146295!3d34.66954979239485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!3m2!1sen!2sin!4v1506687723736" width="100%" height="523" frameborder="0" style="border:0" allowfullscreen></iframe>
 	</section>
-	<section class="nearby-places">
+	<section class="nearby-places" id="sightseeing">
 		<h3>Other MyStays</h3>
 		<h2>Nearby Hotels</h2>
 		<ul class="accommodation_slider js-nearbuy">
 			<li>
 				<img src="../dist/images/room-image.png">
-				<h3>Hotel MyStays Gotanda</h3>
-				<span>4,118 reviews</span>
-				<i class="icon rate-filled"></i>
-				<i class="icon rate-filled"></i>
-				<i class="icon rate-filled"></i>
-				<i class="icon rate-filled"></i>
-				<i class="icon rate-filled"></i>
-				<p>Starting from: <span>£39.00 / Night</span></p>
+				<h3>HOTEL MYSTAYS <br/>Shinsaibashi East</h3>
+				<div>
+					<span>4,118 reviews</span>
+					<img src="../dist/images/icons/star-filled.svg">
+					<img src="../dist/images/icons/star-filled.svg">
+					<img src="../dist/images/icons/star-filled.svg">
+					<img src="../dist/images/icons/star-filled.svg">
+					<img src="../dist/images/icons/star-filled.svg">	
+				</div>
+				<p class="spinner js-spinner"><span>Starting from:</span> <span class="js-nearbuy-price">£39.00</span><span>/ Night</span></p>
 				<a href="#">Book Now</a>
 			</li>
 			<li>
 				<img src="../dist/images/room-image.png">
-				<h3>Hotel MyStays Premier Omori</h3>
-				<span>3,027 reviews</span>
-				<i class="icon rate-filled"></i>
-				<i class="icon rate-filled"></i>
-				<i class="icon rate-filled"></i>
-				<i class="icon rate-filled"></i>
-				<i class="icon rate"></i>
-				<p>Starting from: <span>£39.00 / Night</span></p>
+				<h3>HOTEL MYSTAYS <br/>Shinsaibashi</h3>
+				<div>
+					<span>3,027 reviews</span>
+					<img src="../dist/images/icons/star-filled.svg">
+					<img src="../dist/images/icons/star-filled.svg">
+					<img src="../dist/images/icons/star-filled.svg">
+					<img src="../dist/images/icons/star-filled.svg">
+					<img src="../dist/images/icons/star.svg">
+				</div>
+				<p class="spinner js-spinner"><span>Starting from:</span> <span class="js-nearbuy-price">£39.00</span><span> / Night</span></p>
 				<a href="#">Book Now</a>
 			</li>
 			<li>
 				<img src="../dist/images/room-image.png">
-				<h3>Hotel MyStays Premier Akasaka</h3>
-				<span>2,974 reviews</span>
-				<i class="icon rate-filled"></i>
-				<i class="icon rate-filled"></i>
-				<i class="icon rate-filled"></i>
-				<i class="icon rate-filled"></i>
-				<i class="icon rate"></i>
-				<p>Starting from: <span>£39.00 / Night</span></p>
+				<h3>HOTEL MYSTAYS <br/>Midosuji Honmachi</h3>
+				<div>
+					<span>2,974 reviews</span>
+					<img src="../dist/images/icons/star-filled.svg">
+					<img src="../dist/images/icons/star-filled.svg">
+					<img src="../dist/images/icons/star-filled.svg">
+					<img src="../dist/images/icons/star-filled.svg">
+					<img src="../dist/images/icons/star.svg">
+				</div>
+				<p class="spinner js-spinner"><span>Starting from:</span> <span class="js-nearbuy-price">£39.00</span><span> / Night</span></p>
 				<a href="#">Book Now</a>
 			</li>
 		</ul>

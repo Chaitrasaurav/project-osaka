@@ -466,8 +466,7 @@ $('.js-confirm').on('click', function() {
 
 $('.js-more-photos').on('click', function(e) {
 	e.preventDefault();
-	$('.second-set').fadeIn();
-	$(e.target).hide();
+	$('.first-image').trigger('click');
 });
 
 $('.js-tabs-select').on('change', function(e) {	
@@ -614,6 +613,15 @@ $('.js-main-form-btn').on('click', function(){
 		var win = window.open(url, '_blank');
 			win.focus();
 	}
+
+	 $("#jLightroom").lightroom({
+            image_container_selector: ".jlr_item",
+            img_selector: "img.jlr_img",
+            img_class_loaded: "jlr_loaded",
+            img_space: 5,
+            img_mode: 'min',
+            init_callback: function(elem){$(elem).removeClass("gray_out")}
+        }).init();
 });
 
 $('.js-toggle-menu').on('click', function(e) {

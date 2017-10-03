@@ -8,6 +8,12 @@ function init() {
      	callback: showInfo,
      	simpleSheet: true 
     });
+
+    $.ajax({
+    	url: "https://api.trustyou.com/hotels/93ed65c2-4b3f-4101-a7a0-d149aedf852e/trust_score.html?embedded=true&lang=en&size=m", 
+    	success: function(result){
+        $("#guide").html(result);
+    }});
     
     function gotoDate(month, year) {
 	    $(".js-datepicker-container").each(function (i, el) {
@@ -123,16 +129,12 @@ function init() {
 			if($('body').hasClass('ja_JP')) {
             	if($("#checkIn").val().length) {
             		var date = new Date($("#checkIn").val());
-
-            		// var dateArray = $("#checkIn").val().split(' ');
             		$("#checkIn").siblings('input[name="ciDateY"]').val(date.getFullYear());
 	            	$("#checkIn").siblings('input[name="ciDateM"]').val(date.getMonth() + 1);
 	            	$("#checkIn").siblings('input[name="ciDateD"]').val(date.getDate());
             	}
             	if($("#checkOut").val().length) {
-            		// var dateArray = $("#checkOut").val().split(' ');
             		var date = new Date($("#checkOut").val());
-
             		$("#checkOut").siblings('input[name="coDateY"]').val(date.getFullYear());
 	            	$("#checkOut").siblings('input[name="coDateM"]').val(date.getMonth() + 1);
 	            	$("#checkOut").siblings('input[name="coDateD"]').val(date.getDate());
@@ -179,9 +181,50 @@ function init() {
 		roomsLength = rooms.length,
 		i = 0,
 		date = new Date(),
+		originalDate,
 		currentDate,
-		currentDateObj
-		noOfSlide = 3;
+		currentDateObj,
+		noOfSlide = 3,
+		dayLimit = 5;
+
+		if(date.getDay() < dayLimit) {
+			
+			switch (date.getDay()) {
+			    case 0:
+			        //day = "Sunday";
+			        date.setDate(date.getDate() + 9);
+			        break;
+			    case 1:
+			        //day = "Monday";
+			        date.setDate(date.getDate() + 8);
+			        break;
+			    case 2:
+			        //day = "Tuesday";
+			        date.setDate(date.getDate() + 7);
+			        break;
+			    case 3:
+			        //day = "Wednesday";
+			        date.setDate(date.getDate() + 6);
+			        break;
+			    case 4:
+			        //day = "Thursday";
+					date.setDate(date.getDate() + 5);
+			        break;
+			}
+		} else {
+			switch (date.getDay()) {
+			    case 5:
+			        //day = "Friday";
+			        date.setDate(date.getDate() + 11);
+			        break;
+			    case 6:
+			    	//day = "Saturday";
+			        date.setDate(date.getDate() + 10);
+			        break;
+			}
+		}
+
+		originalDate = date;
 
 		if($(window).width() < 900 && $(window).width() > 600) {
 			noOfSlide = 2;
@@ -232,20 +275,14 @@ function init() {
 							lowestPrice = response.data[0].pricePerNight;
 							currency = response.data[0].currency_html;
 
-							// $ele.append('<li>\
-							// 	<img src="../dist/images/room-image.png">\
-							// 	<h3>' + rooms[i].title + '</h3>\
-							// 	<p>Starting from: <span> ' + currency + ' ' + lowestPrice + '/night </span></p>\
-							// 	<a href="#">Book Now</a>\
-							// </li>')
 							$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner');
-							$($ele.find('li')[i]).find('.js-accomodation-price').html(currency + ' ' + lowestPrice);
+							$($ele.find('li')[i]).find('.js-accomodation-price').html(currency + ' ' + Math.round(lowestPrice));
 							currentDateObj = null;
-							date = new Date();
+							date = originalDate;
 							i++;
 						} else {
 							currentDateObj = new Date(currentDate);
-							currentDateObj.setDate(currentDateObj.getDate() + 1);
+							currentDateObj.setDate(currentDateObj.getDate() + 7);
 						}
 						buildList();
 					}
@@ -275,8 +312,49 @@ function init() {
 			roomsLength = nearBuyList.length,
 			i = 0,
 			date = new Date(),
+			originalDate,
+			dayLimit = 5,
 			currentDate,
 			currentDateObj;
+
+			if(date.getDay() < dayLimit) {
+			
+			switch (date.getDay()) {
+				    case 0:
+				        //day = "Sunday";
+				        date.setDate(date.getDate() + 9);
+				        break;
+				    case 1:
+				        //day = "Monday";
+				        date.setDate(date.getDate() + 8);
+				        break;
+				    case 2:
+				        //day = "Tuesday";
+				        date.setDate(date.getDate() + 7);
+				        break;
+				    case 3:
+				        //day = "Wednesday";
+				        date.setDate(date.getDate() + 6);
+				        break;
+				    case 4:
+				        //day = "Thursday";
+						date.setDate(date.getDate() + 5);
+				        break;
+				}
+			} else {
+				switch (date.getDay()) {
+				    case 5:
+				        //day = "Friday";
+				        date.setDate(date.getDate() + 11);
+				        break;
+				    case 6:
+				    	//day = "Saturday";
+				        date.setDate(date.getDate() + 10);
+				        break;
+				}
+			}
+
+			originalDate = date;
 		
 		function buildList() {
 			if(i < roomsLength) {
@@ -302,13 +380,13 @@ function init() {
 							lowestPrice = response.data[0].pricePerNight;
 							currency = response.data[0].currency_html;
 							$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner');
-							$($ele.find('li')[i]).find('.js-nearbuy-price').html(currency + ' ' + lowestPrice);
+							$($ele.find('li')[i]).find('.js-nearbuy-price').html(currency + ' ' + Math.round(lowestPrice));
 							currentDateObj = null;
-							date = new Date();
+							date = originalDate;
 							i++;
 						} else {
 							currentDateObj = new Date(currentDate);
-							currentDateObj.setDate(currentDateObj.getDate() + 1);
+							currentDateObj.setDate(currentDateObj.getDate() + 7);
 						}
 						buildList();
 					}

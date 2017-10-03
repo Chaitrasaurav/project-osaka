@@ -47,6 +47,7 @@
 	}
 	iframe{
 		margin:20px 0 0;
+		height: 673px;
 		@media (max-width: 767px) {
 			height:828px;
 		}
@@ -54,7 +55,6 @@
 	.map-container{
 		width: 100%; 
 		overflow: hidden; 
-		height: 673px;
 		margin:20px 0 0;
 	}
 

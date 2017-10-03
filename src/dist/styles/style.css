@@ -1354,14 +1354,14 @@ a.ui-state-active {
     padding: 25px 0 0;
     line-height: 1.8; }
   .map iframe {
-    margin: 20px 0 0; }
+    margin: 20px 0 0;
+    height: 673px; }
     @media (max-width: 767px) {
       .map iframe {
         height: 828px; } }
   .map .map-container {
     width: 100%;
     overflow: hidden;
-    height: 673px;
     margin: 20px 0 0; }
 
 .gallery {

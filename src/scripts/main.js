@@ -227,11 +227,11 @@ function init() {
 		}
 
 		for (var j = 0; j < roomsLength; j++) {
-			$ele.append('<li>\
+			$ele.append('<li data-name="'+ rooms[j].beName +'">\
 				<img src="../dist/images/room-image.png">\
 				<h3>' + rooms[j].title + '</h3>\
 				<p class="spinner js-spinner"><span>Starting from:</span><span class="js-accomodation-price"></span><span>/night</span></p>\
-				<a href="#">Book Now</a>\
+				<a href="#" class="js-book-now">Book Now</a>\
 			</li>')
 		}
 
@@ -707,5 +707,60 @@ $('.js-toggle-menu').on('click', function(e) {
 $('.js-close-mobile-menu').on('click', function(e) {
 	$('.js-mobile-menu').fadeOut();
 });
+
+$(document).on('click', '.js-book-now', function(e) {
+	e.preventDefault();
+	var url,
+		date1 = new Date(),
+		date2 = date1,
+		day1Str,
+		day2Str,
+		fullDate1,
+		fullDate2;
+
+	date2.setDate(new Date() + 1);
+	if(date1.getDate() < 10) {
+		day1Str = '0' + date1.getDate();
+	} else {
+		day1Str = date1.getDate();	
+	}
+
+	if(date2.getDate() < 10) {
+		day2Str = '0' + date2.getDate();
+	} else {
+		day2Str = date2.getDate();	
+	}
+
+	fullDate1 = date1.getFullYear() + '-' + (date1.getMonth() + 1) + '-' + day1Str;	
+	fullDate2 = date2.getFullYear() + '-' + (date2.getMonth() + 1) + '-' + day2Str;	
+
+	if($(e.target).parents('li').data('name')) {
+		url = 'https://www.book-secure.com/index.php?s=results&property=jpnas28830&arrival='+ fullDate1 +'&departure=' + fullDate2 + '&adults1=2&children1=0&children2=0&rooms=1&locale=en_GB&currency=JPY';
+	} else if($(e.target).parents('li').data('hotel')) {
+		url = 'https://www.book-secure.com/index.php?s=results&property=' + $(e.target).parents('li').data('hotel') + '&arrival='+ fullDate1 +'&departure=' + fullDate2 + '&adults1=2&children1=0&children2=0&rooms=1&locale=en_GB&currency=JPY';
+	}
+
+	var win = window.open(url, '_blank');
+		win.focus();
+});
+
+$(document).keyup(function(e) {
+     if (e.keyCode == 27) { // escape key maps to keycode `27`
+
+     	if(!$('.js-datepicker-modal').hasClass('hidden')) {
+     		$('.js-datepicker-modal').addClass('hidden');
+    		$("#checkIn").removeClass('js-datepicker-highlight');
+    		$("#checkOut").removeClass('js-datepicker-highlight');
+     	}
+     }
+});
+
+$(document).click(function(e) {
+   if(!$(e.target).hasClass('js-datepicker-modal') && !$(e.target).parents().hasClass('js-datepicker-modal') && !$(e.target).parents().hasClass('ui-datepicker-header') && !$(e.target).hasClass('js-datepicker')) {
+     	$('.js-datepicker-modal').addClass('hidden');
+     	$("#checkIn").removeClass('js-datepicker-highlight');
+    	$("#checkOut").removeClass('js-datepicker-highlight');	
+   }
+}); 
 
 $(document).ready(init);

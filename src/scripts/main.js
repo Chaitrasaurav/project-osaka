@@ -8,12 +8,6 @@ function init() {
      	callback: showInfo,
      	simpleSheet: true 
     });
-
-    $.ajax({
-    	url: "https://api.trustyou.com/hotels/93ed65c2-4b3f-4101-a7a0-d149aedf852e/trust_score.html?embedded=true&lang=en&size=m", 
-    	success: function(result){
-        $("#guide").html(result);
-    }});
     
     function gotoDate(month, year) {
 	    $(".js-datepicker-container").each(function (i, el) {

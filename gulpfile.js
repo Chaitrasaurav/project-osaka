@@ -65,11 +65,11 @@ gulp.task('serve', function() {
   })
 })
 
-gulp.task('default', function (callback) {
-    runSequence('sprite', 'scripts', 'styles', 'vendorScripts', 'vendorStyles',  callback);
-});
-
 gulp.task('watch', function() {
     gulp.watch('src/styles/**/*.scss', ['styles'])
     gulp.watch('src/scripts/*.*', ['scripts'])
+});
+
+gulp.task('default', function () {
+    runSequence('sprite', 'scripts', 'styles', 'vendorScripts', 'vendorStyles', 'serve', 'watch');
 });

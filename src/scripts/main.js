@@ -688,15 +688,6 @@ $('.js-main-form-btn').on('click', function(){
 		var win = window.open(url, '_blank');
 			win.focus();
 	}
-
-	 $("#jLightroom").lightroom({
-            image_container_selector: ".jlr_item",
-            img_selector: "img.jlr_img",
-            img_class_loaded: "jlr_loaded",
-            img_space: 5,
-            img_mode: 'min',
-            init_callback: function(elem){$(elem).removeClass("gray_out")}
-        }).init();
 });
  
 
@@ -762,5 +753,18 @@ $(document).click(function(e) {
     	$("#checkOut").removeClass('js-datepicker-highlight');	
    }
 }); 
+$(".fancybox-thumb").fancybox({
+		prevEffect	: 'none',
+		nextEffect	: 'none',
+		helpers	: {
+			title	: {
+				type: 'outside'
+			},
+			thumbs	: {
+				width	: 40,
+				height	: 40
+			}
+		}
+	});
 
 $(document).ready(init);

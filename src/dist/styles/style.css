@@ -1469,6 +1469,22 @@ a.ui-state-active {
       .masonry-gallery .top-left-columns .top-left-columns-right {
         padding-left: 5px; } }
 
+#fancybox-thumbs.bottom {
+  bottom: 2%; }
+
+#fancybox-thumbs ul {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: auto !important;
+  display: table;
+  margin: 0 auto;
+  left: auto !important; }
+
+.fancybox-overlay {
+  background: rgba(0, 0, 0, 0.9); }
+
 footer {
   background: #f2f5f7; }
 

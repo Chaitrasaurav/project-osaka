@@ -196,6 +196,17 @@
 		display:block;
 		font-size:14px;
 	}
+	iframe{
+		    height: 55px;
+    width: 100%;
+    border: none;
+    position: relative;
+    left: 22%;
+    margin: 10px 0 0;
+    @media (max-width: 767px) {
+    	left:-17px;
+    }
+	}
 	.accommodation_slider{
 		padding: 29px 0 0;
 		.slick-slide{

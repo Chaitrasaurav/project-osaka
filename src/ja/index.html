@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../dist/styles/style.min.css">
 	<link rel="stylesheet" type="text/css" href="../dist/sprite/css/sprite.css">
 </head>
-<body class="jp ja_JP" data-lang="jp" data-locale="ja_JP">
+<body class="jp ja_JP" data-locale="ja_JP" data-i18n="jp">
 	<div class="mobile-header">
 		<i class="icon logo-mobile"></i>
 		<div class="hamburger js-toggle-menu"><span>Menu</span> <i class="icon hamburguer-icon"></i></div>
@@ -78,6 +78,7 @@
 						<form name="mainForm" id="mainForm" class="clearfix" novalidate autocomplete="off">
 							<div class="form__control">
 								<input type="hidden" id="property" name="hotelNo" value="68555">
+								<input type="hidden" id="propertyId" value="jpnas28830">
 							</div>
 							<div class="form_guestWrap">
 								<div class="form__control calendar">
@@ -385,7 +386,7 @@
 		<h3>Other MyStays</h3>
 		<h2>Nearby Hotels</h2>
 		<ul class="accommodation_slider js-nearbuy">
-			<li>
+			<li data-hotel="68555">
 				<img src="../dist/images/room-image.png">
 				<h3>HOTEL MYSTAYS <br/>Shinsaibashi East</h3>
 				<div>
@@ -397,9 +398,9 @@
 					<img src="../dist/images/icons/star-filled.svg">	
 				</div>
 				<p class="spinner js-spinner"><span>Starting from:</span> <span class="js-nearbuy-price">£39.00</span><span>/ Night</span></p>
-				<a href="#">Book Now</a>
+				<a href="#" class="js-book-now">Book Now</a>
 			</li>
-			<li>
+			<li data-hotel="68555">
 				<img src="../dist/images/room-image.png">
 				<h3>HOTEL MYSTAYS <br/>Shinsaibashi</h3>
 				<div>
@@ -411,9 +412,9 @@
 					<img src="../dist/images/icons/star.svg">
 				</div>
 				<p class="spinner js-spinner"><span>Starting from:</span> <span class="js-nearbuy-price">£39.00</span><span> / Night</span></p>
-				<a href="#">Book Now</a>
+				<a href="#" class="js-book-now">Book Now</a>
 			</li>
-			<li>
+			<li data-hotel="68555">
 				<img src="../dist/images/room-image.png">
 				<h3>HOTEL MYSTAYS <br/>Midosuji Honmachi</h3>
 				<div>
@@ -425,7 +426,7 @@
 					<img src="../dist/images/icons/star.svg">
 				</div>
 				<p class="spinner js-spinner"><span>Starting from:</span> <span class="js-nearbuy-price">£39.00</span><span> / Night</span></p>
-				<a href="#">Book Now</a>
+				<a href="#" class="js-book-now">Book Now</a>
 			</li>
 		</ul>
 		<a href="#" class="see-all">See more hotels</a>
@@ -443,6 +444,7 @@
  	</footer>
 	<script type="text/javascript" src="../dist/scripts/vendor.js"></script>
 	<script type="text/javascript" src="../data/data-jp.js"></script>
+	<script type="text/javascript" src="../data/datepicker-ja.js"></script>
 	<!-- <script type="text/javascript" src="../dist/scripts/app.min.js"></script> -->
 	<script type="text/javascript" src="../scripts/main.js"></script>
 </body>

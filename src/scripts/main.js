@@ -1,14 +1,12 @@
 'use strict';
-var countryCode = $('body').data('lang'),
-	publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1HyfDyalAgZ9sYE-WCqgeo58_y47BRSiyqi5YArcSins/pubhtml';
+var propertyId,
+	property,
+	locale;
 
 function init() {
-	Tabletop.init({ 
-		key: publicSpreadsheetUrl,
-     	callback: showInfo,
-     	simpleSheet: true 
-    });
-    
+    propertyId = $('#propertyId').val(),
+    property = $('#property').val();
+    locale = $('body').data('locale');
     function gotoDate(month, year) {
 	    $(".js-datepicker-container").each(function (i, el) {
 	        var inst = $.datepicker._getInst(el);
@@ -19,7 +17,7 @@ function init() {
 	    });
 	}		
 
-	//$.datepicker.regional[$('body').data('i18n')];
+	$.datepicker.regional[$('body').data('i18n')];
 
 	$('input.js-datepicker').click(function(e){
 		if(!$('.js-select-guest-container').hasClass('hidden')) {
@@ -141,7 +139,7 @@ function init() {
         $(".js-datepicker-modal").addClass('hidden');
     });
 
-    var url = 'https://websdk.fastbooking-services.com/accommodations?locale=en_GB&property=jpnas28830&output=json&_authCode=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOiJeLiokIiwicHJvcGVydGllcyI6Il5qcChhfGJ8Y3xmfGh8anxrfG58b3xzfHR8dXx5KVthLXpdezJ9WzAtOV17NX0kIiwiZ3JvdXBzIjoiXiQiLCJmb3IiOiJNUyIsImlhdCI6MTQ4NTE5MDg1MiwianRpIjoiMzk1ZDQyNmEtMjUxYi00YmM0LThhN2UtZGU3ZjIyMDBhMGMxIn0.nfxBfwao6Z-k2X8rToJOTEouiVf1lhgPAwrTRFIyeW0';
+    var url = 'https://websdk.fastbooking-services.com/accommodations?locale=' + locale + '&property='+ propertyId +'&output=json&_authCode=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOiJeLiokIiwicHJvcGVydGllcyI6Il5qcChhfGJ8Y3xmfGh8anxrfG58b3xzfHR8dXx5KVthLXpdezJ9WzAtOV17NX0kIiwiZ3JvdXBzIjoiXiQiLCJmb3IiOiJNUyIsImlhdCI6MTQ4NTE5MDg1MiwianRpIjoiMzk1ZDQyNmEtMjUxYi00YmM0LThhN2UtZGU3ZjIyMDBhMGMxIn0.nfxBfwao6Z-k2X8rToJOTEouiVf1lhgPAwrTRFIyeW0';
     $.get( url, function( response ) {
 	  console.log(response.data);
 	  if(response.data.rooms.length) {
@@ -174,6 +172,7 @@ function init() {
 		rooms = response.data.rooms,
 		roomsLength = rooms.length,
 		i = 0,
+		k = 0,
 		date = new Date(),
 		originalDate,
 		currentDate,
@@ -185,34 +184,27 @@ function init() {
 			
 			switch (date.getDay()) {
 			    case 0:
-			        //day = "Sunday";
 			        date.setDate(date.getDate() + 9);
 			        break;
 			    case 1:
-			        //day = "Monday";
 			        date.setDate(date.getDate() + 8);
 			        break;
 			    case 2:
-			        //day = "Tuesday";
 			        date.setDate(date.getDate() + 7);
 			        break;
 			    case 3:
-			        //day = "Wednesday";
 			        date.setDate(date.getDate() + 6);
 			        break;
 			    case 4:
-			        //day = "Thursday";
 					date.setDate(date.getDate() + 5);
 			        break;
 			}
 		} else {
 			switch (date.getDay()) {
 			    case 5:
-			        //day = "Friday";
 			        date.setDate(date.getDate() + 11);
 			        break;
 			    case 6:
-			    	//day = "Saturday";
 			        date.setDate(date.getDate() + 10);
 			        break;
 			}
@@ -250,17 +242,24 @@ function init() {
 				if(currentDateObj) {
 					date = currentDateObj;
 				}
-				var date1;
+				var date1,
+					month1;
 				if(date.getDate() < 10) {
 					date1 = '0' + date.getDate();
 				} else {
 					date1 = date.getDate();	
 				}
-				currentDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date1;
+				if((date.getMonth() + 1) < 10) {
+					month1 = date.getMonth() + 1;
+					month1 = '0' + month1;
+				}else {
+					month1 = date.getMonth() + 1;
+				}
+				currentDate = date.getFullYear() + '-' + month1 + '-' + date1;
 
 				$.ajax({
 		            type: "GET",
-		            url: 'https://websdk.fastbooking-services.com/quotation?arrivalDate=' + currentDate + '&currency=JPY&property=jpnas28830&roomRestriction='+ rooms[i].beName + '&output=json&nights=1&adults=2&_authCode=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOiJeLiokIiwicHJvcGVydGllcyI6Il5qcChhfGJ8Y3xmfGh8anxrfG58b3xzfHR8dXx5KVthLXpdezJ9WzAtOV17NX0kIiwiZ3JvdXBzIjoiXiQiLCJmb3IiOiJNUyIsImlhdCI6MTQ4NTE5MDg1MiwianRpIjoiMzk1ZDQyNmEtMjUxYi00YmM0LThhN2UtZGU3ZjIyMDBhMGMxIn0.nfxBfwao6Z-k2X8rToJOTEouiVf1lhgPAwrTRFIyeW0',
+		            url: 'https://websdk.fastbooking-services.com/quotation?arrivalDate=' + currentDate + '&currency=JPY&property='+ propertyId +'&roomRestriction='+ rooms[i].beName + '&output=json&nights=1&adults=2&_authCode=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOiJeLiokIiwicHJvcGVydGllcyI6Il5qcChhfGJ8Y3xmfGh8anxrfG58b3xzfHR8dXx5KVthLXpdezJ9WzAtOV17NX0kIiwiZ3JvdXBzIjoiXiQiLCJmb3IiOiJNUyIsImlhdCI6MTQ4NTE5MDg1MiwianRpIjoiMzk1ZDQyNmEtMjUxYi00YmM0LThhN2UtZGU3ZjIyMDBhMGMxIn0.nfxBfwao6Z-k2X8rToJOTEouiVf1lhgPAwrTRFIyeW0',
 		            success:function(response){
 		            	var lowestPrice,
 							currency;
@@ -271,12 +270,22 @@ function init() {
 
 							$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner');
 							$($ele.find('li')[i]).find('.js-accomodation-price').html(currency + ' ' + Math.round(lowestPrice));
+							k = 0;
 							currentDateObj = null;
 							date = originalDate;
 							i++;
 						} else {
+							// if(k <= 150) {
+							// 	k = 0;
+							// 	$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner').css('visibility', 'hidden');
+							// 	currentDateObj = null;
+							// 	date = originalDate;
+							// 	i++;
+							// 	buildList();
+							// }
 							currentDateObj = new Date(currentDate);
 							currentDateObj.setDate(currentDateObj.getDate() + 7);
+							k++;
 						}
 						buildList();
 					}
@@ -292,11 +301,11 @@ function init() {
 	    	nearBuyList = [
 				{
 					property: 'jposa28306',
-					beName: 'Renovated-Hollywood-Twin--Non-Sm'	
+					beName: 'Renovated-Standard-Single--Non-S'	
 				},
 				{
 					property: 'jposa26338',
-					beName: 'Deluxe-Triple-Non-Smoking'	
+					beName: 'Standard-Semi-double-Non-Smoking'	
 				},
 				{
 					property: 'jposa31260',
@@ -305,6 +314,7 @@ function init() {
 			],
 			roomsLength = nearBuyList.length,
 			i = 0,
+			k = 0,
 			date = new Date(),
 			originalDate,
 			dayLimit = 5,
@@ -315,34 +325,27 @@ function init() {
 			
 			switch (date.getDay()) {
 				    case 0:
-				        //day = "Sunday";
 				        date.setDate(date.getDate() + 9);
 				        break;
 				    case 1:
-				        //day = "Monday";
 				        date.setDate(date.getDate() + 8);
 				        break;
 				    case 2:
-				        //day = "Tuesday";
 				        date.setDate(date.getDate() + 7);
 				        break;
 				    case 3:
-				        //day = "Wednesday";
 				        date.setDate(date.getDate() + 6);
 				        break;
 				    case 4:
-				        //day = "Thursday";
 						date.setDate(date.getDate() + 5);
 				        break;
 				}
 			} else {
 				switch (date.getDay()) {
 				    case 5:
-				        //day = "Friday";
 				        date.setDate(date.getDate() + 11);
 				        break;
 				    case 6:
-				    	//day = "Saturday";
 				        date.setDate(date.getDate() + 10);
 				        break;
 				}
@@ -355,13 +358,20 @@ function init() {
 				if(currentDateObj) {
 					date = currentDateObj;
 				}
-				var date1;
+				var date1,
+					month1;
 				if(date.getDate() < 10) {
 					date1 = '0' + date.getDate();
 				} else {
 					date1 = date.getDate();	
 				}
-				currentDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date1;
+				if((date.getMonth() + 1) < 10) {
+					month1 = date.getMonth() + 1;
+					month1 = '0' + month1;
+				}else {
+					month1 = date.getMonth() + 1;
+				}
+				currentDate = date.getFullYear() + '-' + month1 + '-' + date1;
 
 				$.ajax({
 		            type: "GET",
@@ -375,12 +385,22 @@ function init() {
 							currency = response.data[0].currency_html;
 							$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner');
 							$($ele.find('li')[i]).find('.js-nearbuy-price').html(currency + ' ' + Math.round(lowestPrice));
+							k = 0;
 							currentDateObj = null;
 							date = originalDate;
 							i++;
 						} else {
+							if(k <= 30) {
+								k = 0;
+								$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner').css('visibility', 'hidden');
+								currentDateObj = null;
+								date = originalDate;
+								i++;
+								buildList();
+							}
 							currentDateObj = new Date(currentDate);
 							currentDateObj.setDate(currentDateObj.getDate() + 7);
+							k++;
 						}
 						buildList();
 					}
@@ -390,19 +410,6 @@ function init() {
 		buildList();
     }
     nearBuy();
-};
-
-function showInfo(data, tabletop) {
-	console.log('Successfully processed!')
-	// console.log(tabletop.sheets('osaka').elements);
-	// console.log(tabletop.sheets('Accomodations').elements)
-	window.data = {};
-	window.data.main = tabletop.sheets('osaka').elements;
-	window.data.rooms = tabletop.sheets('Accomodations').elements;
-    
-    window.data.main.map(function(value){
-		$('[data-sheet=' + value.Item + ']').text(value[countryCode]);			
-	});
 };
 
 $(document).on('mouseover', '.ui-datepicker-calendar td a', function(e){
@@ -703,17 +710,26 @@ $(document).on('click', '.js-book-now', function(e) {
 	e.preventDefault();
 	var url,
 		date1 = new Date(),
-		date2 = date1,
+		date2 = new Date(),
 		day1Str,
 		day2Str,
+		month1Str,
+		month2Str,
 		fullDate1,
 		fullDate2;
 
-	date2.setDate(new Date() + 1);
+	date2.setDate(date2.getDate()  + 1);
 	if(date1.getDate() < 10) {
 		day1Str = '0' + date1.getDate();
 	} else {
 		day1Str = date1.getDate();	
+	}
+
+	if((date1.getMonth() +  1) < 10) {
+		month1Str = (date1.getMonth() + 1);
+		month1Str = '0' + month1Str;
+	} else {
+		month1Str = date1.getMonth() + 1;	
 	}
 
 	if(date2.getDate() < 10) {
@@ -722,13 +738,28 @@ $(document).on('click', '.js-book-now', function(e) {
 		day2Str = date2.getDate();	
 	}
 
-	fullDate1 = date1.getFullYear() + '-' + (date1.getMonth() + 1) + '-' + day1Str;	
-	fullDate2 = date2.getFullYear() + '-' + (date2.getMonth() + 1) + '-' + day2Str;	
+	if((date2.getMonth() +  1) < 10) {
+		month2Str = (date2.getMonth() + 1);
+		month2Str = '0' + month2Str;
+	} else {
+		month2Str = date2.getMonth() + 1;
+	}
 
-	if($(e.target).parents('li').data('name')) {
-		url = 'https://www.book-secure.com/index.php?s=results&property=jpnas28830&arrival='+ fullDate1 +'&departure=' + fullDate2 + '&adults1=2&children1=0&children2=0&rooms=1&locale=en_GB&currency=JPY';
-	} else if($(e.target).parents('li').data('hotel')) {
-		url = 'https://www.book-secure.com/index.php?s=results&property=' + $(e.target).parents('li').data('hotel') + '&arrival='+ fullDate1 +'&departure=' + fullDate2 + '&adults1=2&children1=0&children2=0&rooms=1&locale=en_GB&currency=JPY';
+	fullDate1 = date1.getFullYear() + '-' + month1Str + '-' + day1Str;	
+	fullDate2 = date2.getFullYear() + '-' + month2Str + '-' + day2Str;	
+
+	if(locale === 'en_GB') {
+		if($(e.target).parents('li').data('name')) {
+			url = 'https://www.book-secure.com/index.php?s=results&property='+ propertyId +'&arrival='+ fullDate1 +'&departure=' + fullDate2 + '&accommodation=' + $(e.target).parents('li').data('name') + '&adults1=2&children1=0&children2=0&rooms=1&locale='+ locale +'&currency=JPY';
+		} else if($(e.target).parents('li').data('hotel')) {
+			url = 'https://www.book-secure.com/index.php?s=results&property=' + $(e.target).parents('li').data('hotel') + '&arrival='+ fullDate1 +'&departure=' + fullDate2 + '&adults1=2&children1=0&children2=0&rooms=1&locale='+ locale +'&currency=JPY';
+		}
+	} else if(locale === 'ja_JP') {
+		if($(e.target).parents('li').data('name')) {		
+			url = 'https://mystays.rwiths.net/r-withs/tfs0020a.do?&hotelNo='+ property +'&ciDateY='+ date1.getFullYear() +'&ciDateM='+ month1Str +'&ciDateD='+ day1Str +'&coDateY=' + date2.getFullYear() + '&coDateM=' + month2Str + '&coDateD='+ day2Str +'&otona=2&s1=0&room=1';
+		} else if($(e.target).parents('li').data('hotel')) {
+			url = 'https://mystays.rwiths.net/r-withs/tfs0020a.do?&hotelNo='+ $(e.target).parents('li').data('hotel') +'&ciDateY='+ date1.getFullYear() +'&ciDateM='+ month1Str +'&ciDateD='+ day1Str +'&coDateY=' + date2.getFullYear() + '&coDateM=' + month2Str + '&coDateD='+ day2Str +'&otona=2&s1=0&room=1';
+		}
 	}
 
 	var win = window.open(url, '_blank');

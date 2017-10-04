@@ -30,7 +30,6 @@ gulp.task('vendorScripts', function() {
       'src/vendor/slick.js',
       'src/vendor/select2.full.js',
       'src/vendor/jquery-ui.js',
-      'src/vendor/tabletop.min.js',
       'src/vendor/jquery.fancybox.js',
       'src/vendor/jquery.fancybox-thumbs.js',
     ])

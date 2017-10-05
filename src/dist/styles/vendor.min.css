@@ -1716,7 +1716,7 @@ body.trustscore-container { margin: 0 !important; padding: 0 !important; }
 .trustscore.size-m .badges .ty-icon,.trustscore.size-s .badges .ty-icon,.trustscore.size-xs .badges .ty-icon { margin-right: -2px !important; }
 .trustscore.size-m .rating-wrapper,.trustscore.size-s .rating-wrapper,.trustscore.size-xs .rating-wrapper { margin-top: 2px !important; }
 .rating-units { display: inline-block !important; width: 75px !important; }
-.trustscore.size-m .rating .rating-unit,.trustscore.size-s .rating .rating-unit,.trustscore.size-xs .rating .rating-unit { float: left !important; width: 12px !important; height: 13px !important; background: url(../../img/sprite-rating-green.png) -24px 0 no-repeat !important; background-size: 36px !important; margin: 0 1px !important; }
+.rating-unit { float: left !important; width: 12px !important; height: 13px !important; background: url(../images/sprite-rating-green.png) -24px 0 no-repeat !important; background-size: 36px !important; margin: 0 1px !important; }
 .rating-unit.is-full { background-position: 0 0 !important; }
 .rating-unit.is-half { background-position: -12px 0 !important; }
 .trustscore.size-m .rating .rating-score,.trustscore.size-s .rating .rating-score,.trustscore.size-xs .rating .rating-score { display: block !important; line-height: normal !important; font-weight: 500 !important; color: #7cb342 !important; }

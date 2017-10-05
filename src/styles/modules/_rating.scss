@@ -44,8 +44,12 @@
     margin: 0 auto !important;
 	}
 
-  .shinsaibashiEast{
-    .trustscore .value{
-      display:none !important;
-    }
-  }
+.counter span{
+  display:inline !important;
+  color: #aaabae;
+  font-size:14px;
+}
+.hotel-rating{
+  min-height:43px;
+      margin: 10px 0;
+}

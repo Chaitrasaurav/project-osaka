@@ -1223,6 +1223,9 @@ a.ui-state-active {
   display: table !important;
   margin: 0 auto !important; }
 
+.shinsaibashiEast .trustscore .value {
+  display: none !important; }
+
 .tabs {
   background: #f2f5f7;
   position: relative; }

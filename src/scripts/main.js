@@ -798,4 +798,16 @@ $(".fancybox-thumb").fancybox({
 		}
 	});
 
+function getReviews(id, key){
+	var url = 'https://cors.io/?https://api.trustyou.com/hotels/' + key + '/trust_score.html?embedded=true&lang=en&size=m';
+	
+	$.ajax({url: url, success: function(result){
+
+		$(id).append($(result).find('.rating-units'));
+		$(id).append($(result).find('.counter'));
+
+    }});
+}
+getReviews('#shinsaibashiEast', '487c3a95-0204-4b24-b3d8-07bb42db12fc');
+
 $(document).ready(init);

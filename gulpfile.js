@@ -61,8 +61,10 @@ gulp.task('styles', function () {
 gulp.task('serve', function() {
   browserSync.init({
     server: {
-      baseDir: 'src'
-    },
+      port: 3000,
+      baseDir: 'src',
+      cors: true
+    }
   })
 })
 

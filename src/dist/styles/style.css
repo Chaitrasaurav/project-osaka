@@ -1110,6 +1110,16 @@ a.ui-state-active {
     color: #aaabae;
     display: block;
     font-size: 14px; }
+  .nearby-places iframe {
+    height: 55px;
+    width: 100%;
+    border: none;
+    position: relative;
+    left: 22%;
+    margin: 10px 0 0; }
+    @media (max-width: 767px) {
+      .nearby-places iframe {
+        left: -17px; } }
   .nearby-places .accommodation_slider {
     padding: 29px 0 0; }
     @media (max-width: 767px) {
@@ -1132,28 +1142,30 @@ a.ui-state-active {
           margin: 0;
           font-size: 15px;
           padding-left: 150px; } }
-    .nearby-places .accommodation_slider .slick-slide div span {
+    .nearby-places .accommodation_slider .slick-slide > div span {
       margin-bottom: -10px; }
-    .nearby-places .accommodation_slider .slick-slide div img {
+    .nearby-places .accommodation_slider .slick-slide > div img {
       display: inline;
       margin: 0 -12px 0 -12px;
       width: auto; }
     @media (max-width: 767px) {
-      .nearby-places .accommodation_slider .slick-slide div {
+      .nearby-places .accommodation_slider .slick-slide > div {
         position: absolute;
-        left: 20px;
+        left: 15px;
         text-align: left;
-        top: 130px; } }
+        top: 110px; } }
     @media (max-width: 767px) {
       .nearby-places .accommodation_slider .slick-slide p {
         padding-left: 150px; } }
     @media (max-width: 767px) {
       .nearby-places .accommodation_slider .slick-slide a {
         margin-left: 150px; } }
-  .nearby-places .slick-dots {
-    display: none !important; }
-  .nearby-places .slick-arrow {
-    display: none !important; }
+  @media (max-width: 767px) {
+    .nearby-places .slick-dots {
+      display: none !important; } }
+  @media (max-width: 767px) {
+    .nearby-places .slick-arrow {
+      display: none !important; } }
   .nearby-places .see-all {
     margin: 41px 0 0; }
     @media (max-width: 767px) {
@@ -1212,6 +1224,15 @@ a.ui-state-active {
 .trustscore {
   display: table !important;
   margin: 0 auto !important; }
+
+.counter span {
+  display: inline !important;
+  color: #aaabae;
+  font-size: 14px; }
+
+.hotel-rating {
+  min-height: 43px;
+  margin: 10px 0; }
 
 .tabs {
   background: #f2f5f7;

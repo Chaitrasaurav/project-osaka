@@ -7,7 +7,7 @@
 }
 
 #fancybox-thumbs.bottom {
-	bottom: 2px;
+	bottom: 10% !important;
 }
 
 #fancybox-thumbs.top {
@@ -25,6 +25,7 @@
 	float: left;
 	padding: 1px;
 	opacity: 0.5;
+	margin:10px;
 }
 
 #fancybox-thumbs ul li.active {

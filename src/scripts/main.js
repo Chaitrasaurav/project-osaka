@@ -262,14 +262,21 @@ function init() {
 		            url: 'https://websdk.fastbooking-services.com/quotation?arrivalDate=' + currentDate + '&currency=JPY&property='+ propertyId +'&roomRestriction='+ rooms[i].beName + '&output=json&nights=1&adults=2&_authCode=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOiJeLiokIiwicHJvcGVydGllcyI6Il5qcChhfGJ8Y3xmfGh8anxrfG58b3xzfHR8dXx5KVthLXpdezJ9WzAtOV17NX0kIiwiZ3JvdXBzIjoiXiQiLCJmb3IiOiJNUyIsImlhdCI6MTQ4NTE5MDg1MiwianRpIjoiMzk1ZDQyNmEtMjUxYi00YmM0LThhN2UtZGU3ZjIyMDBhMGMxIn0.nfxBfwao6Z-k2X8rToJOTEouiVf1lhgPAwrTRFIyeW0',
 		            success:function(response){
 		            	var lowestPrice,
+		            		lowestPriceFormatted,
 							currency;
 
 						if(response.data.length) {
-							lowestPrice = response.data[0].pricePerNight;
+							lowestPrice = Math.round(response.data[0].pricePerNight);
 							currency = response.data[0].currency_html;
+							
+							try {
+								lowestPriceFormatted = lowestPrice.toLocaleString('ja-JP');
+						  	} catch (e) {
+						    	lowestPriceFormatted = lowestPrice;
+						  	}
 
 							$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner');
-							$($ele.find('li')[i]).find('.js-accomodation-price').html(currency + ' ' + Math.round(lowestPrice));
+							$($ele.find('li')[i]).find('.js-accomodation-price').html(currency + ' ' + lowestPriceFormatted);
 							k = 0;
 							currentDateObj = null;
 							date = originalDate;
@@ -378,13 +385,21 @@ function init() {
 		            url: 'https://websdk.fastbooking-services.com/quotation?arrivalDate=' + currentDate + '&currency=JPY&property=' + nearBuyList[i].property + '&roomRestriction='+ nearBuyList[i].beName + '&output=json&nights=1&adults=2&_authCode=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOiJeLiokIiwicHJvcGVydGllcyI6Il5qcChhfGJ8Y3xmfGh8anxrfG58b3xzfHR8dXx5KVthLXpdezJ9WzAtOV17NX0kIiwiZ3JvdXBzIjoiXiQiLCJmb3IiOiJNUyIsImlhdCI6MTQ4NTE5MDg1MiwianRpIjoiMzk1ZDQyNmEtMjUxYi00YmM0LThhN2UtZGU3ZjIyMDBhMGMxIn0.nfxBfwao6Z-k2X8rToJOTEouiVf1lhgPAwrTRFIyeW0',
 		            success:function(response){
 		            	var lowestPrice,
+		            		lowestPriceFormatted,
 							currency;
 
 						if(response.data.length) {
-							lowestPrice = response.data[0].pricePerNight;
+							lowestPrice =  Math.round(response.data[0].pricePerNight);
 							currency = response.data[0].currency_html;
+
+							try {
+								lowestPriceFormatted = lowestPrice.toLocaleString('ja-JP');
+						  	} catch (e) {
+						    	lowestPriceFormatted = lowestPrice;
+						  	}
+
 							$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner');
-							$($ele.find('li')[i]).find('.js-nearbuy-price').html(currency + ' ' + Math.round(lowestPrice));
+							$($ele.find('li')[i]).find('.js-nearbuy-price').html(currency + ' ' + lowestPriceFormatted);
 							k = 0;
 							currentDateObj = null;
 							date = originalDate;
@@ -797,5 +812,18 @@ $(".fancybox-thumb").fancybox({
 			}
 		}
 	});
+
+function getReviews(id, key){
+	var url = 'https://cors.io/?https://api.trustyou.com/hotels/' + key + '/trust_score.html?embedded=true&lang=en&size=m';
+	
+	$.ajax({url: url, success: function(result){
+		$(id).append($(result).find('.counter'));
+		$(id).append($(result).find('.rating-units'));
+		
+
+    }});
+}
+getReviews('#shinsaibashiEast', '487c3a95-0204-4b24-b3d8-07bb42db12fc');
+getReviews('#shinsaibashi', 'b5c6981a-016b-436e-95a6-85041532bdcb');
 
 $(document).ready(init);

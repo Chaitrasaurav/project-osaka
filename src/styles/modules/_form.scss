@@ -65,6 +65,15 @@
 		}
 		
 	}
+	.ui-state-disabled{
+		font-size:0;
+		span{
+			font-size:14px;
+		}
+		a{
+			font-size:14px;
+		}
+	}
 	.calendar{
 		i{
 			position: absolute;

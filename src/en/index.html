@@ -85,6 +85,7 @@
 									<i class="icon calendar-icon"></i>
 									<label class="form__label">Check In</label>
 									<div class="input-wrap">
+										<span class="date-container hidden js-date-arrival"></span>
 										<input class="datepicker form__field form__field--sm js-datepicker check-in required" type="text" name="arrival" id="checkIn" placeholder="Select" readonly>
 									</div>
 								</div>
@@ -92,6 +93,7 @@
 									<i class="icon calendar-icon"></i>
 									<label class="form__label">Check Out</label>
 									<div class="input-wrap">
+										<span class="date-container hidden js-date-departure"></span>
 										<input class="datepicker form__field form__field--sm js-datepicker check-out required" type="text" name="departure" id="checkOut" placeholder="Select" readonly>
 									</div>
 								</div>
@@ -225,6 +227,13 @@
 							<p>Located in the 20th Floor <span class="open">Open until 11:00 pm</span></p>
 							<a href="#">More Info</a>
 						</li>
+						<li>
+							<img src="../dist/images/ruri.png">
+							<h3>Ruri</h3>
+							<h5>Teppanyaki Restaurant</h5>	
+							<p>Located in the 20th Floor <span class="open">Open until 11:00 pm</span></p>
+							<a href="#">More Info</a>
+						</li>
 					</ul>
 				</div>
 				<div id="tab-2" class="tab-content">
@@ -247,7 +256,7 @@
 				</div>
 				<div id="tab-3" class="tab-content">
 					<div class="spa clearfix" data-type="spa">
-						<ul class="spa-slider js-slider-spa">
+						<ul class="spa-slider js-tab-slider-inner">
 							<li><img src="../dist/images/spa-image.png" /></li>
 							<li><img src="../dist/images/spa-image.png" /></li>
 							<li><img src="../dist/images/spa-image.png" /></li>

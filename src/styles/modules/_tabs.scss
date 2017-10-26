@@ -232,8 +232,9 @@
     				right:0;
     			}
     			&.slick-disabled {
+				 	opacity: 0.25;
 				 	&:before {
-				 		opacity: 0.25;
+				 		opacity: 1;
 				 	}
 				 }
 			}
@@ -250,6 +251,12 @@
     				position:absolute;
     				left:0;
     			}
+    			&.slick-disabled {
+				 	opacity: 0.25;
+				 	&:before {
+				 		opacity: 1;
+				 	}
+				 }
 			}
 		}
 		.spa-content{

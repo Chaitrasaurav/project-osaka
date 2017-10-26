@@ -797,6 +797,16 @@ a.ui-state-active {
       position: absolute;
       top: 10px;
       right: 23px; }
+    .form .input-wrap .date-container {
+      position: absolute;
+      font-weight: 900;
+      left: 17px;
+      top: 8px;
+      z-index: 1;
+      background: #f2f2f2; }
+      @media (max-width: 370px) {
+        .form .input-wrap .date-container {
+          left: 9px; } }
   .form .select-guest-container {
     position: absolute;
     top: 125%;
@@ -1432,8 +1442,10 @@ a.ui-state-active {
         top: 4px;
         position: absolute;
         right: 0; }
-      .tabs .spa .spa-slider .slick-next.slick-disabled:before {
+      .tabs .spa .spa-slider .slick-next.slick-disabled {
         opacity: 0.25; }
+        .tabs .spa .spa-slider .slick-next.slick-disabled:before {
+          opacity: 1; }
     .tabs .spa .spa-slider .slick-prev {
       left: 0;
       bottom: 10px;
@@ -1446,6 +1458,10 @@ a.ui-state-active {
         top: 4px;
         position: absolute;
         left: 0; }
+      .tabs .spa .spa-slider .slick-prev.slick-disabled {
+        opacity: 0.25; }
+        .tabs .spa .spa-slider .slick-prev.slick-disabled:before {
+          opacity: 1; }
   .tabs .spa .spa-content {
     float: right;
     width: 56%;

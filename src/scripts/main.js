@@ -85,8 +85,7 @@ function init() {
 			var date2 = $.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#checkOut").val());
             var selectedDate = $.datepicker.parseDate($.datepicker._defaults.dateFormat, dateText);            
             if (!date1 || date2) {
-				$("#checkIn").val(dateText).removeClass('js-datepicker-highlight');
-				
+				$("#checkIn").val(dateText).removeClass('js-datepicker-highlight');	
 				if($("#checkIn").hasClass('js-is-invalid')) {
                 	$("#checkIn").removeClass('js-is-invalid');
                 }
@@ -131,6 +130,22 @@ function init() {
 	            	$("#checkOut").siblings('input[name="coDateM"]').val(date.getMonth() + 1);
 	            	$("#checkOut").siblings('input[name="coDateD"]').val(date.getDate());
             	}
+            }
+
+            if($("#checkIn").val()){
+            	var arrDate = new Date($("#checkIn").val()).getDate();
+            	arrDate = arrDate < 10 ? '0' + arrDate : arrDate;
+            	$('.js-date-arrival').removeClass('hidden').text(arrDate);
+            }else {
+            	$('.js-date-arrival').removeClass('hidden').text('');
+            }
+
+            if($("#checkOut").val()){
+            	var depDate = new Date($("#checkOut").val()).getDate();
+            	depDate = depDate < 10 ? '0' + depDate : depDate;
+            	$('.js-date-departure').removeClass('hidden').text(depDate);
+            }else {
+            	$('.js-date-departure').removeClass('hidden').text('');
             }
 		}
 	});
@@ -575,7 +590,7 @@ $('.js-tabs-select').on('change', function(e) {
 	$('ul.js-tabs li[data-tab="'+ tabId +'"]').addClass('current');
 	$("#"+tabId).addClass('current');
 	$("#"+tabId).find('.js-tab-slider').slick('setPosition', 0);
-	$("#"+tabId).find('.js-slider-spa').slick('setPosition', 0);
+	$("#"+tabId).find('.js-tab-slider-inner').slick('setPosition', 0);
 });
 
 $('ul.js-tabs li').click(function(){
@@ -589,7 +604,7 @@ $('ul.js-tabs li').click(function(){
 	$(this).addClass('current');
 	$("#"+tabId).addClass('current');
 	$("#"+tabId).find('.js-tab-slider').slick('setPosition', 0);
-	$("#"+tabId).find('.js-slider-spa').slick('setPosition', 0);
+	$("#"+tabId).find('.js-tab-slider-inner').slick('setPosition', 0);
 });
 
 var slickConfig = {
@@ -658,21 +673,17 @@ var createSlider = function(ele) {
 createSlider('.js-tab-slider');
 createSlider('.js-nearbuy');
 
-$('.js-slider-spa').slick({
-  infinite: true,
+$('.js-tab-slider-inner').slick({
+  infinite: false,
   speed: 300,
   slidesToShow: 1,
   dots: true,
     dotsClass: 'custom_paging',
     customPaging: function (slider, i) {
-        //FYI just have a look at the object to find available information
-        //press f12 to access the console in most browsers
-        //you could also debug or look in the source
-        console.log(slider);
         return  (i + 1) + ' of ' + slider.slideCount;
     }
 });
-$('.js-slider-spa .slick-arrow').addClass('icon arrow');
+$('.js-tab-slider-inner .slick-arrow').addClass('icon arrow');
 
 $('.header_cta-dropdown').on('click', function(){
 	$('.header_language').toggleClass('active');

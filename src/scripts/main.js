@@ -299,7 +299,7 @@ function init() {
 				});
 			}
 		};
-		buildList();
+		//buildList();
 	  }
 	});
 
@@ -424,7 +424,7 @@ function init() {
 		};
 		buildList();
     }
-    nearBuy();
+    //nearBuy();
 };
 
 $(document).on('mouseover', '.ui-datepicker-calendar td a', function(e){
@@ -825,5 +825,85 @@ function getReviews(id, key){
 }
 getReviews('#shinsaibashiEast', '487c3a95-0204-4b24-b3d8-07bb42db12fc');
 getReviews('#shinsaibashi', 'b5c6981a-016b-436e-95a6-85041532bdcb');
+
+function soap() {
+	console.log('soap')
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('POST', 'https://ota2-c1.ihotelier.com/OTA_Seamless/services/FullDataService', true);
+
+    // build SOAP request
+    var sr =   '<?xml version="1.0" encoding="utf-8"?>' +
+				'<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasisopen.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasisopen.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">' +
+				    '<soap:Header>'+
+				        '<wsa:MessageID>Message01</wsa:MessageID>' +
+				        '<wsa:ReplyTo>' +
+				            '<wsa:Address>NOT NEEDED FOR SYNC REQUEST</wsa:Address>' +
+				        '</wsa:ReplyTo>' +
+				        '<wsa:To>https://ota2-c1.ihotelier.com/OTA_Seamless/services/FullDataService</wsa:To>' +
+				        '<wsa:Action>FULL</wsa:Action>' +
+				        '<wsa:From>' +
+				            '<SalesChannelInfo ID="MYSTAYS" />' +
+				        '</wsa:From>' +
+				        '<wsse:Security>' +
+				            '<wsu:Timestamp>' +
+				                '<wsu:Created>2011-12-25T16:05:30+05:30</wsu:Created>' +
+				                '<wsu:Expires>2011-12-26T16:12:46+05:30</wsu:Expires>' +
+				            '</wsu:Timestamp>' +
+				            '<wsse:UsernameToken>' +
+				                '<wsse:Username>ADMIN</wsse:Username>' +
+				                '<wsse:Password>C0nn3ct0taAp!</wsse:Password>' +
+				            '</wsse:UsernameToken>' +
+				        '</wsse:Security>' +
+				    '</soap:Header>' +
+				    '<soap:Body>' +
+				        '<OTA_HotelAvailRQ Version="2.0" AvailRatesOnly="true">' +
+				            '<POS>' +
+				                '<Source>' +
+				                    '<RequestorID ID="1" Type="1" />' +
+				                    '<BookingChannel Type="18">' +
+				                        '<CompanyName Code="MYSTAYS" />' +
+				                    '</BookingChannel>' +
+				                '</Source>' +
+				            '</POS>' +
+				            '<AvailRequestSegments>' +
+				                '<AvailRequestSegment ResponseType="FullList">' +
+				                    '<HotelSearchCriteria AvailableOnlyIndicator="true">' +
+				                        '<Criterion ExactMatch="0">' +
+				                            '<StayDateRange Start="2017-10-25" End="2017-10-26" />' +
+				                            '<RatePlanCandidates>' +
+				                                '<RatePlanCandidate>' +
+				                                    '<HotelRefs>' +
+				                                        '<HotelRef HotelCode="98541" />' +
+				                                    '</HotelRefs>' +
+				                                '</RatePlanCandidate>' +
+				                            '</RatePlanCandidates>' +
+				                            '<RoomStayCandidates>' +
+				                                '<RoomStayCandidate Quantity="1">' +
+				                                    '<GuestCounts>' +
+				                                        '<GuestCount AgeQualifyingCode="10" Count="1" />' +
+				                                    '</GuestCounts>' +
+				                                '</RoomStayCandidate>' +
+				                            '</RoomStayCandidates>' +
+				                        '</Criterion>' +
+				                    '</HotelSearchCriteria>' +
+				                '</AvailRequestSegment>' +
+				            '</AvailRequestSegments>' +
+				        '</OTA_HotelAvailRQ>' +
+				    '</soap:Body>' +
+				'</soap:Envelope>';
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4) {
+            if (xmlhttp.status == 200) {
+                 console.log(xmlhttp.response);
+  				console.log(xmlhttp.responseXML);
+            }
+        }
+    }
+    xmlhttp.setRequestHeader("SOAPAction", "http://webstage.ch.com/ch/services/BNRequestService/FullDataServiceHandler/serviceRequestRequest");
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+};
+soap();
 
 $(document).ready(init);

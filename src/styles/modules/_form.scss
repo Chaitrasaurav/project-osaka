@@ -65,14 +65,8 @@
 		}
 		
 	}
-	.ui-state-disabled{
-		font-size:0;
-		span{
-			font-size:14px;
-		}
-		a{
-			font-size:14px;
-		}
+	.ui-datepicker-other-month.ui-datepicker-unselectable.ui-state-disabled{
+		opacity: 0;
 	}
 	.calendar{
 		i{

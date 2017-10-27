@@ -715,12 +715,8 @@ a.ui-state-active {
       @media (max-width: 370px) {
         .form .form__control i {
           right: 10px !important; } }
-  .form .ui-state-disabled {
-    font-size: 0; }
-    .form .ui-state-disabled span {
-      font-size: 14px; }
-    .form .ui-state-disabled a {
-      font-size: 14px; }
+  .form .ui-datepicker-other-month.ui-datepicker-unselectable.ui-state-disabled {
+    opacity: 0; }
   .form .calendar i {
     position: absolute;
     right: 10px;

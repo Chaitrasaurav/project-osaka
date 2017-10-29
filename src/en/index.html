@@ -77,7 +77,7 @@
 					<div class="form-container">
 						<form name="mainForm" id="mainForm" class="clearfix" novalidate autocomplete="off">
 							<div class="form__control">
-								<input type="hidden" id="property" name="property" value="jpnas28830">
+								<input type="hidden" id="property" name="hotelid" value="103403">
 								<input type="hidden" id="propertyId" value="jpnas28830">
 							</div>
 							<div class="form_guestWrap">
@@ -86,7 +86,7 @@
 									<label class="form__label">Check In</label>
 									<div class="input-wrap">
 										<span class="date-container hidden js-date-arrival"></span>
-										<input class="datepicker form__field form__field--sm js-datepicker check-in required" type="text" name="arrival" id="checkIn" placeholder="Select" readonly>
+										<input class="datepicker form__field form__field--sm js-datepicker check-in required" type="text" name="datein" id="checkIn" placeholder="Select" readonly>
 									</div>
 								</div>
 								<div class="form__control calendar">
@@ -94,7 +94,7 @@
 									<label class="form__label">Check Out</label>
 									<div class="input-wrap">
 										<span class="date-container hidden js-date-departure"></span>
-										<input class="datepicker form__field form__field--sm js-datepicker check-out required" type="text" name="departure" id="checkOut" placeholder="Select" readonly>
+										<input class="datepicker form__field form__field--sm js-datepicker check-out required" type="text" name="dateout" id="checkOut" placeholder="Select" readonly>
 									</div>
 								</div>
 								<div class="datepicker-modal js-datepicker-modal hidden">
@@ -105,11 +105,11 @@
 									<div class="input-wrap">
 										<i class="icon down-arrow"></i>
 										<input class="form__field form__field--sm required js-select-guest guest" placeholder="Guests" type="text" value="2" readonly>
-										<input class="form__field form__field--sm js-total-adult" type="hidden" name="adults1" id="adults1" value="2">
-										<input class="form__field form__field--sm js-total-children" type="hidden" name="children1" id="children1" value="0">
+										<input class="form__field form__field--sm js-total-adult" type="hidden" name="adults" id="adults1" value="2">
+										<input class="form__field form__field--sm js-total-children" type="hidden" name="children" id="children1" value="0">
 										<input class="form__field form__field--sm js-total-room" type="hidden" name="rooms" id="rooms" value="1"> 
-										<input class="form__field form__field--sm" type="hidden" name="locale" id="locale" value="en_GB"> 
-										<input class="form__field form__field--sm" type="hidden" name="currency" id="currency" value="JPY">
+										<!-- <input class="form__field form__field--sm" type="hidden" name="locale" id="locale" value="en_GB"> 
+										<input class="form__field form__field--sm" type="hidden" name="currency" id="currency" value="JPY"> -->
 									</div>
 								<div class="select-guest-container js-select-guest-container hidden">
 								<h5>Rooms</h5>
@@ -162,7 +162,7 @@
 								<label class="form__label desktop-label">Have a promo code?</label>
 								<label class="form__label mobile-label">Promo code?</label>
 								<div class="input-wrap">
-									<input class="form__field form__field--sm" type="text" name="code" id="code" placeholder="Optional"><i class="icon info-icon" title="Promotion Code"></i>
+									<input class="form__field form__field--sm" type="text" name="discount" id="code" placeholder="Optional"><i class="icon info-icon" title="Promotion Code"></i>
 								</div>
 							</div>
 							<button type="button" class="form__btn js-main-form-btn" id="main-form-btn">Check Availability <span>Best Price Guaranteed</span></button>

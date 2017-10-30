@@ -64,7 +64,7 @@ function init() {
 	}
 
 	$(".js-datepicker-container").datepicker({
-		minDate: 0,
+		minDate: new Date(2018, 1, 1),
 		numberOfMonths: numberOfMonths,
 		beforeShowDay: function(date) {
 			var date1 = $.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#checkIn").val());
@@ -308,7 +308,7 @@ function init() {
 			    	lowestPriceFormatted = lowestPrice;
 			  	}
 
-				$ele.append('<li data-name="'+ rooms[i].roomName +'">\
+				$ele.append('<li data-room="'+ rooms[i].roomIdBooking +'">\
 					<img src="../dist/images/room-image.png">\
 					<h3>' + rooms[i].roomName + '</h3>\
 					<p><span>Starting from:</span><span class="js-accomodation-price">¥ ' + lowestPriceFormatted + '</span><span>/night</span></p>\
@@ -791,15 +791,28 @@ $('.js-close-mobile-menu').on('click', function(e) {
 
 $(document).on('click', '.js-book-now', function(e) {
 	e.preventDefault();
+
 	var url,
-		date1 = new Date(),
-		date2 = new Date(),
+		date1,
+		date2,
 		day1Str,
 		day2Str,
 		month1Str,
 		month2Str,
 		fullDate1,
-		fullDate2;
+		fullDate2,
+		selectedDate = new Date(2018, 1, 1),
+		now = new Date();
+
+	selectedDate.setHours(0,0,0,0);
+	now.setHours(0,0,0,0);
+	if (now < selectedDate) {
+	  	date1 = new Date(2018, 1, 1);
+		date2 = new Date(2018, 1, 1);
+	} else {
+		date1 = new Date();
+		date2 = new Date();
+	}
 
 	date2.setDate(date2.getDate()  + 1);
 	if(date1.getDate() < 10) {
@@ -828,16 +841,20 @@ $(document).on('click', '.js-book-now', function(e) {
 		month2Str = date2.getMonth() + 1;
 	}
 
-	fullDate1 = date1.getFullYear() + '-' + month1Str + '-' + day1Str;	
-	fullDate2 = date2.getFullYear() + '-' + month2Str + '-' + day2Str;	
-
 	if(locale === 'en_GB') {
-		if($(e.target).parents('li').data('name')) {
-			url = 'https://www.book-secure.com/index.php?s=results&property='+ propertyId +'&arrival='+ fullDate1 +'&departure=' + fullDate2 + '&accommodation=' + $(e.target).parents('li').data('name') + '&adults1=2&children1=0&children2=0&rooms=1&locale='+ locale +'&currency=JPY';
+		fullDate1 = month1Str + '/' + day1Str + '/' + date1.getFullYear();	
+		fullDate2 = month2Str + '/' + day2Str + '/' + date2.getFullYear();	
+
+		if($(e.target).parents('li').data('room')) {
+			url = 'https://reservations.travelclick.com/' + property + '?hotelid=' + property + '&datein=' + fullDate1 + '&dateout=' + fullDate2 + '&rooms=1&adults=2&children=0&roomtypeid=' + $(e.target).parents('li').data('room') + '#/accommodation/room';
+			//url = 'https://www.book-secure.com/index.php?s=results&property='+ propertyId +'&arrival='+ fullDate1 +'&departure=' + fullDate2 + '&accommodation=' + $(e.target).parents('li').data('name') + '&adults1=2&children1=0&children2=0&rooms=1&locale='+ locale +'&currency=JPY';
 		} else if($(e.target).parents('li').data('hotel')) {
 			url = 'https://www.book-secure.com/index.php?s=results&property=' + $(e.target).parents('li').data('hotel') + '&arrival='+ fullDate1 +'&departure=' + fullDate2 + '&adults1=2&children1=0&children2=0&rooms=1&locale='+ locale +'&currency=JPY';
 		}
 	} else if(locale === 'ja_JP') {
+		fullDate1 = date1.getFullYear() + '-' + month1Str + '-' + day1Str;	
+		fullDate2 = date2.getFullYear() + '-' + month2Str + '-' + day2Str;	
+
 		if($(e.target).parents('li').data('name')) {		
 			url = 'https://mystays.rwiths.net/r-withs/tfs0020a.do?&hotelNo='+ property +'&ciDateY='+ date1.getFullYear() +'&ciDateM='+ month1Str +'&ciDateD='+ day1Str +'&coDateY=' + date2.getFullYear() + '&coDateM=' + month2Str + '&coDateD='+ day2Str +'&otona=2&s1=0&room=1';
 		} else if($(e.target).parents('li').data('hotel')) {

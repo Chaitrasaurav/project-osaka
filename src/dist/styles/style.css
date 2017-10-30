@@ -284,6 +284,10 @@ ul {
 .tabs .tabs-select::-ms-expand {
   display: none; }
 
+.hamburguer-icon {
+  position: relative;
+  top: -3px; }
+
 header {
   border-bottom: 1px solid #e5ebef;
   padding: 14px 0; }
@@ -436,7 +440,7 @@ header {
   padding: 0 0 59px; }
   @media (max-width: 960px) {
     .stage_wrapper {
-      padding: 0 20px 59px; } }
+      padding: 0 0 59px; } }
   .stage_wrapper .stage_links {
     padding: 71px 0; }
     @media (max-width: 767px) {
@@ -475,7 +479,7 @@ header {
     padding-top: 27px; }
     @media (max-width: 767px) {
       .stage_wrapper .stage_content {
-        padding-top: 60px; } }
+        padding: 60px 20px 0; } }
     .stage_wrapper .stage_content h3 {
       font-family: PT-Serif;
       font-size: 22px;
@@ -661,7 +665,7 @@ a.ui-state-active {
   padding: 93px 0 0; }
   @media (max-width: 767px) {
     .form {
-      padding: 45px 0 0; } }
+      padding: 45px 20px 0; } }
   .form h4 {
     color: #ffffff;
     font-size: 26px;
@@ -960,15 +964,28 @@ a.ui-state-active {
 .accommodation {
   text-align: center;
   padding-top: 52px; }
+  @media (max-width: 960px) {
+    .accommodation {
+      padding: 52px 20px 0; } }
+  @media (max-width: 600px) {
+    .accommodation {
+      padding: 52px 0 0; } }
 
 .accommodation_slider {
   list-style: none;
   padding: 24px 0 0; }
+  @media (max-width: 600px) {
+    .accommodation_slider .slick-list .slick-current {
+      opacity: 1; } }
   .accommodation_slider .slick-list li {
     background: #ffffff;
     box-shadow: 0 0 15px 0 rgba(0, 60, 103, 0.1);
     margin: 0 10px;
     padding: 0 0 50px; }
+    @media (max-width: 600px) {
+      .accommodation_slider .slick-list li {
+        margin: 0 15px 0 0;
+        opacity: 0.5; } }
     .accommodation_slider .slick-list li img {
       max-width: 100%;
       display: block;
@@ -1037,6 +1054,9 @@ a.ui-state-active {
       margin: 20px 0 0; }
   .accommodation_slider .slick-list {
     margin: 0 0 0 -15px; }
+    @media (max-width: 600px) {
+      .accommodation_slider .slick-list {
+        margin: 0; } }
 
 .slick-track {
   margin: auto;
@@ -1050,6 +1070,9 @@ a.ui-state-active {
   display: table;
   margin: 27px auto;
   position: relative; }
+  @media (max-width: 400px) {
+    .slick-dots {
+      max-width: 250px; } }
   .slick-dots li {
     display: block;
     float: left;
@@ -1093,6 +1116,9 @@ a.ui-state-active {
 .slick-next {
   right: -47px;
   top: 6px; }
+  @media (max-width: 400px) {
+    .slick-next {
+      right: -25px; } }
   .slick-next.slick-disabled:before {
     opacity: 0.25; }
 
@@ -1104,6 +1130,9 @@ a.ui-state-active {
   transform: rotate(180deg);
   left: -47px;
   top: 12px; }
+  @media (max-width: 400px) {
+    .slick-prev {
+      left: -25px; } }
   .slick-prev.slick-disabled:before {
     opacity: 0.25; }
 
@@ -1134,44 +1163,104 @@ a.ui-state-active {
         left: -17px; } }
   .nearby-places .accommodation_slider {
     padding: 29px 0 0; }
+    .nearby-places .accommodation_slider .slick-arrow {
+      color: #fff; }
     @media (max-width: 767px) {
-      .nearby-places .accommodation_slider .slick-slide {
+      .nearby-places .accommodation_slider li {
+        background: #ffffff;
+        box-shadow: 0 0 15px 0 rgba(0, 60, 103, 0.1);
+        margin: 0 10px;
         float: none !important;
         margin-right: 10px !important;
         position: relative;
         padding: 20px 10px 30px;
         margin-bottom: 20px;
         text-align: left; } }
-    @media (max-width: 767px) {
-      .nearby-places .accommodation_slider .slick-slide img {
-        float: left;
-        width: 140px;
-        height: auto; } }
-    .nearby-places .accommodation_slider .slick-slide h3 {
-      min-height: auto; }
+    .nearby-places .accommodation_slider li img {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto; }
       @media (max-width: 767px) {
-        .nearby-places .accommodation_slider .slick-slide h3 {
+        .nearby-places .accommodation_slider li img {
+          float: left;
+          width: 140px;
+          height: auto; } }
+    .nearby-places .accommodation_slider li h3 {
+      font-size: 18px;
+      color: #222d49;
+      position: relative;
+      margin: 29px 0 5px;
+      text-transform: capitalize;
+      font-weight: bold;
+      min-height: 54px;
+      padding: 0 15px;
+      line-height: 1.3;
+      min-height: auto; }
+      .nearby-places .accommodation_slider li h3:after {
+        content: '';
+        position: absolute;
+        top: -52px;
+        left: 48%;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #ffffff; }
+      @media (max-width: 767px) {
+        .nearby-places .accommodation_slider li h3 {
           margin: 0;
           font-size: 15px;
           padding-left: 150px; } }
-    .nearby-places .accommodation_slider .slick-slide > div span {
+    .nearby-places .accommodation_slider li > div span {
       margin-bottom: -10px; }
-    .nearby-places .accommodation_slider .slick-slide > div img {
+    .nearby-places .accommodation_slider li > div img {
       display: inline;
       margin: 0 -12px 0 -12px;
       width: auto; }
     @media (max-width: 767px) {
-      .nearby-places .accommodation_slider .slick-slide > div {
+      .nearby-places .accommodation_slider li > div {
         position: absolute;
         left: 15px;
         text-align: left;
         top: 110px; } }
-    @media (max-width: 767px) {
-      .nearby-places .accommodation_slider .slick-slide p {
-        padding-left: 150px; } }
-    @media (max-width: 767px) {
-      .nearby-places .accommodation_slider .slick-slide a {
-        margin-left: 150px; } }
+    .nearby-places .accommodation_slider li p {
+      color: #aaabae;
+      font-size: 14px;
+      margin: 0; }
+      @media (max-width: 767px) {
+        .nearby-places .accommodation_slider li p {
+          padding-left: 150px; } }
+    .nearby-places .accommodation_slider li.spinner {
+      position: relative; }
+      .nearby-places .accommodation_slider li.spinner:before {
+        background: url(../images/spinner.gif) no-repeat;
+        content: '';
+        height: 32px;
+        width: 32px;
+        display: block;
+        position: absolute;
+        left: 45%;
+        z-index: 1;
+        top: 32%; }
+      .nearby-places .accommodation_slider li.spinner:after {
+        content: '';
+        width: 100%;
+        display: block;
+        height: 60px;
+        position: absolute;
+        top: 0;
+        background: #fff; }
+    .nearby-places .accommodation_slider li a {
+      border-radius: 100px;
+      background-color: #ff8900;
+      display: inline-block;
+      padding: 10px 20px;
+      color: #ffffff;
+      font-size: 13px;
+      margin: 20px 0 0; }
+      @media (max-width: 767px) {
+        .nearby-places .accommodation_slider li a {
+          margin-left: 140px; } }
   @media (max-width: 767px) {
     .nearby-places .slick-dots {
       display: none !important; } }
@@ -1216,14 +1305,9 @@ a.ui-state-active {
     text-transform: capitalize;
     font-weight: bold;
     margin-top: 25px; }
-  .rating iframe {
-    border: none;
-    height: 65px;
-    position: relative;
-    left: 6%; }
-    @media (max-width: 767px) {
-      .rating iframe {
-        left: 0; } }
+  .rating #guide-logo {
+    display: table;
+    margin: 0 auto 30px; }
   .rating p {
     max-width: 411px;
     margin: 0 auto; }
@@ -1260,6 +1344,9 @@ a.ui-state-active {
     @media (max-width: 767px) {
       .tabs:after {
         display: none; } }
+  @media (max-width: 767px) {
+    .tabs h2 {
+      padding: 0 20px; } }
   .tabs h3 {
     text-transform: capitalize; }
   .tabs .accommodation_slider {
@@ -1324,10 +1411,10 @@ a.ui-state-active {
     display: none;
     background-color: #f2f5f7;
     border: solid 1px #dddee0;
-    width: 100%;
+    width: 89%;
     padding: 15px 10px;
     font-size: 18px;
-    margin-top: 20px; }
+    margin: 20px 20px 0; }
     @media (max-width: 767px) {
       .tabs .tabs-select {
         display: block; } }
@@ -1339,6 +1426,9 @@ a.ui-state-active {
     @media (max-width: 960px) {
       .tabs .tabs_container {
         padding: 50px 20px; } }
+    @media (max-width: 600px) {
+      .tabs .tabs_container {
+        padding: 50px 0; } }
   .tabs h5 {
     font-weight: 400;
     font-size: 14px;
@@ -1356,6 +1446,9 @@ a.ui-state-active {
     line-height: 1.3; }
   .tabs .accommodation_slider .slick-list li h3 {
     font-weight: bold; }
+  @media (max-width: 767px) {
+    .tabs .hotel-shop {
+      padding: 0 20px; } }
   .tabs .hotel-shop .hotel-shop-image {
     float: left;
     width: 41%;
@@ -1405,6 +1498,9 @@ a.ui-state-active {
         font-size: 14px;
         float: left;
         margin: 0 10px 0 0; }
+  @media (max-width: 767px) {
+    .tabs .spa {
+      padding: 0 20px; } }
   .tabs .spa .spa-slider {
     float: left;
     width: 41%;
@@ -1640,7 +1736,7 @@ a.ui-state-active {
         padding-left: 5px; } }
 
 #fancybox-thumbs.bottom {
-  bottom: 2%; }
+  bottom: 5% !important; }
 
 #fancybox-thumbs ul {
   position: relative;

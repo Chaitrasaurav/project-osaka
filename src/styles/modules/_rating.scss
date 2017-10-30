@@ -19,15 +19,10 @@
   		margin-top:25px;
 	}
 
-	iframe{
-		border: none;
-    	height: 65px;
-    	position:relative;
-    	left:6%;
-    	@media (max-width: 767px) {
-    		left:0;
-    	}
-	}
+	#guide-logo{
+    display: table;
+    margin: 0 auto 30px;
+  }
 	p{
 		max-width: 411px;
     	margin: 0 auto;

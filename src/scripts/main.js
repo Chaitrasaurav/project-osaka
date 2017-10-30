@@ -166,7 +166,7 @@ function init() {
     	outDate = outDateObj.getDate() < 10 ?  '0' + outDateObj.getDate() +  1 : outDateObj.getDate(),
     	nextDate = outDateObj.getFullYear() + '-' + outMonth + '-' + outDate;
 
-    var url = 'https://cors.io/?http://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=98555&checkin=' + currentDate + '&checkout=' + nextDate + '&adults=2&child=0&rooms=1';
+    var url = 'http://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=98555&checkin=' + currentDate + '&checkout=' + nextDate + '&adults=2&child=0&rooms=1';
     var response = {
 	  "propertyname": "Hotel Mystays Haneda",
 	  "rooms": [
@@ -278,7 +278,9 @@ function init() {
 				    settings: {
 				      slidesToShow: 1,
 				      slidesToScroll: 1,
-				      
+				      infinite: true,
+   					  centerMode: true,
+   					  centerPadding: '30px',			      
 				    }
 				  }
 				]
@@ -337,7 +339,7 @@ function init() {
 			if(i < nearBuyLength) {
 				$.ajax({
 		            type: "GET",
-		            url: 'https://cors.io/?http://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=' + nearBuyList[i] + '&checkin=' + currentDate + '&checkout=' + nextDate + '&adults=2&child=0&rooms=1',
+		            url: 'http://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=' + nearBuyList[i] + '&checkin=' + currentDate + '&checkout=' + nextDate + '&adults=2&child=0&rooms=1',
 		            success:function(response){
 
 		            	i++;
@@ -656,7 +658,9 @@ var slickConfig = {
 	    settings: {
 	      slidesToShow: 1,
 	      slidesToScroll: 1,
-	      
+	      infinite: true,
+		  centerMode: true,
+		  centerPadding: '30px',
 	    }
 	  }
 	]
@@ -703,7 +707,9 @@ var createSlider = function(ele) {
 };
 
 createSlider('.js-tab-slider');
-createSlider('.js-nearbuy');
+if($(window).width() > 600){
+	createSlider('.js-nearbuy');
+}
 
 $('.js-tab-slider-inner').slick({
   infinite: false,
@@ -876,7 +882,7 @@ $(".fancybox-thumb").fancybox({
 	});
 
 function getReviews(id, key){
-	var url = 'https://cors.io/?https://api.trustyou.com/hotels/' + key + '/trust_score.html?embedded=true&lang=en&size=m';
+	var url = 'https://api.trustyou.com/hotels/' + key + '/trust_score.html?embedded=true&lang=en&size=m';
 	
 	$.ajax({url: url, success: function(result){
 		$(id).append($(result).find('.counter'));
@@ -887,5 +893,9 @@ function getReviews(id, key){
 }
 getReviews('#shinsaibashiEast', '487c3a95-0204-4b24-b3d8-07bb42db12fc');
 getReviews('#shinsaibashi', 'b5c6981a-016b-436e-95a6-85041532bdcb');
+
+$.ajax({url: 'https://api.trustyou.com/hotels/93ed65c2-4b3f-4101-a7a0-d149aedf852e/trust_score.html?embedded=true&lang=en&size=m', success: function(result){
+	$('#guide-logo').append(result);
+}});
 
 $(document).ready(init);

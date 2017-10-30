@@ -19,7 +19,7 @@
 	margin:0 auto;
 	padding: 0 0 59px;
 	@media (max-width: 960px) {
-  		padding:0 20px 59px;
+  		padding:0 0 59px;
   	}
 	.stage_links{
 		padding: 71px 0;
@@ -68,7 +68,7 @@
 		text-align:center;
 		padding-top: 27px;
 		@media (max-width: 767px) {
-			padding-top: 60px;
+			padding: 60px 20px 0;
 		}
 		h3{
 			font-family: $font-family-secondary;

@@ -166,98 +166,99 @@ function init() {
     	outDate = outDateObj.getDate() < 10 ?  '0' + outDateObj.getDate() +  1 : outDateObj.getDate(),
     	nextDate = outDateObj.getFullYear() + '-' + outMonth + '-' + outDate;
 
-    var url = 'http://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=98555&checkin=' + currentDate + '&checkout=' + nextDate + '&adults=2&child=0&rooms=1';
-    var response = {
-	  "propertyname": "Hotel Mystays Haneda",
-	  "rooms": [
-	    {
-	      "roomName": "Standard Semi Double S",
-	      "price": "118.8000",
-	      "roomIdBooking": "428264"
-	    },
-	    {
-	      "roomName": "Standard Semi Double NS",
-	      "price": "237.6000",
-	      "roomIdBooking": "428265"
-	    },
-	    {
-	      "roomName": "Standard Double S",
-	      "price": "356.4000",
-	      "roomIdBooking": "428266"
-	    },
-	    {
-	      "roomName": "Standard Double NS",
-	      "price": "475.2000",
-	      "roomIdBooking": "428267"
-	    },
-	    {
-	      "roomName": "Standard Queen S",
-	      "price": "594.0000",
-	      "roomIdBooking": "428268"
-	    },
-	    {
-	      "roomName": "Standard Queen NS",
-	      "price": "712.8000",
-	      "roomIdBooking": "428269"
-	    },
-	    {
-	      "roomName": "Standard Twin S",
-	      "price": "831.6000",
-	      "roomIdBooking": "428270"
-	    },
-	    {
-	      "roomName": "Standard Twin NS",
-	      "price": "950.4000",
-	      "roomIdBooking": "428271"
-	    },
-	    {
-	      "roomName": "Standard Hollywood Twin NS",
-	      "price": "1069.2000",
-	      "roomIdBooking": "428272"
-	    },
-	    {
-	      "roomName": "Accessible Double NS",
-	      "price": "1188.0000",
-	      "roomIdBooking": "428273"
-	    },
-	    {
-	      "roomName": "Deluxe Queen NS",
-	      "price": "1306.8000",
-	      "roomIdBooking": "428274"
-	    },
-	    {
-	      "roomName": "Deluxe Twin NS",
-	      "price": "1425.6000",
-	      "roomIdBooking": "428275"
-	    },
-	    {
-	      "roomName": "Superior Double Kitchenette NS",
-	      "price": "1544.4000",
-	      "roomIdBooking": "428276"
-	    },
-	    {
-	      "roomName": "Superior Queen NS",
-	      "price": "1663.2000",
-	      "roomIdBooking": "428277"
-	    },
-	    {
-	      "roomName": "Grand Deluxe Twin S",
-	      "price": "1782.0000",
-	      "roomIdBooking": "428278"
-	    },
-	    {
-	      "roomName": "Grand Deluxe Twin NS",
-	      "price": "1900.8000",
-	      "roomIdBooking": "428279"
-	    }
-	  ]
-	};
+    //var url = 'http://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=98555&checkin=' + currentDate + '&checkout=' + nextDate + '&adults=2&child=0&rooms=1';
+    var url = 'https://cors.io/?https://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=98555&checkin=2017-11-02&checkout=2017-11-05&adults=2&child=0&rooms=1';
+ //    var response = {
+	//   "propertyname": "Hotel Mystays Haneda",
+	//   "rooms": [
+	//     {
+	//       "roomName": "Standard Semi Double S",
+	//       "price": "118.8000",
+	//       "roomIdBooking": "428264"
+	//     },
+	//     {
+	//       "roomName": "Standard Semi Double NS",
+	//       "price": "237.6000",
+	//       "roomIdBooking": "428265"
+	//     },
+	//     {
+	//       "roomName": "Standard Double S",
+	//       "price": "356.4000",
+	//       "roomIdBooking": "428266"
+	//     },
+	//     {
+	//       "roomName": "Standard Double NS",
+	//       "price": "475.2000",
+	//       "roomIdBooking": "428267"
+	//     },
+	//     {
+	//       "roomName": "Standard Queen S",
+	//       "price": "594.0000",
+	//       "roomIdBooking": "428268"
+	//     },
+	//     {
+	//       "roomName": "Standard Queen NS",
+	//       "price": "712.8000",
+	//       "roomIdBooking": "428269"
+	//     },
+	//     {
+	//       "roomName": "Standard Twin S",
+	//       "price": "831.6000",
+	//       "roomIdBooking": "428270"
+	//     },
+	//     {
+	//       "roomName": "Standard Twin NS",
+	//       "price": "950.4000",
+	//       "roomIdBooking": "428271"
+	//     },
+	//     {
+	//       "roomName": "Standard Hollywood Twin NS",
+	//       "price": "1069.2000",
+	//       "roomIdBooking": "428272"
+	//     },
+	//     {
+	//       "roomName": "Accessible Double NS",
+	//       "price": "1188.0000",
+	//       "roomIdBooking": "428273"
+	//     },
+	//     {
+	//       "roomName": "Deluxe Queen NS",
+	//       "price": "1306.8000",
+	//       "roomIdBooking": "428274"
+	//     },
+	//     {
+	//       "roomName": "Deluxe Twin NS",
+	//       "price": "1425.6000",
+	//       "roomIdBooking": "428275"
+	//     },
+	//     {
+	//       "roomName": "Superior Double Kitchenette NS",
+	//       "price": "1544.4000",
+	//       "roomIdBooking": "428276"
+	//     },
+	//     {
+	//       "roomName": "Superior Queen NS",
+	//       "price": "1663.2000",
+	//       "roomIdBooking": "428277"
+	//     },
+	//     {
+	//       "roomName": "Grand Deluxe Twin S",
+	//       "price": "1782.0000",
+	//       "roomIdBooking": "428278"
+	//     },
+	//     {
+	//       "roomName": "Grand Deluxe Twin NS",
+	//       "price": "1900.8000",
+	//       "roomIdBooking": "428279"
+	//     }
+	//   ]
+	// };
 
-    // $.ajax({
-    // 	type: 'GET',
-    // 	url: url,
-    // 	dataType: 'json',
-    // 	success:function(response){
+    $.ajax({
+    	type: 'GET',
+    	url: url,
+    	dataType: 'json',
+    	success:function(response){
     		console.info(response)
     		if(response.rooms.length) {
 		  	 var slickConfig = {
@@ -326,154 +327,131 @@ function init() {
 			$ele.find('.slick-arrow').appendTo( $ele.find('.slick-dots'));
 			$ele.find('.slick-arrow').addClass('icon arrow');
 		  }
-    // 	}
-    // });
-	
-	function nearBuy () {
-		var $ele = $('.js-nearbuy'),
-	    	nearBuyList = [98555, 98555, 98555],
-	    	nearBuyLength = nearBuyList.length,
-	    	i = 0;
+    	}
+    });
 
-		function fetchPrice() {
-			if(i < nearBuyLength) {
+    function nearBuy () {
+    	var $ele = $('.js-nearbuy'),
+	    	nearBuyList = [
+				{
+					property: 'jposa28306',
+					beName: 'Renovated-Standard-Single--Non-S'	
+				},
+				{
+					property: 'jposa26338',
+					beName: 'Standard-Semi-double-Non-Smoking'	
+				},
+				{
+					property: 'jposa31260',
+					beName: 'Standard-Double'	
+				}
+			],
+			roomsLength = nearBuyList.length,
+			i = 0,
+			k = 0,
+			date = new Date(),
+			originalDate,
+			dayLimit = 5,
+			currentDate,
+			currentDateObj;
+
+			if(date.getDay() < dayLimit) {
+			
+			switch (date.getDay()) {
+				    case 0:
+				        date.setDate(date.getDate() + 9);
+				        break;
+				    case 1:
+				        date.setDate(date.getDate() + 8);
+				        break;
+				    case 2:
+				        date.setDate(date.getDate() + 7);
+				        break;
+				    case 3:
+				        date.setDate(date.getDate() + 6);
+				        break;
+				    case 4:
+						date.setDate(date.getDate() + 5);
+				        break;
+				}
+			} else {
+				switch (date.getDay()) {
+				    case 5:
+				        date.setDate(date.getDate() + 11);
+				        break;
+				    case 6:
+				        date.setDate(date.getDate() + 10);
+				        break;
+				}
+			}
+
+			originalDate = date;
+		
+		function buildList() {
+			if(i < roomsLength) {
+				if(currentDateObj) {
+					date = currentDateObj;
+				}
+				var date1,
+					month1;
+				if(date.getDate() < 10) {
+					date1 = '0' + date.getDate();
+				} else {
+					date1 = date.getDate();	
+				}
+				if((date.getMonth() + 1) < 10) {
+					month1 = date.getMonth() + 1;
+					month1 = '0' + month1;
+				}else {
+					month1 = date.getMonth() + 1;
+				}
+				currentDate = date.getFullYear() + '-' + month1 + '-' + date1;
+
 				$.ajax({
 		            type: "GET",
-		            url: 'http://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=' + nearBuyList[i] + '&checkin=' + currentDate + '&checkout=' + nextDate + '&adults=2&child=0&rooms=1',
+		            url: 'https://websdk.fastbooking-services.com/quotation?arrivalDate=' + currentDate + '&currency=JPY&property=' + nearBuyList[i].property + '&roomRestriction='+ nearBuyList[i].beName + '&output=json&nights=1&adults=2&_authCode=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOiJeLiokIiwicHJvcGVydGllcyI6Il5qcChhfGJ8Y3xmfGh8anxrfG58b3xzfHR8dXx5KVthLXpdezJ9WzAtOV17NX0kIiwiZ3JvdXBzIjoiXiQiLCJmb3IiOiJNUyIsImlhdCI6MTQ4NTE5MDg1MiwianRpIjoiMzk1ZDQyNmEtMjUxYi00YmM0LThhN2UtZGU3ZjIyMDBhMGMxIn0.nfxBfwao6Z-k2X8rToJOTEouiVf1lhgPAwrTRFIyeW0',
 		            success:function(response){
+		            	var lowestPrice,
+		            		lowestPriceFormatted,
+							currency;
 
-		            	i++;
-		            	buildList();
-		            }
-		        });
+						if(response.data.length) {
+							lowestPrice =  Math.round(response.data[0].pricePerNight);
+							currency = response.data[0].currency_html;
+
+							try {
+								lowestPriceFormatted = lowestPrice.toLocaleString('ja-JP');
+						  	} catch (e) {
+						    	lowestPriceFormatted = lowestPrice;
+						  	}
+
+							$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner');
+							$($ele.find('li')[i]).find('.js-nearbuy-price').html(currency + ' ' + lowestPriceFormatted);
+							k = 0;
+							currentDateObj = null;
+							date = originalDate;
+							i++;
+						} else {
+							if(k == 5) {
+								k = 0;
+								$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner').css('visibility', 'hidden');
+								currentDateObj = null;
+								date = originalDate;
+								i++;
+								buildList();
+							}
+							currentDateObj = new Date(currentDate);
+							currentDateObj.setDate(currentDateObj.getDate() + 7);
+							k++;
+						}
+						buildList();
+					}
+				});
 			}
-		}
-		fetchPrice();
-	}
-
-	//nearBuy();
-
-  //   function nearBuy () {
-  //   	var $ele = $('.js-nearbuy'),
-	 //    	nearBuyList = [
-		// 		{
-		// 			property: 'jposa28306',
-		// 			beName: 'Renovated-Standard-Single--Non-S'	
-		// 		},
-		// 		{
-		// 			property: 'jposa26338',
-		// 			beName: 'Standard-Semi-double-Non-Smoking'	
-		// 		},
-		// 		{
-		// 			property: 'jposa31260',
-		// 			beName: 'Standard-Double'	
-		// 		}
-		// 	],
-		// 	roomsLength = nearBuyList.length,
-		// 	i = 0,
-		// 	k = 0,
-		// 	date = new Date(),
-		// 	originalDate,
-		// 	dayLimit = 5,
-		// 	currentDate,
-		// 	currentDateObj;
-
-		// 	if(date.getDay() < dayLimit) {
-			
-		// 	switch (date.getDay()) {
-		// 		    case 0:
-		// 		        date.setDate(date.getDate() + 9);
-		// 		        break;
-		// 		    case 1:
-		// 		        date.setDate(date.getDate() + 8);
-		// 		        break;
-		// 		    case 2:
-		// 		        date.setDate(date.getDate() + 7);
-		// 		        break;
-		// 		    case 3:
-		// 		        date.setDate(date.getDate() + 6);
-		// 		        break;
-		// 		    case 4:
-		// 				date.setDate(date.getDate() + 5);
-		// 		        break;
-		// 		}
-		// 	} else {
-		// 		switch (date.getDay()) {
-		// 		    case 5:
-		// 		        date.setDate(date.getDate() + 11);
-		// 		        break;
-		// 		    case 6:
-		// 		        date.setDate(date.getDate() + 10);
-		// 		        break;
-		// 		}
-		// 	}
-
-		// 	originalDate = date;
-		
-		// function buildList() {
-		// 	if(i < roomsLength) {
-		// 		if(currentDateObj) {
-		// 			date = currentDateObj;
-		// 		}
-		// 		var date1,
-		// 			month1;
-		// 		if(date.getDate() < 10) {
-		// 			date1 = '0' + date.getDate();
-		// 		} else {
-		// 			date1 = date.getDate();	
-		// 		}
-		// 		if((date.getMonth() + 1) < 10) {
-		// 			month1 = date.getMonth() + 1;
-		// 			month1 = '0' + month1;
-		// 		}else {
-		// 			month1 = date.getMonth() + 1;
-		// 		}
-		// 		currentDate = date.getFullYear() + '-' + month1 + '-' + date1;
-
-		// 		$.ajax({
-		//             type: "GET",
-		//             url: 'https://websdk.fastbooking-services.com/quotation?arrivalDate=' + currentDate + '&currency=JPY&property=' + nearBuyList[i].property + '&roomRestriction='+ nearBuyList[i].beName + '&output=json&nights=1&adults=2&_authCode=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOiJeLiokIiwicHJvcGVydGllcyI6Il5qcChhfGJ8Y3xmfGh8anxrfG58b3xzfHR8dXx5KVthLXpdezJ9WzAtOV17NX0kIiwiZ3JvdXBzIjoiXiQiLCJmb3IiOiJNUyIsImlhdCI6MTQ4NTE5MDg1MiwianRpIjoiMzk1ZDQyNmEtMjUxYi00YmM0LThhN2UtZGU3ZjIyMDBhMGMxIn0.nfxBfwao6Z-k2X8rToJOTEouiVf1lhgPAwrTRFIyeW0',
-		//             success:function(response){
-		//             	var lowestPrice,
-		//             		lowestPriceFormatted,
-		// 					currency;
-
-		// 				if(response.data.length) {
-		// 					lowestPrice =  Math.round(response.data[0].pricePerNight);
-		// 					currency = response.data[0].currency_html;
-
-		// 					try {
-		// 						lowestPriceFormatted = lowestPrice.toLocaleString('ja-JP');
-		// 				  	} catch (e) {
-		// 				    	lowestPriceFormatted = lowestPrice;
-		// 				  	}
-
-		// 					$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner');
-		// 					$($ele.find('li')[i]).find('.js-nearbuy-price').html(currency + ' ' + lowestPriceFormatted);
-		// 					k = 0;
-		// 					currentDateObj = null;
-		// 					date = originalDate;
-		// 					i++;
-		// 				} else {
-		// 					if(k <= 30) {
-		// 						k = 0;
-		// 						$($ele.find('li')[i]).find('.js-spinner').removeClass('spinner').css('visibility', 'hidden');
-		// 						currentDateObj = null;
-		// 						date = originalDate;
-		// 						i++;
-		// 						buildList();
-		// 					}
-		// 					currentDateObj = new Date(currentDate);
-		// 					currentDateObj.setDate(currentDateObj.getDate() + 7);
-		// 					k++;
-		// 				}
-		// 				buildList();
-		// 			}
-		// 		});
-		// 	}
-		// };
-		// buildList();
-  //   }
+		};
+		buildList();
+    }
+    nearBuy();
 };
 
 $(document).on('mouseover', '.ui-datepicker-calendar td a', function(e){

@@ -759,6 +759,8 @@ a.ui-state-active {
     @media (max-width: 370px) {
       .form input {
         padding: 10px 10px; } }
+    .form input.js-datepicker-highlight {
+      box-shadow: 1px 1px 5px #aaa; }
   .form label {
     display: block;
     padding: 0 0 10px;

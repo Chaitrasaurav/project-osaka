@@ -42,7 +42,8 @@ function init() {
 			if($(e.target).val()) {
 				var date = $(e.target).val();
 				gotoDate(new Date(date).getMonth(), new Date(date).getFullYear());
-				$('.check-in').addClass('js-datepicker-highlight');
+				$('.check-out').addClass('js-datepicker-highlight');
+				$('.check-in').removeClass('js-datepicker-highlight');
 			}
 			else {
 				if(!$('.check-in').val().length) {
@@ -69,23 +70,62 @@ function init() {
 		beforeShowDay: function(date) {
 			var date1 = $.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#checkIn").val());
 			var date2 = $.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#checkOut").val());
-			var className = "dp-highlight",
+			var className = "",
 				booleanFlag = true;
+			
+			if(date1 && date > date1) {	
+				className = 'dp-highlight-hover';
+			}
+			if(date1 && date2 && date > date1 && date < date2){
+				className = 'dp-highlight';
+			}
 			if((date1 && date.getTime() == date1.getTime()) || (date2 && date.getTime() == date2.getTime())) {
 				className = "dp-highlighted";
 			}
-			if(date1 && !date2 && date > date1) {
-				
-				className = 'dp-highlight-hover';
-			}
 			//console.log(date)
-			return [booleanFlag, date1 && ((date.getTime() == date1.getTime()) || (!date2 && (date > date1)) || (date2 && date >= date1 && date <= date2)) ? className : ""];
+			return [booleanFlag, date1 && ((date.getTime() == date1.getTime()) || (!date2 && (date > date1)) || (date2 && date >= date1)) ? className : ""];
 		},
 		onSelect: function(dateText, inst) {
 			var date1 = $.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#checkIn").val());
 			var date2 = $.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#checkOut").val());
             var selectedDate = $.datepicker.parseDate($.datepicker._defaults.dateFormat, dateText);            
-            if (!date1 || date2) {
+            
+            if (date1 && date2) {
+            	if(selectedDate < date1) {
+            		if($("#checkIn").hasClass('js-datepicker-highlight')) {
+	            		$("#checkIn").val(dateText).removeClass('js-datepicker-highlight');
+	            		if(!$('.js-datepicker-modal').hasClass('hidden')) {
+					      	$('.js-datepicker-modal').addClass('hidden');
+					    }
+	            	}else if($("#checkOut").hasClass('js-datepicker-highlight')) {
+	            		$("#checkIn").val(dateText);
+		            	$("#checkOut").val('').addClass('js-datepicker-highlight');
+	            	} 
+            	} else if(selectedDate > date1 && selectedDate < date2) { 
+            		if($("#checkIn").hasClass('js-datepicker-highlight')) {
+	            		$("#checkIn").val(dateText).removeClass('js-datepicker-highlight');
+	            		if(!$('.js-datepicker-modal').hasClass('hidden')) {
+					      	$('.js-datepicker-modal').addClass('hidden');
+					    }
+	            	}else if($("#checkOut").hasClass('js-datepicker-highlight')) {
+		            	$("#checkOut").val(dateText).removeClass('js-datepicker-highlight');
+		            	if(!$('.js-datepicker-modal').hasClass('hidden')) {
+					      	$('.js-datepicker-modal').addClass('hidden');
+					    }
+	            	}
+            	}else if(selectedDate > date2) { 
+            		if($("#checkIn").hasClass('js-datepicker-highlight')) {
+	            		$("#checkIn").val(dateText).removeClass('js-datepicker-highlight');
+	            		$("#checkOut").val('').addClass('js-datepicker-highlight');
+	            	}else if($("#checkOut").hasClass('js-datepicker-highlight')) {
+		            	$("#checkOut").val(dateText).removeClass('js-datepicker-highlight');
+		            	if(!$('.js-datepicker-modal').hasClass('hidden')) {
+					      	$('.js-datepicker-modal').addClass('hidden');
+					    }
+	            	}
+            	}
+                $(this).datepicker();
+            } else if (!date1 && date2) {
 				$("#checkIn").val(dateText).removeClass('js-datepicker-highlight');	
 				if($("#checkIn").hasClass('js-is-invalid')) {
                 	$("#checkIn").removeClass('js-is-invalid');

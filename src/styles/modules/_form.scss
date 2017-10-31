@@ -115,6 +115,10 @@
 			padding: 10px 10px;
 		}
 
+		&.js-datepicker-highlight {
+		    box-shadow: 1px 1px 5px #aaa;
+		}
+
 	}
 	label{
 		display: block;

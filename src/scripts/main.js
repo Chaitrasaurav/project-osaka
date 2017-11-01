@@ -65,7 +65,7 @@ function init() {
 	}
 
 	$(".js-datepicker-container").datepicker({
-		minDate: new Date(2018, 1, 1),
+		minDate: new Date(2018, 2, 29),
 		numberOfMonths: numberOfMonths,
 		beforeShowDay: function(date) {
 			var date1 = $.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#checkIn").val());
@@ -824,14 +824,14 @@ $(document).on('click', '.js-book-now', function(e) {
 		month2Str,
 		fullDate1,
 		fullDate2,
-		selectedDate = new Date(2018, 1, 1),
+		selectedDate = new Date(2018, 2, 29),
 		now = new Date();
 
 	selectedDate.setHours(0,0,0,0);
 	now.setHours(0,0,0,0);
 	if (now < selectedDate) {
-	  	date1 = new Date(2018, 1, 1);
-		date2 = new Date(2018, 1, 1);
+	  	date1 = new Date(2018, 2, 29);
+		date2 = new Date(2018, 2, 30);
 	} else {
 		date1 = new Date();
 		date2 = new Date();

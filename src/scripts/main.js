@@ -207,7 +207,7 @@ function init() {
     	nextDate = outDateObj.getFullYear() + '-' + outMonth + '-' + outDate;
 
     //var url = 'http://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=98555&checkin=' + currentDate + '&checkout=' + nextDate + '&adults=2&child=0&rooms=1';
-    var url = 'https://cors.io/?https://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=98555&checkin=2017-11-02&checkout=2017-11-05&adults=2&child=0&rooms=1';
+    var url = 'https://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=98555&checkin=2017-11-02&checkout=2017-11-05&adults=2&child=0&rooms=1';
  //    var response = {
 	//   "propertyname": "Hotel Mystays Haneda",
 	//   "rooms": [

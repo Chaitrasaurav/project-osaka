@@ -197,18 +197,18 @@ function init() {
 
     var inDateObj = new Date(),
     	inMonth = (inDateObj.getMonth() + 1) < 10 ?  '0' + (inDateObj.getMonth() + 1) : (inDateObj.getMonth() + 1),
-    	inDate = inDateObj.getDate() < 10 ?  '0' + (inDateObj.getDate()+1) : inDateObj.getDate(),
+    	inDate = inDateObj.getDate() < 10 ?  '0' + inDateObj.getDate() : inDateObj.getDate(),
     	currentDate = inDateObj.getFullYear() + '-' + inMonth + '-' + inDate,
     	outDateObj = new Date();
 
    	outDateObj.setDate(new Date().getDate() + 1);
     var	outMonth = (outDateObj.getMonth() + 1) < 10 ?  '0' + (outDateObj.getMonth() + 1) : (outDateObj.getMonth() + 1),
-    	outDate = outDateObj.getDate() < 10 ?  '0' + (outDateObj.getDate() +  1) : outDateObj.getDate(),
+    	outDate = outDateObj.getDate() < 10 ?  '0' + outDateObj.getDate() +  1 : outDateObj.getDate(),
     	nextDate = outDateObj.getFullYear() + '-' + outMonth + '-' + outDate;
 
     //var url = 'http://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=98555&checkin=' + currentDate + '&checkout=' + nextDate + '&adults=2&child=0&rooms=1';
     //var url = 'https://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=98555&checkin=2017-11-02&checkout=2017-11-05&adults=2&child=0&rooms=1';
-    var url = 'https://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=98555&checkin=' + currentDate + '&checkout=' + nextDate + '&adults=2&child=0&rooms=1';
+    var url = 'http://dev.mystays.net.smartosc.com/api/mystays/Pricing/GetHotelPrice?hotelid=98555&checkin=' + currentDate + '&checkout=' + nextDate + '&adults=2&child=0&rooms=1';
  //    var response = {
 	//   "propertyname": "Hotel Mystays Haneda",
 	//   "rooms": [
@@ -494,8 +494,6 @@ function init() {
     }
     nearBuy();
 };
-
-
 
 $(document).on('mouseover', '.ui-datepicker-calendar td a', function(e){
 	if($('.check-out').hasClass('js-datepicker-highlight')) {
